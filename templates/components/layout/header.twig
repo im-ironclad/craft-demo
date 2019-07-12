@@ -1,0 +1,87 @@
+{# Params #}
+
+{# Variables #}
+{% set menuBlocks = craft.entries.section('navigationBlocks').all() %}
+{% set parentLinks = craft.entries.section('navigationLinks').level(1).all() %}
+{% set childLinks = craft.entries.section('navigationLinks').level(2).all() %}
+
+{# Markup #}
+<header class='header' id='header'>
+  <div class='header__masthead'>
+    <div class='header__masthead__cont'>
+      <a href='/' class='header__masthead__logo'>
+        <img
+          src='/uploads/images/IDHS-Logo.png'
+          alt='IDHS Logo'
+          width='300px' />
+      </a>
+  
+      <div class='header__masthead__controls'>
+        <button class='header__masthead__controls__btn btn-search'>
+          <i class='header__masthead__controls__btn__icon'>
+            <img src="/assets/icons/icon-search.svg" alt="Search Icon" />
+          </i>
+  
+          <span class='header__masthead__controls__btn__copy'>
+            Search
+          </span>
+        </button>
+        
+        <button class='header__masthead__controls__btn btn-menu' onclick='toggleActiveClass()'>
+          <i class='header__masthead__controls__btn__icon'>
+            <span></span>
+            <span></span>
+            <span></span>
+          </i>
+  
+          <p class='header__masthead__controls__btn__copy'>
+            menu
+          </p>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav class='header__nav'>
+    <div class='header__nav__cont'>
+      <section class='header__nav__blocks'>
+        {% for block in menuBlocks %}
+          {% include 'components/navigation-block' with {
+            'block': block
+          } %}
+        {% endfor %}
+      </section>
+  
+      <section class='header__nav__links'>
+        {% for parentLink in parentLinks %} 
+          <ul class='header__nav__links__list'>
+            <li class='header__nav__links__list__item--parent'>
+              <a href=''>
+                {{ parentLink.title }}
+              </a>
+            </li>
+            {% for link in childLinks if link.isChildOf(parentLink) %}
+                <li class='header__nav__links__list__item--child'>
+                  <a href=''>{{ link.title }}</a>
+                </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </section>
+    </div>
+  </nav>
+</header>
+
+{# Scripts #}
+<script type='text/javascript'>
+const header = document.getElementById('header')
+  const menuButtonCopy = document.querySelector('.btn-menu [class$="btn__copy"]');
+
+  function toggleActiveClass() {
+    header.classList.toggle('nav-active');
+    menuButtonCopy.textContent =
+      header.classList.contains('nav-active')
+        ? 'close'
+        : 'menu';
+  }
+</script>

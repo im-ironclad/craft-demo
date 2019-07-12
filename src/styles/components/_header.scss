@@ -1,0 +1,283 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 231px;
+
+  &__masthead {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $color-white;
+
+    &__cont {
+      @include container("lg");
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      width: 300px;
+      height: auto;
+    }
+
+    &__controls {
+      display: flex;
+
+      &__btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 80px;
+        padding-right: 100px;
+        padding-left: $spacing-sm;
+
+        &:focus {
+          & .header__masthead__controls__btn__icon {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 20px rgba(0,0,0,0.5);
+          }
+        }
+
+        // Specific styles for btn-search
+        &.btn-search {
+          outline: 0;
+          position: relative;
+          overflow: hidden;
+          padding-right: 120px;
+
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 100%;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: $color-white;
+            transition: transform ease 0.3s;
+          }
+
+          & [class$="__copy"] {
+            left: 45%;
+          }
+        }
+
+        &.btn-menu:focus {
+          outline: 0;
+
+          // & .header__masthead__controls__btn__icon {
+          //   transform: translateY(-3px);
+          //   box-shadow: 0 3px 20px rgba(0,0,0,0.5);
+          // }
+        }
+
+        &__icon {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background: $color-white;
+          border-radius: 100%;
+          box-shadow: 0 0 15px rgba(0,0,0,0.3);
+          transition: all ease 0.3s;
+
+          & span {
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 100%;
+            background-color: $color-grey;
+            transition: all ease 0.3s;
+
+            &:not(:first-child) {
+              margin-left: 3px;
+            }
+
+            &:nth-child(1),
+            &:nth-child(3) {
+              transition-delay: 0.3s;
+            }
+          }
+        }
+
+        &__copy {
+          position: absolute;
+          left: 50%;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          width: auto;
+          height: inherit;
+          font-size: 16px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          transition: transform cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    background: $color-white;
+    transform: translateY(-100%);
+    transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    transition-delay: 0.3s;
+
+    &__cont {
+      @include container("lg");
+      padding-top: $spacing-sm;
+      padding-bottom: $spacing-rg;
+    }
+
+    &__blocks {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media only screen and (min-width: $screen-md-min) {
+        flex-direction: row;
+      }
+      
+      & .navigation-block {
+        flex-grow: 1;
+        flex-basis: 25%;
+        width: auto;
+        height: auto;
+
+        &:not(:first-of-type) {
+          margin-top: $spacing-xs;
+        }
+
+        @media only screen and (min-width: $screen-md-min) {
+          &:not(:first-of-type) {
+            margin-top: 0;
+            margin-left: $spacing-rg;
+          }
+        }
+      }
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: auto;
+      margin-top: $spacing-rg;
+
+      @media only screen and (min-width: $screen-md-min) {
+        flex-direction: row;
+      }
+
+      &__list {
+        flex-grow: 1;
+        flex-basis: 25%;
+        width: auto;
+        height: auto;
+
+        &:not(:first-of-type) {
+          @media only screen and (min-width: $screen-md-min) {
+            margin-left: $spacing-rg;
+          }
+        }
+
+        &__item {
+
+          &--parent {
+            font-size: 26px;
+            font-weight: bold;
+          }
+
+          &--child {
+            margin-top: $spacing-sm;
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * Styles for active navigation
+   */
+  &.nav-active {
+
+    & .header__masthead {
+
+      &__controls__btn {
+
+        &.btn-search {
+          &:after {
+            transform: translateX(-100%);
+          }
+        }
+
+        // Styles for menu button
+        &.btn-menu {
+
+          &:focus {
+            & .header__masthead__controls__btn__icon {
+
+              & span {
+                background-color: red;
+              }
+            }
+          }
+
+          // TODO DRY up these styles somehow
+          &  .header__masthead__controls__btn__icon {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 20px rgba(0,0,0,0.5);
+          }
+
+          & .header__masthead__controls__btn__copy {
+            transform: translateX(-205%);
+          }
+
+          & span {
+
+            // Hide middle dot
+            &:nth-child(2) {
+              opacity: 0;
+            }
+
+            // Adjust left and right dots
+            &:nth-child(1),
+            &:nth-child(3) {
+              width: 3px;
+              height: 20px;
+              border-radius: 0px;
+            }
+
+            // Left dot
+            &:nth-child(1) {
+              transform: translateX(7px) rotate(45deg);
+            }
+
+            // Right dot
+            &:nth-child(3) {
+              transform: translateX(-7px) rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+
+    & .header__nav {
+      transform: translateY(0);
+    }
+  }
+}

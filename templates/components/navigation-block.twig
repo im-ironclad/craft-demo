@@ -1,0 +1,15 @@
+{# Params #}
+{% set block = block|default({}) %}
+
+{# Markup #}
+<a href='' class='navigation-block color-{{ block.accentColor.value }}'>
+  <img
+    src='/assets/icons/{{ block.blockIcon.one().fileName }}'
+    alt='Icon image.'
+    class='navigation-block__icon'
+  />
+
+  <p class='navigation-block__title'>
+    {{ block.blockTitle }}
+  </p>
+</a>
