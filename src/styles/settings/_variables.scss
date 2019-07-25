@@ -31,23 +31,27 @@ $max-page-width: 1900px; // This can be whatever you want (i.e. 1200px or 1440px
 $width-sm: 750px;
 $width-rg: 1177px;
 $width-lg: 1440px;
-$max-width: 90%;
-$gutter: 5%;
+$max-width: 80%;
+$gutter: 10%;
 
 /**
  * Colors
  * - These are typically per the design
  */
 $color-white: #ffffff;
+$color-black: #000000;
 $color-offwhite: #f2f2f2;
-$color-grey: #777777;
+$color-grey: #999999;
+$color-grey: #666666;
 $color-grey-dark: #333333;
+$color-grey-border: #BCBCBC;
 $color-blue: #27A2CF;
 $color-green: #00BF90;
 $color-orange: #FF6248;
 $color-red: #CF2253;
 
 /* Font */
-$font-family-primary: "Roboto", Helvetica, Arial, sans-serif;
+$font-family-primary: Helvetica, Arial, sans-serif;
+$font-sentinel-book: 'SentinelBook', Helvetica, sans-serif;
 $font-regular: 400;
 $font-bold: 700;

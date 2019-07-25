@@ -46,7 +46,7 @@
     <div class='header__nav__cont'>
       <section class='header__nav__blocks'>
         {% for block in menuBlocks %}
-          {% include 'components/navigation-block' with {
+          {% include 'components/_navigation-block' with {
             'block': block
           } %}
         {% endfor %}

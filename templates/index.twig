@@ -1,11 +1,15 @@
+{# Params #}
+
 {# Variables #}
-{% set introString = 'This is the IK Craft Demo!' %}
+{# {% set thisPage = entry|default(null) %} #}
+{% set thisPage = craft.entries.section('homePage').one()|default(null) %}
+{% set pageHerousel = thisPage.herousel.one()|default(null) %}
 
 {% extends '_layout' %}
 
 {# Markup #}
 {% block content %}
-  <h1>
-    {{ introString }}
-  </h1>
+  {% include 'components/_herousel' with {
+    herousel: pageHerousel
+  } %}
 {% endblock %}

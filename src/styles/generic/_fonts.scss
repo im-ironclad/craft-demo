@@ -3,4 +3,16 @@
  *
  * Import and set your @font-face rules here
  */
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+// @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+// @font-face {
+//   font-family: NameHere;
+//   src: url("") format("woff"),
+//     url("") format("opentype"),
+//     url("") format("truetype");
+// }
+
+@font-face {
+  font-family: SentinelBook;
+  src: url("/assets/fonts/sentinel-book.ttf") format("truetype");
+}

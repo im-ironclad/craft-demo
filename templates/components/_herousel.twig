@@ -1,0 +1,47 @@
+{# Params #}
+{% set herousel = herousel|default(null) %}
+
+{# Variables #}
+
+{# Markup #}
+<article class='herousel'>
+  <div class='herousel__cont'>
+    {% if herousel is not null %}
+
+      {# Herousel Controls Here #}
+
+      {% for slide in herousel.herouselSlides.all() %}
+        {% set slideImage = slide.entryImage.one() %}
+        {% set activeClass = loop.index == 1 ? ' active' : '' %}
+
+        <article class="herousel__slide{{ activeClass }}">
+          <img
+            class='herousel__slide__featured-image'
+            src='{{ slideImage.url }}'
+            alt='{{ slideImage.title }}'
+            width='600px'
+            height=''
+          />
+
+          <section class='herousel__slide__content'>
+            <h2 class='herousel__slide__content__category'>
+              {{ slide.slideCategory }}
+            </h2>
+  
+            <h3 class='herousel__slide__content__title'>
+              {{ slide.title }}
+            </h3>
+  
+            <p class='herousel__slide__content__copy'>
+              {{ slide.copy }}
+            </p>
+          </section>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p>
+        There seems to be no data for a herousel.
+      </p>
+    {% endif %}
+  </div>
+</article>

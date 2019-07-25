@@ -1,0 +1,17 @@
+{# Params #}
+
+{# Variables #}
+{% set thisPage = entry|default(null) %}
+{% set pageHerousel = thisPage.herousel.one()|default(null) %}
+
+{% extends '_layout' %}
+
+{# Markup #}
+{% block content %}
+  <h1>
+    About
+  </h1>
+  <p>
+    This is a long Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, accusamus? Illum molestiae eum harum magnam voluptatum iusto omnis perspiciatis fugiat dolorum at? Dignissimos ex iusto omnis alias. Iure, fugit earum?
+  </p>
+{% endblock %}
