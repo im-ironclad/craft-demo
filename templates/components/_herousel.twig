@@ -9,6 +9,15 @@
     {% if herousel is not null %}
 
       {# Herousel Controls Here #}
+      <section class='herousel__controls'>
+        <button class='herousel__controls__btn btn-prev'>
+          <
+        </button>
+
+        <button class='herousel__controls__btn btn-next'>
+          >
+        </button>
+      </section>
 
       {% for slide in herousel.herouselSlides.all() %}
         {% set slideImage = slide.entryImage.one() %}

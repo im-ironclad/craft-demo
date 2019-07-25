@@ -1,3 +1,6 @@
+$herouselControlSize: 60px;
+$herouselControlSizeLg: 80px;
+
 .herousel {
   padding-top: $spacing-rg;
   padding-bottom: $spacing-rg;
@@ -11,8 +14,36 @@
     @include container;
   }
 
+  &__controls {
+    position: relative;
+    z-index: 2;
+    float: right;
+    display: flex;
+    width: $herouselControlSize * 2;
+
+    &__btn {
+      width: 50%;
+      height: $herouselControlSize;
+      background-color: $color-blue;
+      font-size: 24px;
+      font-weight: bold;
+      color: $color-white;
+      background-image: linear-gradient(to top, darken($color-blue, 10%) 10%, $color-blue 25%);
+
+      &:last-of-type {
+        border-left: 1px solid $color-white;
+      }
+
+      &:focus {
+        outline-offset: -5px;
+        outline: 1px solid $color-white;
+      }
+    }
+  }
+
   &__slide {
     position: relative;
+    z-index: 1;
 
     &:not(.active) {
       display: none;
@@ -27,9 +58,6 @@
       object-fit: cover;
 
       @media only screen and (min-width: $screen-md-min) {
-        position: relative;
-        top: 50px;
-        left: 0;
         float: right;
         width: 90%;
         height: 40vw;
@@ -47,6 +75,7 @@
         width: 460px;
         height: auto;
         padding: $spacing-rg $spacing-sm;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.2);
       }
 
       &__category {
