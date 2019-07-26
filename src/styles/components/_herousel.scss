@@ -76,6 +76,12 @@ $herouselControlSizeLg: 80px;
         height: auto;
         padding: $spacing-rg $spacing-sm;
         box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+        transition: all ease 0.3s; // deleteme?
+
+        &.active {
+          transform: translateY(5px);
+          box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
       }
 
       &__category {
