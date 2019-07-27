@@ -2,6 +2,7 @@ $herouselControlSize: 60px;
 $herouselControlSizeLg: 80px;
 
 .herousel {
+  box-sizing: content-box;
   padding-top: $spacing-rg;
   padding-bottom: $spacing-rg;
 

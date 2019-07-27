@@ -1,0 +1,9 @@
+{# Params #}
+{% set iconName = iconName|default('') %}
+
+{# Variables #}
+
+{# Markup #}
+<svg viewBox="0 0 100 100">
+  <use xlink:href="/assets/images/svg/sprite.svg#icon-{{ iconName }}"></use>
+</svg>

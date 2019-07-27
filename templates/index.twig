@@ -1,7 +1,6 @@
 {# Params #}
 
 {# Variables #}
-{# {% set thisPage = entry|default(null) %} #}
 {% set thisPage = craft.entries.section('homePage').one()|default(null) %}
 {% set pageHerousel = thisPage.herousel.one()|default(null) %}
 
@@ -11,5 +10,9 @@
 {% block content %}
   {% include 'components/_herousel' with {
     herousel: pageHerousel
+  } %}
+
+  {% include 'components/_svg-icon' with {
+    iconName: 'facebook'
   } %}
 {% endblock %}

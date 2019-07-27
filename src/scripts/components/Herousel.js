@@ -3,7 +3,7 @@
  *
  * If you need to import anything, do so here
  */
-// import Component from './ExampleComponent';
+import debounce from '../utilities/debounce'
 
 /**
  * Create selector variables
@@ -23,6 +23,11 @@ export default class Herousel {
     this.btnNext = parent.querySelector(btnNextSelector);
     this.slides = parent.querySelectorAll(slidesSelector);
     this.currentIndex = 0;
+  }
+
+  setParentHeight() {
+    const totalHeight = this.btnPrev.clientHeight + this.slides[0].clientHeight;
+    this.parent.style.height = `${totalHeight}px`;
   }
 
   slideNext() {
@@ -50,6 +55,10 @@ export default class Herousel {
   }
 
   attachListeners() {
+    window.addEventListener('resize', debounce(() => {
+      this.setParentHeight();
+    }, 50));
+
     this.btnNext.addEventListener('click', () => {
       this.slideNext();
     });
@@ -60,5 +69,6 @@ export default class Herousel {
 
   init() {
     this.attachListeners();
+    this.setParentHeight();
   }
 }

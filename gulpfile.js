@@ -4,6 +4,7 @@
  * TODO: make sure everything from package is used
  */
 var { src, dest, series, watch } = require('gulp'),
+  rename = require('gulp-rename'),
   autoprefixer = require('gulp-autoprefixer'),
   babelify = require('babelify'),
   browserify = require('browserify'),
@@ -55,6 +56,27 @@ var dirConfig = {
  * - Build (TODO)
  * - Default (TODO)
  */
+
+/**
+ * IMAGES:SVGSPRITE
+ *
+ * Combine all svgs in target directory into a single svg spritemap.
+ */
+function svgSprite() {
+  return src([
+      dirConfig.images.src + 'svg/*.svg'
+    ])
+    .pipe(svgstore({ inlineSvg: true }))
+    .pipe(cheerio({
+      run: function($) {
+        $('svg').attr('style', 'display:none'); // make sure the spritemap doesn't show by default
+      },
+    }))
+    .pipe(rename('sprite.svg'))
+    .on('error', function(err) { displayError(err); })
+    .pipe(dest(dirConfig.images.dist + 'svg/'));
+}
+exports.svgSprite = series(svgSprite);
 
 /**
  * STYLES
@@ -149,9 +171,3 @@ function scriptsWatch() {
 exports.scriptsWatch = function() {
   watch(dirConfig.scripts.entries, scriptsWatch);
 };
-
-
-
-
-
-

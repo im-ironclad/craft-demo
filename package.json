@@ -26,6 +26,7 @@
     "gulp-eslint": "^6.0.0",
     "gulp-imagemin": "^6.0.0",
     "gulp-livereload": "^4.0.1",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",

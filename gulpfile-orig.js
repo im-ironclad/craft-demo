@@ -82,7 +82,7 @@ gulp.task('images', function() {
  */
 gulp.task('images:svgsprite', function() {
   return gulp.src([
-      dirConfig.images.src + 'sprites/*.svg'
+      dirConfig.images.src + 'svg/*.svg'
     ])
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(cheerio({
