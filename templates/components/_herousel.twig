@@ -7,8 +7,6 @@
 <article class='herousel' id='herousel'>
   <div class='herousel__cont'>
     {% if herousel is not null %}
-
-      {# Herousel Controls Here #}
       <section class='herousel__controls'>
         <button class='herousel__controls__btn btn-prev'>
           <
@@ -58,21 +56,3 @@
     {% endif %}
   </div>
 </article>
-
-<script type='text/javascript'>
-  class Herousel {
-    constructor(id) {
-      this.herousel = document.getElementById(id);
-      this.controlPrev = this.herousel.querySelector('.herousel__controls .btn-prev');
-      this.controlNext = this.herousel.querySelector('.herousel__controls .btn-next');
-    }
-
-    init() {
-      console.dir(this.herousel);
-      console.dir(this.controlPrev);
-      console.dir(this.controlNext);
-    }
-  }
-  const herousel = new Herousel('herousel');
-  herousel.init();
-</script>

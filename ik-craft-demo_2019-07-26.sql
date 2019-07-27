@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.4.6-MariaDB)
 # Database: ik-craft-demo
-# Generation Time: 2019-07-12 16:54:32 +0000
+# Generation Time: 2019-07-27 02:40:08 +0000
 # ************************************************************
 
 
@@ -81,13 +81,14 @@ LOCK TABLES `assets` WRITE;
 
 INSERT INTO `assets` (`id`, `volumeId`, `folderId`, `filename`, `kind`, `width`, `height`, `size`, `focalPoint`, `deletedWithVolume`, `keptFile`, `dateModified`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(3,1,4,'hero-delivery.jpg','image',2082,888,266480,NULL,NULL,NULL,'2019-06-29 22:24:09','2019-06-29 22:23:55','2019-06-29 22:24:09','61d92942-6bbd-4d22-893e-6d258ae8da5f'),
+	(3,1,4,'hero-delivery.jpg','image',2082,888,266480,NULL,NULL,NULL,'2019-06-29 22:24:09','2019-06-29 22:23:55','2019-07-21 19:18:09','61d92942-6bbd-4d22-893e-6d258ae8da5f'),
 	(21,1,6,'icon-raised-graph.svg','image',50,50,5715,NULL,NULL,NULL,'2019-07-08 22:53:50','2019-07-08 22:53:45','2019-07-08 22:53:50','872fddf5-b946-40b4-b0d5-1c2d9b17b6e4'),
 	(22,1,6,'icon-leaf.svg','image',50,50,2054,NULL,NULL,NULL,'2019-07-08 23:30:22','2019-07-08 23:30:22','2019-07-08 23:30:22','956bcd92-1cb7-4514-8be6-d7be0359c58e'),
 	(23,1,6,'icon-two-people.svg','image',50,43,3988,NULL,NULL,NULL,'2019-07-08 23:30:41','2019-07-08 23:30:41','2019-07-08 23:30:41','f754873b-be1f-44f1-b3d6-d4a0680ff077'),
 	(24,1,6,'icon-ribbon.svg','image',33,50,2747,NULL,NULL,NULL,'2019-07-08 23:30:53','2019-07-08 23:30:53','2019-07-08 23:30:53','efe6aa09-4a6b-47a9-a5be-3d155129c6df'),
 	(59,1,4,'computer-focal.jpg','image',1920,1280,150364,NULL,NULL,NULL,'2019-07-12 13:44:28','2019-07-12 13:44:28','2019-07-12 13:44:28','91797a95-5336-4fe1-8f9b-057a1feab75c'),
-	(77,1,4,'urban-area.jpg','image',676,380,78695,NULL,NULL,NULL,'2019-07-12 15:34:05','2019-07-12 15:34:05','2019-07-12 15:34:05','6ec747af-f07c-456c-986d-1dcb2c439ce5');
+	(77,1,4,'urban-area.jpg','image',676,380,78695,NULL,NULL,NULL,'2019-07-12 15:34:05','2019-07-12 15:34:05','2019-07-12 15:34:05','6ec747af-f07c-456c-986d-1dcb2c439ce5'),
+	(103,1,5,'people-walking-on-painted-streets.jpg','image',1057,500,214323,NULL,NULL,NULL,'2019-07-25 02:36:53','2019-07-25 02:36:53','2019-07-25 02:36:53','429bd47b-3e1d-49da-8797-fcba60993039');
 
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -261,9 +262,9 @@ CREATE TABLE `content` (
   `uid` char(36) NOT NULL DEFAULT '0',
   `field_accentColor` varchar(255) DEFAULT NULL,
   `field_blockTitle` text DEFAULT NULL,
-  `field_entryCopy` text DEFAULT NULL,
+  `field_copy` text DEFAULT NULL,
   `field_slideCategory` text DEFAULT NULL,
-  `field_entryCtaCopy` text DEFAULT NULL,
+  `field_ctaCopy` text DEFAULT NULL,
   `field_contactStreetAddress` text DEFAULT NULL,
   `field_contactPhone` text DEFAULT NULL,
   `field_contactState` text DEFAULT NULL,
@@ -278,18 +279,18 @@ CREATE TABLE `content` (
 LOCK TABLES `content` WRITE;
 /*!40000 ALTER TABLE `content` DISABLE KEYS */;
 
-INSERT INTO `content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_accentColor`, `field_blockTitle`, `field_entryCopy`, `field_slideCategory`, `field_entryCtaCopy`, `field_contactStreetAddress`, `field_contactPhone`, `field_contactState`)
+INSERT INTO `content` (`id`, `elementId`, `siteId`, `title`, `dateCreated`, `dateUpdated`, `uid`, `field_accentColor`, `field_blockTitle`, `field_copy`, `field_slideCategory`, `field_ctaCopy`, `field_contactStreetAddress`, `field_contactPhone`, `field_contactState`)
 VALUES
-	(1,1,1,NULL,'2019-06-29 17:33:17','2019-06-29 17:33:17','e293b92f-0562-4270-86cf-d62170bbc9ae',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(1,1,1,NULL,'2019-06-29 17:33:17','2019-07-18 17:05:58','e293b92f-0562-4270-86cf-d62170bbc9ae',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(2,2,1,'Basic Pages','2019-06-29 22:13:15','2019-06-29 22:15:53','cfd5695b-88f6-4d20-9b28-11f0618bb974',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-	(3,3,1,'Hero delivery','2019-06-29 22:23:54','2019-06-29 22:24:09','33207202-663d-4300-82ea-4a2a1f5df97c',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(3,3,1,'Man deliverying boxes.','2019-06-29 22:23:54','2019-07-21 19:18:09','33207202-663d-4300-82ea-4a2a1f5df97c',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(4,4,1,'Test hero slide','2019-06-29 22:24:09','2019-06-29 23:21:53','3499a0bf-b5f3-46af-840d-8f359c8b0c61',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(5,5,1,'Business & Industries','2019-06-29 22:49:42','2019-07-09 00:37:37','e5606b23-1b82-4e54-9cd8-7a7643f71378','brandBlue','Business & Industries',NULL,NULL,NULL,NULL,NULL,NULL),
 	(6,6,1,'Energy & Environmental','2019-06-29 22:50:04','2019-07-09 00:37:54','ac7834d2-13b8-41cd-b143-e3b345898262','brandGreen','Energy & Environmental',NULL,NULL,NULL,NULL,NULL,NULL),
 	(7,7,1,'Opportunity & Development','2019-06-29 22:50:32','2019-07-09 00:37:59','f2d75daa-a95e-4a19-8a56-d035cbe4581d','brandOrange','Opportunity & Development',NULL,NULL,NULL,NULL,NULL,NULL),
 	(8,8,1,'Philanthropy & Social Enterprise','2019-06-29 22:50:58','2019-07-09 00:38:16','82f1a5d0-7547-484c-bda8-9db3f75be92f','brandRed','Philanthropy & Social Enterprise',NULL,NULL,NULL,NULL,NULL,NULL),
-	(9,9,1,'First Herousel','2019-06-29 23:06:49','2019-07-12 13:49:06','87067bec-b7c9-45ee-87f6-e2f4cbaa203c',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-	(10,10,1,'Make the Most of Your Tactile Learning Style','2019-06-29 23:23:24','2019-07-12 13:48:15','409757c3-9193-40a4-96c1-ba2b6d7811d5',NULL,NULL,'According to some educational theorists, there are as many as nine different types of intelligence and multiple styles of learning.','Learning','Learn More',NULL,NULL,NULL),
+	(9,9,1,'First Herousel','2019-06-29 23:06:49','2019-07-26 22:07:12','87067bec-b7c9-45ee-87f6-e2f4cbaa203c',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(10,10,1,'Make the Most of Your Tactile Learning Style','2019-06-29 23:23:24','2019-07-25 14:08:54','409757c3-9193-40a4-96c1-ba2b6d7811d5',NULL,NULL,'According to some educational theorists, there are as many as nine different types of intelligence and multiple styles of learning.','Learning','Learn More',NULL,NULL,NULL),
 	(11,11,1,'Programs','2019-06-30 01:47:37','2019-06-30 01:47:37','76bcd916-cca1-4aa8-868d-599a1eaa56a9',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(12,12,1,'IDHS Global Leadership Network','2019-06-30 01:47:56','2019-06-30 01:47:56','b7fa36e8-e009-45f4-a30e-cced3bbbc664',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(13,13,1,'Global Innovators Group','2019-06-30 01:48:37','2019-06-30 01:48:42','ff4b7139-a594-49fb-964a-cf6c12286cad',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
@@ -337,7 +338,7 @@ VALUES
 	(55,55,1,'Opportunity & Development','2019-07-12 12:24:09','2019-07-12 12:24:09','1856b657-a0f3-4488-ab10-19c4fc9d33fb','#00f000','Opportunity & Development',NULL,NULL,NULL,NULL,NULL,NULL),
 	(56,56,1,'Energy & Environmental','2019-07-12 12:24:09','2019-07-12 12:24:09','1c177d05-9cf2-41f7-aa95-9c5aa182ee6e','#3989f3','Energy & Environmental',NULL,NULL,NULL,NULL,NULL,NULL),
 	(57,57,1,'Business & Industries','2019-07-12 12:24:09','2019-07-12 12:24:09','0bb3631b-7b51-4e9e-9ce8-35c727306f03','#e1dfed','Business & Industries',NULL,NULL,NULL,NULL,NULL,NULL),
-	(58,58,1,'Do you want to go to outer space? Us too!','2019-07-12 13:42:27','2019-07-12 13:48:58','ec3ebd47-60ce-4744-96b1-aeaa98e2634f',NULL,NULL,'We have a deep desire to head up the great unknown and discover what else is out there.','Space','Learn More',NULL,NULL,NULL),
+	(58,58,1,'Do you want to go to outer space? Us too!','2019-07-12 13:42:27','2019-07-25 02:39:34','ec3ebd47-60ce-4744-96b1-aeaa98e2634f',NULL,NULL,'We have a deep desire to head up the great unknown and discover what else is out there.','Space','Learn More',NULL,NULL,NULL),
 	(59,59,1,'Computer focal','2019-07-12 13:44:28','2019-07-12 13:44:28','0f309b96-4712-48f1-81d6-df74b71fc599',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(60,60,1,'Space Slide','2019-07-12 13:46:08','2019-07-12 13:46:08','225277a6-e2f5-4a7b-9a19-ef8f70f470be',NULL,NULL,'Do you want to go to outer space? Us too!','Space','Learn More',NULL,NULL,NULL),
 	(61,61,1,'First Hero Slide','2019-07-12 13:47:40','2019-07-12 13:47:40','bca23a42-e72b-463d-a563-ec2772b59eb7',NULL,NULL,'This is the copy to my slide. There are going to be two sentences.\nThen there is going to be a break in the lines.','Learning','Learn More',NULL,NULL,NULL),
@@ -363,7 +364,23 @@ VALUES
 	(85,85,1,'Design','2019-07-12 15:49:59','2019-07-12 15:49:59','7999b271-6924-4c9c-aff7-a9cb00e11fa4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 	(87,87,1,'Leading the Transformation of Local Infrastructure','2019-07-12 15:50:51','2019-07-12 15:50:51','2f02d92c-b234-431c-9e0e-3f02125a7a37',NULL,NULL,'Lorem ipsum dolor sit amet...',NULL,NULL,NULL,NULL,NULL),
 	(89,89,1,'Redefining Traditional Learning in the Digital Age','2019-07-12 15:50:58','2019-07-12 15:50:58','e07c2603-a8de-450a-aaa0-8f21d211081c',NULL,NULL,'Lorem ipsum dolor sit amet...',NULL,NULL,NULL,NULL,NULL),
-	(90,90,1,NULL,'2019-07-12 16:29:56','2019-07-12 16:36:12','8a7800db-8dda-4a05-a583-8f74e1959dfb',NULL,NULL,NULL,NULL,NULL,'1211 Avenue of the Americas','(212) 580-1000','New York, NY 1001');
+	(90,90,1,NULL,'2019-07-12 16:29:56','2019-07-12 16:36:12','8a7800db-8dda-4a05-a583-8f74e1959dfb',NULL,NULL,NULL,NULL,NULL,'1211 Avenue of the Americas','(212) 580-1000','New York, NY 1001'),
+	(91,91,1,'Pages','2019-07-15 20:28:28','2019-07-15 20:29:03','4bb231f4-00b3-4730-95cf-31dc8727f451',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(93,93,1,'Pages','2019-07-15 20:29:03','2019-07-15 20:29:03','a01f65ee-fe68-4608-b1a0-dc52f27ce820',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(94,94,1,'Pages','2019-07-15 20:29:03','2019-07-15 20:29:03','810af0d7-34de-4879-b451-f4acf671bad2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(95,95,1,'Home Page','2019-07-21 18:35:52','2019-07-25 00:41:57','07dee2c3-1708-45d0-977a-ea444d890f90',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(96,96,1,'Home Page','2019-07-25 00:42:15','2019-07-25 00:42:44','5448c332-1ae7-4185-bec9-79f8655de84f',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(97,97,1,'Home Page','2019-07-25 00:42:15','2019-07-25 00:42:15','5d4ae9e3-89a7-47b9-8cf3-1dc5b64d71f7',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(98,98,1,'Home Page','2019-07-25 00:42:44','2019-07-25 00:42:44','7613b449-0511-4680-b5fd-f4705c788977',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(99,99,1,'Home Page','2019-07-25 00:44:17','2019-07-25 14:15:52','bbf72e55-60e1-477f-a8fc-df44219873ff',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(100,100,1,'Home Page','2019-07-25 00:44:17','2019-07-25 00:44:17','e8b9bf40-d14d-4718-9c08-cc862ab1dbdf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(101,101,1,'Home Page','2019-07-25 00:44:33','2019-07-25 00:44:33','64aef51a-5a83-41e5-9df1-3921e6e0fcc6',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(102,102,1,'Home Page','2019-07-25 00:44:41','2019-07-25 00:44:41','5c04cac9-2355-4f31-a73c-a6056de6a6d7',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(103,103,1,'People walking on painted streets','2019-07-25 02:36:52','2019-07-25 02:36:52','dce00230-b548-4f62-9757-82ef0a7fc536',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(104,104,1,'Make the Most of Your Tactile Learning Style','2019-07-25 02:39:41','2019-07-25 02:39:41','6280b0ed-2156-405f-a688-270e208b7e3f',NULL,NULL,'According to some educational theorists, there are as many as nine different types of intelligence and multiple styles of learning.','Learning','Learn More',NULL,NULL,NULL),
+	(105,105,1,'Make the Most of Your Tactile Learning Style','2019-07-25 14:08:54','2019-07-25 14:08:54','0a3337a2-bfed-45c9-ad78-dc5433c450ed',NULL,NULL,'According to some educational theorists, there are as many as nine different types of intelligence and multiple styles of learning.','Learning','Learn More',NULL,NULL,NULL),
+	(106,106,1,'Home Page','2019-07-25 14:15:52','2019-07-25 14:15:52','af35e444-e31d-45e7-b169-a259b3eddfc6',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(107,107,1,'First Herousel','2019-07-26 22:07:12','2019-07-26 22:07:12','a3b40e5e-bc1f-4237-86c8-493b720807dc',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `content` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -420,27 +437,24 @@ DROP TABLE IF EXISTS `drafts`;
 CREATE TABLE `drafts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sourceId` int(11) DEFAULT NULL,
-  `revisionId` int(11) DEFAULT NULL,
   `creatorId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `notes` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `drafts_creatorId_fk` (`creatorId`),
   KEY `drafts_sourceId_fk` (`sourceId`),
-  KEY `drafts_revisionId_fk` (`revisionId`),
   CONSTRAINT `drafts_creatorId_fk` FOREIGN KEY (`creatorId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `drafts_revisionId_fk` FOREIGN KEY (`revisionId`) REFERENCES `revisions` (`id`) ON DELETE SET NULL,
   CONSTRAINT `drafts_sourceId_fk` FOREIGN KEY (`sourceId`) REFERENCES `elements` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `drafts` WRITE;
 /*!40000 ALTER TABLE `drafts` DISABLE KEYS */;
 
-INSERT INTO `drafts` (`id`, `sourceId`, `revisionId`, `creatorId`, `name`, `notes`)
+INSERT INTO `drafts` (`id`, `sourceId`, `creatorId`, `name`, `notes`)
 VALUES
-	(5,NULL,NULL,1,'First draft',''),
-	(6,NULL,NULL,1,'First draft',NULL),
-	(10,NULL,NULL,1,'First draft',NULL);
+	(5,NULL,1,'First draft',''),
+	(6,NULL,1,'First draft',NULL),
+	(10,NULL,1,'First draft',NULL);
 
 /*!40000 ALTER TABLE `drafts` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -467,7 +481,7 @@ LOCK TABLES `elementindexsettings` WRITE;
 
 INSERT INTO `elementindexsettings` (`id`, `type`, `settings`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'craft\\elements\\Entry','{\"sourceOrder\":[[\"key\",\"*\"],[\"heading\",\"Header Navigation\"],[\"key\",\"section:acc864f2-7951-4b85-8639-f771df381a56\"],[\"key\",\"section:3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8\"],[\"heading\",\"Herousel\"],[\"key\",\"section:06021517-c456-4337-a55c-342f170b509e\"],[\"key\",\"section:f4806157-8213-4481-a5ca-4697ca313dfe\"],[\"heading\",\"Emerging Perspectives\"],[\"key\",\"section:85f5118f-dd13-45cc-a0f4-e49d61bab613\"],[\"heading\",\"Digital Insights\"],[\"key\",\"section:66a3cf92-176e-4832-aa38-7dae6e1c0893\"]],\"sources\":{\"section:f4806157-8213-4481-a5ca-4697ca313dfe\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"*\":{\"tableAttributes\":{\"1\":\"section\",\"2\":\"postDate\",\"3\":\"expiryDate\",\"4\":\"link\"}},\"section:acc864f2-7951-4b85-8639-f771df381a56\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:06021517-c456-4337-a55c-342f170b509e\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:85f5118f-dd13-45cc-a0f4-e49d61bab613\":{\"tableAttributes\":{\"1\":\"field:8\",\"2\":\"id\"}},\"section:66a3cf92-176e-4832-aa38-7dae6e1c0893\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}}}}','2019-07-12 15:48:40','2019-07-12 15:48:40','e9f96435-42a8-482a-8cc7-682f760eb2d1');
+	(1,'craft\\elements\\Entry','{\"sourceOrder\":[[\"key\",\"*\"],[\"heading\",\"Header Navigation\"],[\"key\",\"section:acc864f2-7951-4b85-8639-f771df381a56\"],[\"key\",\"section:3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8\"],[\"heading\",\"Herousel\"],[\"key\",\"section:06021517-c456-4337-a55c-342f170b509e\"],[\"key\",\"section:f4806157-8213-4481-a5ca-4697ca313dfe\"],[\"heading\",\"Emerging Perspectives\"],[\"key\",\"section:85f5118f-dd13-45cc-a0f4-e49d61bab613\"],[\"heading\",\"Digital Insights\"],[\"key\",\"section:66a3cf92-176e-4832-aa38-7dae6e1c0893\"],[\"heading\",\"Pages\"],[\"key\",\"singles\"]],\"sources\":{\"section:f4806157-8213-4481-a5ca-4697ca313dfe\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"*\":{\"tableAttributes\":{\"1\":\"section\",\"2\":\"postDate\",\"3\":\"expiryDate\",\"4\":\"link\"}},\"section:acc864f2-7951-4b85-8639-f771df381a56\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:06021517-c456-4337-a55c-342f170b509e\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:85f5118f-dd13-45cc-a0f4-e49d61bab613\":{\"tableAttributes\":{\"1\":\"field:8\",\"2\":\"id\"}},\"section:66a3cf92-176e-4832-aa38-7dae6e1c0893\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"singles\":{\"tableAttributes\":{\"1\":\"author\",\"2\":\"link\",\"3\":\"uri\"}}}}','2019-07-21 19:35:05','2019-07-21 19:35:05','0a4b709d-d13b-4e89-b9e6-9d9f6debff4d');
 
 /*!40000 ALTER TABLE `elementindexsettings` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -508,16 +522,16 @@ LOCK TABLES `elements` WRITE;
 
 INSERT INTO `elements` (`id`, `draftId`, `revisionId`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2019-06-29 17:33:17','2019-06-29 17:33:17',NULL,'be1a2284-fe60-4830-8564-b799382b504c'),
+	(1,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2019-06-29 17:33:17','2019-07-18 17:05:58',NULL,'be1a2284-fe60-4830-8564-b799382b504c'),
 	(2,NULL,NULL,NULL,'craft\\elements\\Entry',1,0,'2019-06-29 22:13:15','2019-06-29 22:15:53','2019-06-29 22:15:53','c3278ec5-94d5-40a1-8a04-f1ca04a82586'),
-	(3,NULL,NULL,NULL,'craft\\elements\\Asset',1,0,'2019-06-29 22:23:54','2019-06-29 22:24:09',NULL,'ac8d3164-bcd8-4531-8bb5-770d8ee2cd34'),
+	(3,NULL,NULL,NULL,'craft\\elements\\Asset',1,0,'2019-06-29 22:23:54','2019-07-21 19:18:09',NULL,'ac8d3164-bcd8-4531-8bb5-770d8ee2cd34'),
 	(4,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2019-06-29 22:24:09','2019-06-29 23:21:53','2019-06-29 23:22:25','e93bba1a-e7be-44d8-8677-1c702354950d'),
 	(5,NULL,NULL,2,'craft\\elements\\Entry',1,0,'2019-06-29 22:49:42','2019-07-09 00:37:37',NULL,'49e9cd1f-51f2-48df-af1b-36f48d1427e9'),
 	(6,NULL,NULL,2,'craft\\elements\\Entry',1,0,'2019-06-29 22:50:04','2019-07-09 00:37:54',NULL,'2a1131aa-7133-495b-afb2-77803ffc74ca'),
 	(7,NULL,NULL,2,'craft\\elements\\Entry',1,0,'2019-06-29 22:50:32','2019-07-09 00:37:59',NULL,'05282b44-f464-40d6-9926-9f4514abcd56'),
 	(8,NULL,NULL,2,'craft\\elements\\Entry',1,0,'2019-06-29 22:50:58','2019-07-09 00:38:16',NULL,'8cc61ae5-a51a-4a65-b3d9-c4de946f57d3'),
-	(9,NULL,NULL,3,'craft\\elements\\Entry',1,0,'2019-06-29 23:06:49','2019-07-12 13:49:06',NULL,'809f519d-55d0-4f92-b79e-1f498542a2d5'),
-	(10,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2019-06-29 23:23:24','2019-07-12 13:48:15',NULL,'acdfdb40-fd89-4477-814a-93b800870268'),
+	(9,NULL,NULL,3,'craft\\elements\\Entry',1,0,'2019-06-29 23:06:49','2019-07-26 22:07:12',NULL,'809f519d-55d0-4f92-b79e-1f498542a2d5'),
+	(10,NULL,NULL,1,'craft\\elements\\Entry',1,0,'2019-06-29 23:23:24','2019-07-25 14:08:54',NULL,'acdfdb40-fd89-4477-814a-93b800870268'),
 	(11,NULL,NULL,NULL,'craft\\elements\\Entry',1,0,'2019-06-30 01:47:37','2019-06-30 01:47:37',NULL,'ceb30a59-ce72-4a23-8033-e8c0922b3cb7'),
 	(12,NULL,NULL,NULL,'craft\\elements\\Entry',1,0,'2019-06-30 01:47:56','2019-06-30 01:47:56',NULL,'f6cb7fac-8922-4268-868a-b8b6e4a2ea46'),
 	(13,NULL,NULL,NULL,'craft\\elements\\Entry',1,0,'2019-06-30 01:48:37','2019-06-30 01:48:42',NULL,'d50f512d-0eb4-46fa-b177-9720be6a36f5'),
@@ -591,7 +605,23 @@ VALUES
 	(85,NULL,NULL,NULL,'craft\\elements\\Category',1,0,'2019-07-12 15:49:59','2019-07-12 15:49:59',NULL,'09f6436f-6f6c-4a69-a8ac-6c7f35b5a91d'),
 	(87,NULL,45,5,'craft\\elements\\Entry',1,0,'2019-07-12 15:50:51','2019-07-12 15:50:51',NULL,'cb7b2e3e-ec3c-4a04-b9bd-3ef0e2153104'),
 	(89,NULL,46,5,'craft\\elements\\Entry',1,0,'2019-07-12 15:50:58','2019-07-12 15:50:58',NULL,'72f0d2c3-b52a-46c4-8388-642f7e07b6f0'),
-	(90,NULL,NULL,6,'craft\\elements\\GlobalSet',1,0,'2019-07-12 16:29:56','2019-07-12 16:36:12',NULL,'2cdb6263-8e70-47fa-a8d8-e0f7178e1fb6');
+	(90,NULL,NULL,6,'craft\\elements\\GlobalSet',1,0,'2019-07-12 16:29:56','2019-07-12 16:36:12',NULL,'2cdb6263-8e70-47fa-a8d8-e0f7178e1fb6'),
+	(91,NULL,NULL,NULL,'craft\\elements\\Entry',1,0,'2019-07-15 20:28:28','2019-07-15 20:29:03','2019-07-15 20:29:03','96689ce3-1a08-4fad-8c3c-75b56cb66e1a'),
+	(93,NULL,48,NULL,'craft\\elements\\Entry',1,0,'2019-07-15 20:28:28','2019-07-15 20:28:28',NULL,'c7b81ef5-bb8b-4524-b23a-76cfa6eaf3b5'),
+	(94,NULL,49,NULL,'craft\\elements\\Entry',1,0,'2019-07-15 20:29:03','2019-07-15 20:29:03',NULL,'c8d8d725-1d5c-44a3-883f-3898e331de79'),
+	(95,NULL,NULL,8,'craft\\elements\\Entry',1,0,'2019-07-21 18:35:52','2019-07-25 00:41:57','2019-07-25 00:41:57','54877182-935d-40f7-820a-02d75c2c927f'),
+	(96,NULL,NULL,NULL,'craft\\elements\\Entry',1,0,'2019-07-25 00:42:15','2019-07-25 00:42:44','2019-07-25 00:42:44','7705a5bc-ba47-451d-b94c-2037e420f82c'),
+	(97,NULL,50,NULL,'craft\\elements\\Entry',1,0,'2019-07-25 00:42:15','2019-07-25 00:42:15',NULL,'98431cff-b74b-4de3-9789-2329c6080e14'),
+	(98,NULL,51,NULL,'craft\\elements\\Entry',1,0,'2019-07-25 00:42:44','2019-07-25 00:42:44',NULL,'902fa80c-6e33-46d4-84de-d9d8453b95af'),
+	(99,NULL,NULL,9,'craft\\elements\\Entry',1,0,'2019-07-25 00:44:17','2019-07-25 14:15:52',NULL,'8003eaaa-394e-4f19-9999-63ad0196f3b1'),
+	(100,NULL,52,NULL,'craft\\elements\\Entry',1,0,'2019-07-25 00:44:17','2019-07-25 00:44:17',NULL,'21633e12-8f1c-48c3-b442-769388f0c797'),
+	(101,NULL,53,NULL,'craft\\elements\\Entry',1,0,'2019-07-25 00:44:33','2019-07-25 00:44:33',NULL,'0b7690aa-a175-499c-8392-8d001c4c88df'),
+	(102,NULL,54,9,'craft\\elements\\Entry',1,0,'2019-07-25 00:44:41','2019-07-25 00:44:41',NULL,'4a627023-4b16-465a-a334-5b9e43779b10'),
+	(103,NULL,NULL,NULL,'craft\\elements\\Asset',1,0,'2019-07-25 02:36:52','2019-07-25 02:36:52',NULL,'00f4da44-5146-4f0b-b914-7a9e78d5f4f9'),
+	(104,NULL,55,1,'craft\\elements\\Entry',1,0,'2019-07-25 02:39:41','2019-07-25 02:39:41',NULL,'0859904e-42d1-4895-9d1f-2b16307f2e9d'),
+	(105,NULL,56,1,'craft\\elements\\Entry',1,0,'2019-07-25 14:08:54','2019-07-25 14:08:54',NULL,'9ce35f45-c4c2-42f8-98bd-5e63a4fcb90c'),
+	(106,NULL,57,9,'craft\\elements\\Entry',1,0,'2019-07-25 14:15:52','2019-07-25 14:15:52',NULL,'c4fb5cf5-5a8c-4d59-899f-96845b625ed2'),
+	(107,NULL,58,3,'craft\\elements\\Entry',1,0,'2019-07-26 22:07:12','2019-07-26 22:07:12',NULL,'115f93a6-cce9-4ce2-afee-992f09af3337');
 
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -710,7 +740,23 @@ VALUES
 	(85,85,1,'design',NULL,1,'2019-07-12 15:49:59','2019-07-12 15:50:08','55d467e9-e6a5-490a-957a-73902c626985'),
 	(87,87,1,'leading-the-transformation-of-local-infrastructure',NULL,1,'2019-07-12 15:50:51','2019-07-12 15:50:51','a31aac51-886a-409a-a764-b97f2865379f'),
 	(89,89,1,'redefining-traditional-learning-in-the-digital-age',NULL,1,'2019-07-12 15:50:58','2019-07-12 15:50:58','c1e39e8a-5a5b-48c0-94b1-36e94164eede'),
-	(90,90,1,NULL,NULL,1,'2019-07-12 16:29:56','2019-07-12 16:29:56','a9c63412-ae7d-4b74-bab6-aeb76961204d');
+	(90,90,1,NULL,NULL,1,'2019-07-12 16:29:56','2019-07-12 16:29:56','a9c63412-ae7d-4b74-bab6-aeb76961204d'),
+	(91,91,1,'pages','__home__',1,'2019-07-15 20:28:28','2019-07-15 20:28:28','5be8036b-926e-41fa-836d-d3d2ba439bce'),
+	(93,93,1,'pages','__home__',1,'2019-07-15 20:29:03','2019-07-15 20:29:03','e57f0f12-514d-466c-bd77-bfbf0e9b7ebf'),
+	(94,94,1,'pages','__home__',1,'2019-07-15 20:29:03','2019-07-15 20:29:03','981cab79-3373-4362-8f00-71bcffbe72e8'),
+	(95,95,1,'home-page',NULL,1,'2019-07-21 18:35:52','2019-07-25 00:35:01','8f4b5834-f400-4b32-a5e9-d46bc636402e'),
+	(96,96,1,'home-page','home-page',1,'2019-07-25 00:42:15','2019-07-25 00:42:15','37190f30-7c76-4c11-9e79-5688d353787b'),
+	(97,97,1,'home-page','home-page',1,'2019-07-25 00:42:15','2019-07-25 00:42:15','3c104f26-17a1-4987-b05f-9bfcc43a15f8'),
+	(98,98,1,'home-page','home-page',1,'2019-07-25 00:42:44','2019-07-25 00:42:44','2d09e91a-b416-4ffc-9458-adf550287c5c'),
+	(99,99,1,'home-page',NULL,1,'2019-07-25 00:44:17','2019-07-25 00:44:17','ded4f36a-0988-4974-a477-bb1de79e1499'),
+	(100,100,1,'home-page',NULL,1,'2019-07-25 00:44:17','2019-07-25 00:44:17','5037bfb7-8103-4580-bb7f-f0dc6ff433e7'),
+	(101,101,1,'home-page',NULL,1,'2019-07-25 00:44:33','2019-07-25 00:44:33','20cfe538-adfe-46c8-8bf5-67f27ec5c1b4'),
+	(102,102,1,'home-page',NULL,1,'2019-07-25 00:44:41','2019-07-25 00:44:41','fe1ad1f8-28f9-419a-a989-d3f0dcf310fd'),
+	(103,103,1,NULL,NULL,1,'2019-07-25 02:36:52','2019-07-25 02:36:52','c46658b8-e105-479e-92f1-8cb9185cb361'),
+	(104,104,1,'first-hero-slide',NULL,1,'2019-07-25 02:39:41','2019-07-25 02:39:41','1edd71bf-dde6-4e3c-b3f9-464fdffd5842'),
+	(105,105,1,'first-hero-slide',NULL,1,'2019-07-25 14:08:54','2019-07-25 14:08:54','12fe653e-9cc7-4763-a947-dab3f4572016'),
+	(106,106,1,'home-page',NULL,1,'2019-07-25 14:15:52','2019-07-25 14:15:52','e804e4e1-a67b-4d40-a3c1-d1b47fc23574'),
+	(107,107,1,'first-herousel',NULL,1,'2019-07-26 22:07:12','2019-07-26 22:07:12','1a72ff4d-9f5d-4de2-8f07-e8ef62974cf7');
 
 /*!40000 ALTER TABLE `elements_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -824,7 +870,22 @@ VALUES
 	(82,7,NULL,7,1,'2019-07-12 15:46:00',NULL,NULL,'2019-07-12 15:46:12','2019-07-12 15:46:12','ceeaf4e5-f1bb-41fe-b77b-858f5e695a11'),
 	(83,7,NULL,7,1,'2019-07-12 15:46:00',NULL,NULL,'2019-07-12 15:46:50','2019-07-12 15:46:50','dbe3bf58-76cf-4027-b09a-0bab11e93d67'),
 	(87,7,NULL,7,1,'2019-07-12 15:46:00',NULL,NULL,'2019-07-12 15:50:51','2019-07-12 15:50:51','56cd3980-f151-4c52-a7cd-746e3bd382fb'),
-	(89,7,NULL,7,1,'2019-07-12 15:45:00',NULL,NULL,'2019-07-12 15:50:58','2019-07-12 15:50:58','e1b2ecb4-8708-4a14-9d64-44507076e288');
+	(89,7,NULL,7,1,'2019-07-12 15:45:00',NULL,NULL,'2019-07-12 15:50:58','2019-07-12 15:50:58','e1b2ecb4-8708-4a14-9d64-44507076e288'),
+	(91,8,NULL,8,NULL,'2019-07-15 20:28:00',NULL,1,'2019-07-15 20:28:28','2019-07-15 20:28:28','b7a1ecfa-21f0-4226-a799-d37fd4393222'),
+	(93,8,NULL,8,NULL,'2019-07-15 20:28:00',NULL,NULL,'2019-07-15 20:29:03','2019-07-15 20:29:03','c2965cd8-0704-4f63-9f7d-5838bd3eee63'),
+	(94,8,NULL,8,NULL,'2019-07-15 20:28:00',NULL,NULL,'2019-07-15 20:29:03','2019-07-15 20:29:03','73ebbf30-7bc9-43b3-bd2a-28ec310aa359'),
+	(95,9,NULL,9,NULL,'2019-07-21 18:35:00',NULL,1,'2019-07-21 18:35:52','2019-07-25 00:28:30','a76dc37f-6942-4b7f-bd30-5d23243675cc'),
+	(96,10,NULL,10,NULL,'2019-07-25 00:42:00',NULL,1,'2019-07-25 00:42:15','2019-07-25 00:42:15','5d8afc91-3c5d-46e6-9fe0-989707d678f1'),
+	(97,10,NULL,10,NULL,'2019-07-25 00:42:00',NULL,NULL,'2019-07-25 00:42:15','2019-07-25 00:42:15','7bb94294-205a-455f-b8dc-a261501bfd6b'),
+	(98,10,NULL,10,NULL,'2019-07-25 00:42:00',NULL,NULL,'2019-07-25 00:42:44','2019-07-25 00:42:44','1c750319-a323-43e5-a4df-d5fc9b25d37f'),
+	(99,11,NULL,11,NULL,'2019-07-25 00:44:00',NULL,NULL,'2019-07-25 00:44:17','2019-07-25 00:44:17','e4cc9370-e5d5-4640-ad9b-30e01ef6da22'),
+	(100,11,NULL,11,NULL,'2019-07-25 00:44:00',NULL,NULL,'2019-07-25 00:44:17','2019-07-25 00:44:17','f3895961-0df6-4149-968a-e3370d9b90f5'),
+	(101,11,NULL,11,NULL,'2019-07-25 00:44:00',NULL,NULL,'2019-07-25 00:44:33','2019-07-25 00:44:33','43e61970-be4b-4c52-89f5-4d6a9476ce84'),
+	(102,11,NULL,11,NULL,'2019-07-25 00:44:00',NULL,NULL,'2019-07-25 00:44:41','2019-07-25 00:44:41','6538711c-bdf5-47f1-b153-e6a9d85eb515'),
+	(104,1,NULL,1,1,'2019-06-29 23:23:00',NULL,NULL,'2019-07-25 02:39:41','2019-07-25 02:39:41','4fd7cc25-3559-4e2f-8aee-f49db44c3e08'),
+	(105,1,NULL,1,1,'2019-06-29 23:23:00',NULL,NULL,'2019-07-25 14:08:54','2019-07-25 14:08:54','7859ae65-7b13-4403-9354-cb88a833171f'),
+	(106,11,NULL,11,NULL,'2019-07-25 00:44:00',NULL,NULL,'2019-07-25 14:15:52','2019-07-25 14:15:52','26f79b99-6284-4dfb-a881-64b2c5c9c02a'),
+	(107,4,NULL,4,1,'2019-06-29 23:06:00',NULL,NULL,'2019-07-26 22:07:12','2019-07-26 22:07:12','d12e417c-a554-4194-96ae-3c875213a424');
 
 /*!40000 ALTER TABLE `entries` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -910,13 +971,17 @@ LOCK TABLES `entrytypes` WRITE;
 
 INSERT INTO `entrytypes` (`id`, `sectionId`, `fieldLayoutId`, `name`, `handle`, `hasTitleField`, `titleLabel`, `titleFormat`, `sortOrder`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,1,1,'Herousel Slides','herouselSlides',0,'Title','{slideTitle}',1,'2019-06-29 17:57:44','2019-06-29 23:21:53',NULL,'e07042df-c02d-4b04-a175-e9291e3bee4a'),
+	(1,1,1,'Herousel Slides','herouselSlides',1,'Title','{slideTitle}',1,'2019-06-29 17:57:44','2019-07-25 02:39:34',NULL,'e07042df-c02d-4b04-a175-e9291e3bee4a'),
 	(2,2,NULL,'Basic Pages','basicPages',0,NULL,'{section.name|raw}',1,'2019-06-29 22:13:15','2019-06-29 22:13:15','2019-06-29 22:15:53','ac3ca9d2-9388-41b5-9362-b6db24a7e5bf'),
 	(3,3,2,'Header Navigation Blocks','headerNavigationBlocks',0,'Title','{blockTitle}',1,'2019-06-29 22:41:05','2019-07-08 23:29:52',NULL,'6bef59cb-3103-44b4-a193-326a2758ecdf'),
 	(4,4,3,'Herousels','herousels',1,'Title','',1,'2019-06-29 23:03:21','2019-06-29 23:05:24',NULL,'7b3aeb3f-1bdf-4cb2-8163-503979b1e13f'),
 	(5,5,NULL,'Navigation Links','navigationLinks',1,'Title',NULL,1,'2019-06-30 01:46:32','2019-06-30 01:46:32',NULL,'48c83400-948a-4fe7-befa-a28551d35165'),
 	(6,6,4,'Image Cards','imageCards',1,'Title','',1,'2019-07-12 15:04:17','2019-07-12 15:27:01',NULL,'dd0006ba-780b-4588-a52b-af08d9439c9a'),
-	(7,7,5,'Insight Blocks','insightBlocks',1,'Title','',1,'2019-07-12 15:37:08','2019-07-12 15:50:20',NULL,'c881ae05-8a22-4968-8734-08b073732300');
+	(7,7,5,'Insight Blocks','insightBlocks',1,'Title','',1,'2019-07-12 15:37:08','2019-07-12 15:50:20',NULL,'c881ae05-8a22-4968-8734-08b073732300'),
+	(8,8,NULL,'Pages','pages',0,NULL,'{section.name|raw}',1,'2019-07-15 20:28:28','2019-07-15 20:28:28','2019-07-15 20:29:03','1a45b96c-01cf-4932-b812-76c468386079'),
+	(9,9,8,'Home Page','homePage',0,'','{section.name|raw}',1,'2019-07-21 18:35:52','2019-07-21 18:37:16','2019-07-25 00:41:57','8365b49f-088b-485e-bd3a-172e26ba9bfb'),
+	(10,10,NULL,'Home Page','homePage',0,NULL,'{section.name|raw}',1,'2019-07-25 00:42:15','2019-07-25 00:42:15','2019-07-25 00:42:44','be23eaf8-fb21-4af5-a792-7e7b7798c797'),
+	(11,11,9,'Home Page','homePage',0,'','{section.name|raw}',1,'2019-07-25 00:44:17','2019-07-25 00:44:33',NULL,'74bc750a-9481-44ba-92d8-d13059d3c272');
 
 /*!40000 ALTER TABLE `entrytypes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1027,11 +1092,6 @@ LOCK TABLES `fieldlayoutfields` WRITE;
 INSERT INTO `fieldlayoutfields` (`id`, `layoutId`, `tabId`, `fieldId`, `required`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(13,3,5,6,0,1,'2019-06-29 23:05:24','2019-06-29 23:05:24','fadc3360-2699-4210-b4ef-ae2151073c4f'),
-	(21,1,8,8,0,6,'2019-06-29 23:21:53','2019-06-29 23:21:53','e0f23be2-3aed-47a5-b8a2-38dea273e7b6'),
-	(23,1,8,12,0,4,'2019-06-29 23:21:53','2019-06-29 23:21:53','7cc44d9b-476c-4711-b5dd-93552dd57e1a'),
-	(24,1,8,10,0,2,'2019-06-29 23:21:53','2019-06-29 23:21:53','7e56f3f0-fb51-4b68-801d-8a40d51d4e95'),
-	(25,1,8,13,0,5,'2019-06-29 23:21:53','2019-06-29 23:21:53','27395a1a-c606-40bb-83bb-942f9ccca725'),
-	(26,1,8,11,0,3,'2019-06-29 23:21:53','2019-06-29 23:21:53','ab4d3437-d7bd-49ed-867d-0dcf053750f3'),
 	(27,2,9,2,0,4,'2019-07-08 23:29:52','2019-07-08 23:29:52','786ccd7a-a32e-4935-bd89-d576f7753314'),
 	(28,2,9,4,1,3,'2019-07-08 23:29:52','2019-07-08 23:29:52','d2af6c76-a234-4aa4-b51e-5ebb84aff5eb'),
 	(29,2,9,5,1,2,'2019-07-08 23:29:52','2019-07-08 23:29:52','b4d667cb-2e6c-4a3b-a68f-d693bcba9533'),
@@ -1045,7 +1105,14 @@ VALUES
 	(50,5,15,13,1,3,'2019-07-12 15:50:20','2019-07-12 15:50:20','19ff031a-3daf-4c29-8ba8-b1b6fb579658'),
 	(56,6,20,15,0,1,'2019-07-12 16:36:01','2019-07-12 16:36:01','d00c2264-b832-4d95-be39-3a65661e940e'),
 	(57,6,20,17,0,2,'2019-07-12 16:36:01','2019-07-12 16:36:01','6670ed6d-48e8-4c70-b949-573742a32caf'),
-	(58,6,20,16,0,3,'2019-07-12 16:36:01','2019-07-12 16:36:01','8eca3b8f-0c7b-482e-ba77-22a269e63341');
+	(58,6,20,16,0,3,'2019-07-12 16:36:01','2019-07-12 16:36:01','8eca3b8f-0c7b-482e-ba77-22a269e63341'),
+	(61,8,23,19,0,1,'2019-07-21 18:37:16','2019-07-21 18:37:16','743756d9-7ae4-4cb7-94f8-ffd522fe7af7'),
+	(62,9,24,19,0,1,'2019-07-25 00:44:33','2019-07-25 00:44:33','a0b22071-6aa1-4fa9-80e7-4df93d051bfd'),
+	(73,1,27,8,0,5,'2019-07-25 02:39:34','2019-07-25 02:39:34','fbcec4dc-8226-4ba3-b454-b57e4a65dfb6'),
+	(74,1,27,12,0,3,'2019-07-25 02:39:34','2019-07-25 02:39:34','a5b8941d-c893-47ca-8982-68400248241f'),
+	(75,1,27,10,0,1,'2019-07-25 02:39:34','2019-07-25 02:39:34','7f61ce55-627c-46d0-b093-9ea6e818eb06'),
+	(76,1,27,13,0,4,'2019-07-25 02:39:34','2019-07-25 02:39:34','99187007-c1be-4bf8-965e-7ec3c4fdebb4'),
+	(77,1,27,11,0,2,'2019-07-25 02:39:34','2019-07-25 02:39:34','0ff1b7f8-ffae-42c3-9a5a-32cf76e4f23e');
 
 /*!40000 ALTER TABLE `fieldlayoutfields` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1078,7 +1145,10 @@ VALUES
 	(3,'craft\\elements\\Entry','2019-06-29 23:05:24','2019-06-29 23:05:24',NULL,'08229f3b-f574-4612-9224-d9a27260d924'),
 	(4,'craft\\elements\\Entry','2019-07-12 15:18:47','2019-07-12 15:18:47',NULL,'5d453106-4cb6-4f97-8d55-5d8cf00b35fc'),
 	(5,'craft\\elements\\Entry','2019-07-12 15:44:23','2019-07-12 15:44:23',NULL,'087dc529-9ea2-4ef6-b449-c87f44493ace'),
-	(6,'craft\\elements\\GlobalSet','2019-07-12 16:32:08','2019-07-12 16:32:08',NULL,'cbb838b2-a710-4a92-ba0d-d241b3abbbc3');
+	(6,'craft\\elements\\GlobalSet','2019-07-12 16:32:08','2019-07-12 16:32:08',NULL,'cbb838b2-a710-4a92-ba0d-d241b3abbbc3'),
+	(7,'craft\\elements\\User','2019-07-18 16:57:47','2019-07-18 16:58:19','2019-07-18 17:02:14','c9208868-66bd-450d-8cbf-f9e186e332d5'),
+	(8,'craft\\elements\\Entry','2019-07-21 18:37:16','2019-07-21 18:37:16','2019-07-25 00:41:57','940c7adf-ca2c-4fe3-943f-c6fa1801437c'),
+	(9,'craft\\elements\\Entry','2019-07-25 00:44:33','2019-07-25 00:44:33',NULL,'5f057e54-102d-4009-a3da-360012a2e9ff');
 
 /*!40000 ALTER TABLE `fieldlayouts` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1109,11 +1179,14 @@ LOCK TABLES `fieldlayouttabs` WRITE;
 INSERT INTO `fieldlayouttabs` (`id`, `layoutId`, `name`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(5,3,'Slides',1,'2019-06-29 23:05:24','2019-06-29 23:05:24','1e2cfe62-ca11-4749-a43a-0d427c942dfe'),
-	(8,1,'Content',1,'2019-06-29 23:21:53','2019-06-29 23:21:53','fc0da13b-fb1a-40d9-8a14-8f6448bd6608'),
 	(9,2,'Content',1,'2019-07-08 23:29:52','2019-07-08 23:29:52','fe7d9ba7-85df-4863-9954-ead93ca78e36'),
 	(12,4,'Content',1,'2019-07-12 15:27:01','2019-07-12 15:27:01','a408f79a-ee65-4aea-9a86-f6ca40811eae'),
 	(15,5,'Content',1,'2019-07-12 15:50:20','2019-07-12 15:50:20','35da5ad6-d1ea-4ea5-9e72-cdc53783bded'),
-	(20,6,'Information',1,'2019-07-12 16:36:01','2019-07-12 16:36:01','de107abf-f439-428b-9a9a-3c948a219a3c');
+	(20,6,'Information',1,'2019-07-12 16:36:01','2019-07-12 16:36:01','de107abf-f439-428b-9a9a-3c948a219a3c'),
+	(22,7,'General Info',1,'2019-07-18 16:58:19','2019-07-18 16:58:19','e0b82457-0f72-45ca-9ef2-3df30c766bf5'),
+	(23,8,'Content',1,'2019-07-21 18:37:16','2019-07-21 18:37:16','ec30e552-de20-40a8-aa9d-7bee64577b34'),
+	(24,9,'Content',1,'2019-07-25 00:44:33','2019-07-25 00:44:33','8ea696c9-4306-4563-9e9b-8c0fc984c080'),
+	(27,1,'Content',1,'2019-07-25 02:39:34','2019-07-25 02:39:34','15a35b8b-2233-4985-825b-1394ec2eec58');
 
 /*!40000 ALTER TABLE `fieldlayouttabs` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1158,14 +1231,15 @@ VALUES
 	(5,2,'Block Link','blockLink','global','',1,'site',NULL,'craft\\fields\\Entries','{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false}','2019-06-29 22:49:05','2019-06-29 22:49:05','b86669c7-1f17-4924-8151-b08b5c5e499f'),
 	(6,3,'Herousel Slides','herouselSlides','global','Select up to four slides for the herousel.',1,'site',NULL,'craft\\fields\\Entries','{\"sources\":[\"section:f4806157-8213-4481-a5ca-4697ca313dfe\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"4\",\"selectionLabel\":\"Add a slide to the herousel\",\"localizeRelations\":false}','2019-06-29 23:05:04','2019-06-29 23:06:30','8ad551d3-1d49-460d-b73f-7f8b70de3740'),
 	(8,1,'Entry Image','entryImage','global','',1,'site',NULL,'craft\\fields\\Assets','{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"images/\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"}','2019-06-29 23:16:31','2019-07-12 15:40:47','18d5ee1b-53c5-415a-8fd8-b53d9d43f763'),
-	(10,1,'Entry Copy','entryCopy','global','',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"Lorem ipsum dolor sit amet...\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"1\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-06-29 23:17:22','2019-07-12 15:41:13','96cdbd77-6e4d-414a-9b67-56b4900b420c'),
+	(10,1,'Copy','copy','global','',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"Lorem ipsum dolor sit amet...\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"1\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-06-29 23:17:22','2019-07-25 01:35:23','96cdbd77-6e4d-414a-9b67-56b4900b420c'),
 	(11,1,'Slide Category','slideCategory','global','',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-06-29 23:19:30','2019-07-12 15:41:44','f3d95e24-acd1-44aa-b881-d39395747064'),
-	(12,1,'Entry CTA Copy','entryCtaCopy','global','',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"25\",\"columnType\":\"text\"}','2019-06-29 23:20:11','2019-07-12 15:41:52','2db23733-dff0-4265-a542-6ecad5cb1b9e'),
-	(13,1,'Entry CTA Link','entryCtaLink','global','',1,'site',NULL,'craft\\fields\\Entries','{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"}','2019-06-29 23:20:33','2019-07-12 15:42:08','edacbb61-d979-4e62-bfed-e8425456b1f1'),
+	(12,1,'CTA Copy','ctaCopy','global','',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"25\",\"columnType\":\"text\"}','2019-06-29 23:20:11','2019-07-25 01:35:32','2db23733-dff0-4265-a542-6ecad5cb1b9e'),
+	(13,1,'CTA Link','ctaLink','global','',1,'site',NULL,'craft\\fields\\Entries','{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"}','2019-06-29 23:20:33','2019-07-25 01:35:38','edacbb61-d979-4e62-bfed-e8425456b1f1'),
 	(14,1,'Related Category','relatedCategory','global','',1,'site',NULL,'craft\\fields\\Categories','{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:85c77f35-48e4-42ff-a631-57f0612aaf53\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"}','2019-07-12 15:47:40','2019-07-12 15:50:39','68f23f3b-294a-4e72-ba7e-7ce480addad5'),
 	(15,1,'Contact Street Address','contactStreetAddress','global','',0,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-07-12 16:33:07','2019-07-12 16:35:42','038069ec-817a-4271-8329-8800920a9077'),
 	(16,1,'Contact Phone','contactPhone','global','',0,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-07-12 16:34:58','2019-07-12 16:34:58','3e14ad63-16b6-4e2c-9006-913712819550'),
-	(17,1,'Contact State','contactState','global','',0,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-07-12 16:35:52','2019-07-12 16:35:52','1953e64d-f917-4bce-a0df-82f0221e3e64');
+	(17,1,'Contact State','contactState','global','',0,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2019-07-12 16:35:52','2019-07-12 16:35:52','1953e64d-f917-4bce-a0df-82f0221e3e64'),
+	(19,3,'Herousel','herousel','global','Select a Herousel to use on the page.',0,'site',NULL,'craft\\fields\\Entries','{\"sources\":[\"section:06021517-c456-4337-a55c-342f170b509e\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"}','2019-07-21 18:37:00','2019-07-21 18:37:00','c0107872-0d5b-4aa9-8369-7a4dae65cc08');
 
 /*!40000 ALTER TABLE `fields` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1227,7 +1301,7 @@ LOCK TABLES `info` WRITE;
 
 INSERT INTO `info` (`id`, `version`, `schemaVersion`, `maintenance`, `config`, `configMap`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'3.2.1','3.2.14',0,'{\"fieldGroups\":{\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\":{\"name\":\"Common\"},\"2babdf9b-c278-4420-ade7-ab8175bb80d3\":{\"name\":\"Header Navigation\"},\"4b19cdc5-eb0d-43c0-a63b-60bacd175db4\":{\"name\":\"Herousels\"}},\"siteGroups\":{\"5b0c9095-dbd8-49a8-9f0e-98f12e9c1683\":{\"name\":\"IK Craft Demo\"}},\"sites\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"baseUrl\":\"$DEFAULT_SITE_URL\",\"handle\":\"default\",\"hasUrls\":true,\"language\":\"en-US\",\"name\":\"IK Craft Demo\",\"primary\":true,\"siteGroup\":\"5b0c9095-dbd8-49a8-9f0e-98f12e9c1683\",\"sortOrder\":1}},\"email\":{\"fromEmail\":\"adam@interactiveknowledge.com\",\"fromName\":\"IK Craft Demo\",\"transportType\":\"craft\\\\mail\\\\transportadapters\\\\Sendmail\"},\"system\":{\"edition\":\"solo\",\"name\":\"IK Craft Demo\",\"live\":true,\"schemaVersion\":\"3.2.14\",\"timeZone\":\"America/New_York\"},\"users\":{\"requireEmailVerification\":true,\"allowPublicRegistration\":false,\"defaultGroup\":null,\"photoVolumeUid\":null,\"photoSubpath\":\"\"},\"dateModified\":1562949361,\"sections\":{\"f4806157-8213-4481-a5ca-4697ca313dfe\":{\"name\":\"Herousel Slides\",\"handle\":\"herouselSlides\",\"type\":\"channel\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"entryTypes\":{\"e07042df-c02d-4b04-a175-e9291e3bee4a\":{\"name\":\"Herousel Slides\",\"handle\":\"herouselSlides\",\"hasTitleField\":false,\"titleLabel\":\"Title\",\"titleFormat\":\"{slideTitle}\",\"sortOrder\":1,\"fieldLayouts\":{\"d56f6f75-29d4-4458-84a1-560f8fa794cd\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"required\":false,\"sortOrder\":6},\"2db23733-dff0-4265-a542-6ecad5cb1b9e\":{\"required\":false,\"sortOrder\":4},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"required\":false,\"sortOrder\":2},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"required\":false,\"sortOrder\":5},\"f3d95e24-acd1-44aa-b881-d39395747064\":{\"required\":false,\"sortOrder\":3}}}]}}}},\"propagationMethod\":\"all\"},\"acc864f2-7951-4b85-8639-f771df381a56\":{\"name\":\"Navigation Blocks\",\"handle\":\"navigationBlocks\",\"type\":\"structure\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"711c9b98-5218-4a8c-831e-0b0b70664b65\",\"maxLevels\":1},\"entryTypes\":{\"6bef59cb-3103-44b4-a193-326a2758ecdf\":{\"name\":\"Header Navigation Blocks\",\"handle\":\"headerNavigationBlocks\",\"hasTitleField\":false,\"titleLabel\":\"Title\",\"titleFormat\":\"{blockTitle}\",\"sortOrder\":1,\"fieldLayouts\":{\"56d520b9-dc62-43e6-8250-56e8a644ecb9\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"0a68a217-6bc5-49ac-bdd1-14e540d37976\":{\"required\":false,\"sortOrder\":4},\"77c9f661-7918-4604-9a2d-268172dedf4c\":{\"required\":true,\"sortOrder\":3},\"b86669c7-1f17-4924-8151-b08b5c5e499f\":{\"required\":true,\"sortOrder\":2},\"f0ec0c83-08cc-48d0-9a8b-539f73b52bee\":{\"required\":true,\"sortOrder\":1}}}]}}}},\"propagationMethod\":\"all\"},\"06021517-c456-4337-a55c-342f170b509e\":{\"name\":\"Herousels\",\"handle\":\"herousels\",\"type\":\"channel\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"entryTypes\":{\"7b3aeb3f-1bdf-4cb2-8163-503979b1e13f\":{\"name\":\"Herousels\",\"handle\":\"herousels\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"08229f3b-f574-4612-9224-d9a27260d924\":{\"tabs\":[{\"name\":\"Slides\",\"sortOrder\":1,\"fields\":{\"8ad551d3-1d49-460d-b73f-7f8b70de3740\":{\"required\":false,\"sortOrder\":1}}}]}}}},\"propagationMethod\":\"all\"},\"3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8\":{\"name\":\"Navigation Links\",\"handle\":\"navigationLinks\",\"type\":\"structure\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"f8410eba-e92c-449f-8e2a-183643e1ec4f\",\"maxLevels\":2},\"entryTypes\":{\"48c83400-948a-4fe7-befa-a28551d35165\":{\"name\":\"Navigation Links\",\"handle\":\"navigationLinks\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":null,\"sortOrder\":1}},\"propagationMethod\":\"all\"},\"85f5118f-dd13-45cc-a0f4-e49d61bab613\":{\"name\":\"Image Cards\",\"handle\":\"imageCards\",\"type\":\"structure\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"923c838a-a800-44f2-98da-fe775dca1f0d\",\"maxLevels\":1},\"entryTypes\":{\"dd0006ba-780b-4588-a52b-af08d9439c9a\":{\"name\":\"Image Cards\",\"handle\":\"imageCards\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"5d453106-4cb6-4f97-8d55-5d8cf00b35fc\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"required\":false,\"sortOrder\":3},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"required\":true,\"sortOrder\":1},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"required\":true,\"sortOrder\":2}}}]}}}}},\"66a3cf92-176e-4832-aa38-7dae6e1c0893\":{\"name\":\"Insight Blocks\",\"handle\":\"insightBlocks\",\"type\":\"structure\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"978bc0b8-ba5a-4010-926e-35f6bf2a817f\",\"maxLevels\":1},\"entryTypes\":{\"c881ae05-8a22-4968-8734-08b073732300\":{\"name\":\"Insight Blocks\",\"handle\":\"insightBlocks\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"087dc529-9ea2-4ef6-b449-c87f44493ace\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"required\":false,\"sortOrder\":4},\"68f23f3b-294a-4e72-ba7e-7ce480addad5\":{\"required\":false,\"sortOrder\":1},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"required\":true,\"sortOrder\":2},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"required\":true,\"sortOrder\":3}}}]}}}}}},\"fields\":{\"7ca16c4a-c225-4879-b65f-aad29c84a651\":{\"name\":\"Hero Image\",\"handle\":\"heroImage\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Assets\",\"settings\":{\"useSingleFolder\":\"1\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"images\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"list\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"0a68a217-6bc5-49ac-bdd1-14e540d37976\":{\"name\":\"Accent Color\",\"handle\":\"accentColor\",\"instructions\":\"Choose a color for the blocks accent\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Dropdown\",\"settings\":{\"options\":[{\"label\":\"Brand Red\",\"value\":\"brandRed\",\"default\":\"1\"},{\"label\":\"Brand Blue\",\"value\":\"brandBlue\",\"default\":\"\"},{\"label\":\"Brand Green\",\"value\":\"brandGreen\",\"default\":\"\"},{\"label\":\"Brand Orange\",\"value\":\"brandOrange\",\"default\":\"\"}]},\"contentColumnType\":\"string\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"f0ec0c83-08cc-48d0-9a8b-539f73b52bee\":{\"name\":\"Block Title\",\"handle\":\"blockTitle\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"1\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"77c9f661-7918-4604-9a2d-268172dedf4c\":{\"name\":\"Block Icon\",\"handle\":\"blockIcon\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Assets\",\"settings\":{\"useSingleFolder\":\"1\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"images/icons\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"list\",\"limit\":\"1\",\"selectionLabel\":\"Add an icon for this block\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"b86669c7-1f17-4924-8151-b08b5c5e499f\":{\"name\":\"Block Link\",\"handle\":\"blockLink\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"8ad551d3-1d49-460d-b73f-7f8b70de3740\":{\"name\":\"Herousel Slides\",\"handle\":\"herouselSlides\",\"instructions\":\"Select up to four slides for the herousel.\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":[\"section:f4806157-8213-4481-a5ca-4697ca313dfe\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"4\",\"selectionLabel\":\"Add a slide to the herousel\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"4b19cdc5-eb0d-43c0-a63b-60bacd175db4\"},\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"name\":\"Entry Image\",\"handle\":\"entryImage\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Assets\",\"settings\":{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"images/\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"name\":\"Entry Copy\",\"handle\":\"entryCopy\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"Lorem ipsum dolor sit amet...\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"1\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"f3d95e24-acd1-44aa-b881-d39395747064\":{\"name\":\"Slide Category\",\"handle\":\"slideCategory\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"2db23733-dff0-4265-a542-6ecad5cb1b9e\":{\"name\":\"Entry CTA Copy\",\"handle\":\"entryCtaCopy\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"25\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"name\":\"Entry CTA Link\",\"handle\":\"entryCtaLink\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"68f23f3b-294a-4e72-ba7e-7ce480addad5\":{\"name\":\"Related Category\",\"handle\":\"relatedCategory\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Categories\",\"settings\":{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:85c77f35-48e4-42ff-a631-57f0612aaf53\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"038069ec-817a-4271-8329-8800920a9077\":{\"name\":\"Contact Street Address\",\"handle\":\"contactStreetAddress\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"3e14ad63-16b6-4e2c-9006-913712819550\":{\"name\":\"Contact Phone\",\"handle\":\"contactPhone\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"1953e64d-f917-4bce-a0df-82f0221e3e64\":{\"name\":\"Contact State\",\"handle\":\"contactState\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"}},\"volumes\":{\"50afdfd7-6c44-4e96-973a-b03967ec3cac\":{\"name\":\"Uploads\",\"handle\":\"uploads\",\"type\":\"craft\\\\volumes\\\\Local\",\"hasUrls\":false,\"url\":\"\",\"settings\":{\"path\":\"@webroot/uploads/\"},\"sortOrder\":1}},\"categoryGroups\":{\"85c77f35-48e4-42ff-a631-57f0612aaf53\":{\"name\":\"Digital Insights\",\"handle\":\"digitalInsights\",\"structure\":{\"uid\":\"fe8e586c-734e-4d4c-a28a-94addd5bc033\",\"maxLevels\":1},\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"hasUrls\":false,\"uriFormat\":null,\"template\":null}}}},\"globalSets\":{\"2cdb6263-8e70-47fa-a8d8-e0f7178e1fb6\":{\"name\":\"Contact Info\",\"handle\":\"contactInfo\",\"fieldLayouts\":{\"cbb838b2-a710-4a92-ba0d-d241b3abbbc3\":{\"tabs\":[{\"name\":\"Information\",\"sortOrder\":1,\"fields\":{\"038069ec-817a-4271-8329-8800920a9077\":{\"required\":false,\"sortOrder\":1},\"1953e64d-f917-4bce-a0df-82f0221e3e64\":{\"required\":false,\"sortOrder\":2},\"3e14ad63-16b6-4e2c-9006-913712819550\":{\"required\":false,\"sortOrder\":3}}}]}}}}}','[]','MKMEyOTqlcJl','2019-06-29 17:33:17','2019-07-12 12:23:13','65f5429e-47ff-4db3-9d7d-6a0c17149af6');
+	(1,'3.2.6','3.2.16',0,'{\"fieldGroups\":{\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\":{\"name\":\"Common\"},\"2babdf9b-c278-4420-ade7-ab8175bb80d3\":{\"name\":\"Header Navigation\"},\"4b19cdc5-eb0d-43c0-a63b-60bacd175db4\":{\"name\":\"Herousels\"}},\"siteGroups\":{\"5b0c9095-dbd8-49a8-9f0e-98f12e9c1683\":{\"name\":\"IK Craft Demo\"}},\"sites\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"siteGroup\":\"5b0c9095-dbd8-49a8-9f0e-98f12e9c1683\",\"name\":\"IK Craft Demo\",\"handle\":\"default\",\"language\":\"en-US\",\"hasUrls\":true,\"baseUrl\":\"$DEFAULT_SITE_URL\",\"sortOrder\":1,\"primary\":true}},\"email\":{\"fromEmail\":\"adam@interactiveknowledge.com\",\"fromName\":\"IK Craft Demo\",\"transportType\":\"craft\\\\mail\\\\transportadapters\\\\Sendmail\"},\"system\":{\"edition\":\"pro\",\"name\":\"IK Craft Demo\",\"live\":true,\"schemaVersion\":\"3.2.16\",\"timeZone\":\"America/New_York\"},\"users\":{\"requireEmailVerification\":true,\"allowPublicRegistration\":false,\"defaultGroup\":null,\"photoVolumeUid\":\"50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"photoSubpath\":\"/images/users\",\"fieldLayouts\":{\"c29ac813-210e-47d7-b9cd-9a6fde4af85b\":null}},\"dateModified\":1564022374,\"sections\":{\"f4806157-8213-4481-a5ca-4697ca313dfe\":{\"name\":\"Herousel Slides\",\"handle\":\"herouselSlides\",\"type\":\"channel\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"entryTypes\":{\"e07042df-c02d-4b04-a175-e9291e3bee4a\":{\"name\":\"Herousel Slides\",\"handle\":\"herouselSlides\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"{slideTitle}\",\"sortOrder\":1,\"fieldLayouts\":{\"d56f6f75-29d4-4458-84a1-560f8fa794cd\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"required\":false,\"sortOrder\":5},\"2db23733-dff0-4265-a542-6ecad5cb1b9e\":{\"required\":false,\"sortOrder\":3},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"required\":false,\"sortOrder\":1},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"required\":false,\"sortOrder\":4},\"f3d95e24-acd1-44aa-b881-d39395747064\":{\"required\":false,\"sortOrder\":2}}}]}}}},\"propagationMethod\":\"all\"},\"acc864f2-7951-4b85-8639-f771df381a56\":{\"name\":\"Navigation Blocks\",\"handle\":\"navigationBlocks\",\"type\":\"structure\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"711c9b98-5218-4a8c-831e-0b0b70664b65\",\"maxLevels\":1},\"entryTypes\":{\"6bef59cb-3103-44b4-a193-326a2758ecdf\":{\"name\":\"Header Navigation Blocks\",\"handle\":\"headerNavigationBlocks\",\"hasTitleField\":false,\"titleLabel\":\"Title\",\"titleFormat\":\"{blockTitle}\",\"sortOrder\":1,\"fieldLayouts\":{\"56d520b9-dc62-43e6-8250-56e8a644ecb9\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"0a68a217-6bc5-49ac-bdd1-14e540d37976\":{\"required\":false,\"sortOrder\":4},\"77c9f661-7918-4604-9a2d-268172dedf4c\":{\"required\":true,\"sortOrder\":3},\"b86669c7-1f17-4924-8151-b08b5c5e499f\":{\"required\":true,\"sortOrder\":2},\"f0ec0c83-08cc-48d0-9a8b-539f73b52bee\":{\"required\":true,\"sortOrder\":1}}}]}}}},\"propagationMethod\":\"all\"},\"06021517-c456-4337-a55c-342f170b509e\":{\"name\":\"Herousels\",\"handle\":\"herousels\",\"type\":\"channel\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"entryTypes\":{\"7b3aeb3f-1bdf-4cb2-8163-503979b1e13f\":{\"name\":\"Herousels\",\"handle\":\"herousels\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"08229f3b-f574-4612-9224-d9a27260d924\":{\"tabs\":[{\"name\":\"Slides\",\"sortOrder\":1,\"fields\":{\"8ad551d3-1d49-460d-b73f-7f8b70de3740\":{\"required\":false,\"sortOrder\":1}}}]}}}},\"propagationMethod\":\"all\"},\"3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8\":{\"name\":\"Navigation Links\",\"handle\":\"navigationLinks\",\"type\":\"structure\",\"enableVersioning\":true,\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"f8410eba-e92c-449f-8e2a-183643e1ec4f\",\"maxLevels\":2},\"entryTypes\":{\"48c83400-948a-4fe7-befa-a28551d35165\":{\"name\":\"Navigation Links\",\"handle\":\"navigationLinks\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":null,\"sortOrder\":1}},\"propagationMethod\":\"all\"},\"85f5118f-dd13-45cc-a0f4-e49d61bab613\":{\"name\":\"Image Cards\",\"handle\":\"imageCards\",\"type\":\"structure\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"923c838a-a800-44f2-98da-fe775dca1f0d\",\"maxLevels\":1},\"entryTypes\":{\"dd0006ba-780b-4588-a52b-af08d9439c9a\":{\"name\":\"Image Cards\",\"handle\":\"imageCards\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"5d453106-4cb6-4f97-8d55-5d8cf00b35fc\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"required\":false,\"sortOrder\":3},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"required\":true,\"sortOrder\":1},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"required\":true,\"sortOrder\":2}}}]}}}}},\"66a3cf92-176e-4832-aa38-7dae6e1c0893\":{\"name\":\"Insight Blocks\",\"handle\":\"insightBlocks\",\"type\":\"structure\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":false,\"uriFormat\":null,\"template\":null}},\"structure\":{\"uid\":\"978bc0b8-ba5a-4010-926e-35f6bf2a817f\",\"maxLevels\":1},\"entryTypes\":{\"c881ae05-8a22-4968-8734-08b073732300\":{\"name\":\"Insight Blocks\",\"handle\":\"insightBlocks\",\"hasTitleField\":true,\"titleLabel\":\"Title\",\"titleFormat\":\"\",\"sortOrder\":1,\"fieldLayouts\":{\"087dc529-9ea2-4ef6-b449-c87f44493ace\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"required\":false,\"sortOrder\":4},\"68f23f3b-294a-4e72-ba7e-7ce480addad5\":{\"required\":false,\"sortOrder\":1},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"required\":true,\"sortOrder\":2},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"required\":true,\"sortOrder\":3}}}]}}}}},\"e7de7111-7a23-4566-8072-2617f5279d89\":{\"name\":\"Home Page\",\"handle\":\"homePage\",\"type\":\"single\",\"enableVersioning\":true,\"propagationMethod\":\"all\",\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"enabledByDefault\":true,\"hasUrls\":true,\"uriFormat\":\"/\",\"template\":\"index\"}},\"entryTypes\":{\"74bc750a-9481-44ba-92d8-d13059d3c272\":{\"name\":\"Home Page\",\"handle\":\"homePage\",\"hasTitleField\":false,\"titleLabel\":\"\",\"titleFormat\":\"{section.name|raw}\",\"sortOrder\":1,\"fieldLayouts\":{\"5f057e54-102d-4009-a3da-360012a2e9ff\":{\"tabs\":[{\"name\":\"Content\",\"sortOrder\":1,\"fields\":{\"c0107872-0d5b-4aa9-8369-7a4dae65cc08\":{\"required\":false,\"sortOrder\":1}}}]}}}}}},\"fields\":{\"7ca16c4a-c225-4879-b65f-aad29c84a651\":{\"name\":\"Hero Image\",\"handle\":\"heroImage\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Assets\",\"settings\":{\"useSingleFolder\":\"1\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"images\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"list\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"0a68a217-6bc5-49ac-bdd1-14e540d37976\":{\"name\":\"Accent Color\",\"handle\":\"accentColor\",\"instructions\":\"Choose a color for the blocks accent\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Dropdown\",\"settings\":{\"options\":[{\"label\":\"Brand Red\",\"value\":\"brandRed\",\"default\":\"1\"},{\"label\":\"Brand Blue\",\"value\":\"brandBlue\",\"default\":\"\"},{\"label\":\"Brand Green\",\"value\":\"brandGreen\",\"default\":\"\"},{\"label\":\"Brand Orange\",\"value\":\"brandOrange\",\"default\":\"\"}]},\"contentColumnType\":\"string\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"f0ec0c83-08cc-48d0-9a8b-539f73b52bee\":{\"name\":\"Block Title\",\"handle\":\"blockTitle\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"1\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"77c9f661-7918-4604-9a2d-268172dedf4c\":{\"name\":\"Block Icon\",\"handle\":\"blockIcon\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Assets\",\"settings\":{\"useSingleFolder\":\"1\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"images/icons\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"list\",\"limit\":\"1\",\"selectionLabel\":\"Add an icon for this block\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"b86669c7-1f17-4924-8151-b08b5c5e499f\":{\"name\":\"Block Link\",\"handle\":\"blockLink\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"2babdf9b-c278-4420-ade7-ab8175bb80d3\"},\"8ad551d3-1d49-460d-b73f-7f8b70de3740\":{\"name\":\"Herousel Slides\",\"handle\":\"herouselSlides\",\"instructions\":\"Select up to four slides for the herousel.\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":[\"section:f4806157-8213-4481-a5ca-4697ca313dfe\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"4\",\"selectionLabel\":\"Add a slide to the herousel\",\"localizeRelations\":false},\"contentColumnType\":\"string\",\"fieldGroup\":\"4b19cdc5-eb0d-43c0-a63b-60bacd175db4\"},\"18d5ee1b-53c5-415a-8fd8-b53d9d43f763\":{\"name\":\"Entry Image\",\"handle\":\"entryImage\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Assets\",\"settings\":{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"defaultUploadLocationSubpath\":\"images/\",\"singleUploadLocationSource\":\"volume:50afdfd7-6c44-4e96-973a-b03967ec3cac\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"96cdbd77-6e4d-414a-9b67-56b4900b420c\":{\"name\":\"Copy\",\"handle\":\"copy\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"Lorem ipsum dolor sit amet...\",\"code\":\"\",\"multiline\":\"1\",\"initialRows\":\"1\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"f3d95e24-acd1-44aa-b881-d39395747064\":{\"name\":\"Slide Category\",\"handle\":\"slideCategory\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"2db23733-dff0-4265-a542-6ecad5cb1b9e\":{\"name\":\"CTA Copy\",\"handle\":\"ctaCopy\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"25\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"edacbb61-d979-4e62-bfed-e8425456b1f1\":{\"name\":\"CTA Link\",\"handle\":\"ctaLink\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":\"*\",\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"Select another entry to link to\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"68f23f3b-294a-4e72-ba7e-7ce480addad5\":{\"name\":\"Related Category\",\"handle\":\"relatedCategory\",\"instructions\":\"\",\"searchable\":true,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Categories\",\"settings\":{\"allowLimit\":false,\"allowMultipleSources\":false,\"branchLimit\":\"1\",\"sources\":\"*\",\"source\":\"group:85c77f35-48e4-42ff-a631-57f0612aaf53\",\"targetSiteId\":null,\"viewMode\":null,\"limit\":null,\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"038069ec-817a-4271-8329-8800920a9077\":{\"name\":\"Contact Street Address\",\"handle\":\"contactStreetAddress\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"3e14ad63-16b6-4e2c-9006-913712819550\":{\"name\":\"Contact Phone\",\"handle\":\"contactPhone\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"1953e64d-f917-4bce-a0df-82f0221e3e64\":{\"name\":\"Contact State\",\"handle\":\"contactState\",\"instructions\":\"\",\"searchable\":false,\"translationMethod\":\"none\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\PlainText\",\"settings\":{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"},\"contentColumnType\":\"text\",\"fieldGroup\":\"9cbd8a73-a772-4caa-acb5-a5a9151ddd55\"},\"c0107872-0d5b-4aa9-8369-7a4dae65cc08\":{\"name\":\"Herousel\",\"handle\":\"herousel\",\"instructions\":\"Select a Herousel to use on the page.\",\"searchable\":false,\"translationMethod\":\"site\",\"translationKeyFormat\":null,\"type\":\"craft\\\\fields\\\\Entries\",\"settings\":{\"sources\":[\"section:06021517-c456-4337-a55c-342f170b509e\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":null,\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false,\"validateRelatedElements\":\"\"},\"contentColumnType\":\"string\",\"fieldGroup\":\"4b19cdc5-eb0d-43c0-a63b-60bacd175db4\"}},\"volumes\":{\"50afdfd7-6c44-4e96-973a-b03967ec3cac\":{\"name\":\"Uploads\",\"handle\":\"uploads\",\"type\":\"craft\\\\volumes\\\\Local\",\"hasUrls\":true,\"url\":\"@web/uploads\",\"settings\":{\"path\":\"@webroot/uploads/\"},\"sortOrder\":1}},\"categoryGroups\":{\"85c77f35-48e4-42ff-a631-57f0612aaf53\":{\"name\":\"Digital Insights\",\"handle\":\"digitalInsights\",\"structure\":{\"uid\":\"fe8e586c-734e-4d4c-a28a-94addd5bc033\",\"maxLevels\":1},\"siteSettings\":{\"f2559c18-7489-4189-aecc-54995f3bff7a\":{\"hasUrls\":false,\"uriFormat\":null,\"template\":null}}}},\"globalSets\":{\"2cdb6263-8e70-47fa-a8d8-e0f7178e1fb6\":{\"name\":\"Contact Info\",\"handle\":\"contactInfo\",\"fieldLayouts\":{\"cbb838b2-a710-4a92-ba0d-d241b3abbbc3\":{\"tabs\":[{\"name\":\"Information\",\"sortOrder\":1,\"fields\":{\"038069ec-817a-4271-8329-8800920a9077\":{\"required\":false,\"sortOrder\":1},\"1953e64d-f917-4bce-a0df-82f0221e3e64\":{\"required\":false,\"sortOrder\":2},\"3e14ad63-16b6-4e2c-9006-913712819550\":{\"required\":false,\"sortOrder\":3}}}]}}}},\"routes\":[]}','[]','ETBN1mfBR1HN','2019-06-29 17:33:17','2019-07-12 12:23:13','65f5429e-47ff-4db3-9d7d-6a0c17149af6');
 
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1462,7 +1536,9 @@ VALUES
 	(148,NULL,'app','m190608_033429_drop_elements_uid_idx','2019-07-12 12:24:05','2019-07-12 12:24:05','2019-07-12 12:24:05','42dd538d-07f7-4491-9b64-2f431480e4d4'),
 	(149,NULL,'app','m190624_234204_matrix_propagation_method','2019-07-12 12:24:05','2019-07-12 12:24:05','2019-07-12 12:24:05','b3d95ab3-aa8f-45ec-a145-1d3d9843f3f7'),
 	(150,NULL,'app','m190709_111144_nullable_revision_id','2019-07-12 12:24:05','2019-07-12 12:24:05','2019-07-12 12:24:05','99bdd1ac-0c4f-4c42-a4c5-43b7353386e6'),
-	(151,NULL,'app','m190711_153020_drop_snapshots','2019-07-12 12:24:05','2019-07-12 12:24:05','2019-07-12 12:24:05','e6d4d909-ddbf-447b-8193-8447d5185de7');
+	(151,NULL,'app','m190711_153020_drop_snapshots','2019-07-12 12:24:05','2019-07-12 12:24:05','2019-07-12 12:24:05','e6d4d909-ddbf-447b-8193-8447d5185de7'),
+	(152,NULL,'app','m190712_195914_no_draft_revisions','2019-07-18 17:05:06','2019-07-18 17:05:06','2019-07-18 17:05:06','c84f463f-e7c5-4142-8f07-345c7609cf8e'),
+	(153,NULL,'app','m190723_140314_fix_preview_targets_column','2019-07-25 00:31:51','2019-07-25 00:31:51','2019-07-25 00:31:51','94f746b4-aa3e-4602-8306-6a69977d9f86');
 
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1582,14 +1658,9 @@ VALUES
 	(93,13,60,NULL,20,1,'2019-07-12 13:46:08','2019-07-12 13:46:08','d3e3d348-3f18-4c6a-bd89-324041dcd490'),
 	(94,8,60,NULL,59,1,'2019-07-12 13:46:08','2019-07-12 13:46:08','f10f85a7-1b87-4249-95d2-119b9398653e'),
 	(97,8,61,NULL,3,1,'2019-07-12 13:47:40','2019-07-12 13:47:40','e831765c-c63e-40b4-9df3-fb9b3c31ccfa'),
-	(108,8,10,NULL,3,1,'2019-07-12 13:48:15','2019-07-12 13:48:15','f7e85bf1-14d1-4147-8e24-142daef5d086'),
 	(109,8,63,NULL,3,1,'2019-07-12 13:48:15','2019-07-12 13:48:15','b1e2a98a-4680-4ffd-9e14-775d2d506b64'),
-	(124,13,58,NULL,20,1,'2019-07-12 13:48:58','2019-07-12 13:48:58','01df8be6-c112-4dd8-be2a-6da277085a45'),
-	(125,8,58,NULL,59,1,'2019-07-12 13:48:58','2019-07-12 13:48:58','858d649d-c343-40a9-b68f-80b1cb790eba'),
 	(126,13,65,NULL,20,1,'2019-07-12 13:48:58','2019-07-12 13:48:58','62306525-1269-4411-b803-5ed7d89caac3'),
 	(127,8,65,NULL,59,1,'2019-07-12 13:48:58','2019-07-12 13:48:58','332afdff-b99c-480f-b280-25d0086d3832'),
-	(133,6,9,NULL,10,1,'2019-07-12 13:49:06','2019-07-12 13:49:06','5d38e56b-e50d-4427-a8c3-5a777c2d7f69'),
-	(134,6,9,NULL,58,2,'2019-07-12 13:49:06','2019-07-12 13:49:06','9cffedba-9b3b-4dd9-a93c-6e1382a4fd7d'),
 	(135,6,67,NULL,10,1,'2019-07-12 13:49:06','2019-07-12 13:49:06','2f2b4403-e117-4b37-befc-9086a7ab7eae'),
 	(136,6,67,NULL,58,2,'2019-07-12 13:49:06','2019-07-12 13:49:06','9bedc4b2-0b04-46b1-b717-e9a5a5376d44'),
 	(142,13,71,NULL,16,1,'2019-07-12 15:27:35','2019-07-12 15:27:35','2c04fd91-58cf-47e4-bbc2-c6f03324e689'),
@@ -1621,7 +1692,22 @@ VALUES
 	(226,13,72,NULL,19,1,'2019-07-12 16:12:48','2019-07-12 16:12:48','93823d41-3fe6-436f-9a3b-79eababe9aa6'),
 	(227,8,72,NULL,3,1,'2019-07-12 16:12:48','2019-07-12 16:12:48','a386d497-ef18-4f52-9881-1f7252b4f243'),
 	(228,13,74,NULL,19,1,'2019-07-12 16:12:48','2019-07-12 16:12:48','0ee25e28-fd9d-4561-a005-a5c31a19d397'),
-	(229,8,74,NULL,77,1,'2019-07-12 16:12:48','2019-07-12 16:12:48','5aa499ba-cf3b-4a44-bb42-778d02392b8a');
+	(229,8,74,NULL,77,1,'2019-07-12 16:12:48','2019-07-12 16:12:48','5aa499ba-cf3b-4a44-bb42-778d02392b8a'),
+	(272,19,95,NULL,9,1,'2019-07-25 00:41:57','2019-07-25 00:41:57','5601c1e9-a655-4c66-9c8f-cb14be1a4eff'),
+	(274,19,102,NULL,9,1,'2019-07-25 00:44:41','2019-07-25 00:44:41','dcd7f5a3-c68d-4d9f-9634-257796376975'),
+	(282,13,58,NULL,20,1,'2019-07-25 02:39:34','2019-07-25 02:39:34','25d072bc-0508-4cf7-9a4d-8baf878b27cf'),
+	(283,8,58,NULL,59,1,'2019-07-25 02:39:34','2019-07-25 02:39:34','ad0a545b-717e-4ce8-bebd-029ecbeb3b93'),
+	(285,8,104,NULL,103,1,'2019-07-25 02:39:41','2019-07-25 02:39:41','b59c1046-772d-4ba9-8855-b90187b02609'),
+	(286,13,10,NULL,99,1,'2019-07-25 14:08:54','2019-07-25 14:08:54','572a1d0c-ab27-469d-9749-bb66214aebcb'),
+	(287,8,10,NULL,103,1,'2019-07-25 14:08:54','2019-07-25 14:08:54','51042459-38f0-40a2-813c-0c8d4ad9f264'),
+	(288,13,105,NULL,99,1,'2019-07-25 14:08:54','2019-07-25 14:08:54','043c3318-dee3-4545-a6a8-20f89dcac2fc'),
+	(289,8,105,NULL,103,1,'2019-07-25 14:08:54','2019-07-25 14:08:54','d110594a-e543-4516-97cc-5dfb99d307f9'),
+	(291,19,106,NULL,9,1,'2019-07-25 14:15:52','2019-07-25 14:15:52','effc5ac2-cd27-4f65-ae68-288af3b2d729'),
+	(292,19,99,NULL,9,1,'2019-07-25 14:15:52','2019-07-25 14:15:52','cb6b5b69-b5f8-48ef-9226-974744106d65'),
+	(293,6,9,NULL,58,1,'2019-07-26 22:07:12','2019-07-26 22:07:12','3fc21754-6d75-48de-8e44-b21737da6296'),
+	(294,6,9,NULL,10,2,'2019-07-26 22:07:12','2019-07-26 22:07:12','1897adb5-174b-41d1-98a2-49eb4feb7ae8'),
+	(295,6,107,NULL,58,1,'2019-07-26 22:07:12','2019-07-26 22:07:12','c10bf4d0-2dbc-4521-9a59-b0757bb53728'),
+	(296,6,107,NULL,10,2,'2019-07-26 22:07:12','2019-07-26 22:07:12','f45a25c4-2fce-4bdd-8e00-e29fe5f24962');
 
 /*!40000 ALTER TABLE `relations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1643,87 +1729,201 @@ LOCK TABLES `resourcepaths` WRITE;
 
 INSERT INTO `resourcepaths` (`hash`, `path`)
 VALUES
+	('103145d3','@lib/element-resize-detector'),
 	('11155747','@app/web/assets/craftsupport/dist'),
+	('11880a6b','@lib/velocity'),
 	('13b43fac','@app/web/assets/fields/dist'),
 	('14d311e2','@app/web/assets/dashboard/dist'),
 	('153e6907','@lib/jquery-ui'),
 	('17a14a27','@lib/fabric'),
+	('18135d49','@app/web/assets/userpermissions/dist'),
 	('1d31f8e4','@app/web/assets/updater/dist'),
+	('1d977c4f','@app/web/assets/feed/dist'),
 	('1f87fb86','@app/web/assets/updateswidget/dist'),
 	('213db9e8','@app/web/assets/recententries/dist'),
+	('2153190c','@app/web/assets/clearcaches/dist'),
+	('221e786c','@app/web/assets/sites/dist'),
+	('22316f7f','@app/web/assets/feed/dist'),
 	('2717a830','@lib/fileupload'),
 	('2748d34e','@app/web/assets/pluginstore/dist'),
+	('2c5d2820','@app/web/assets/matrixsettings/dist'),
+	('2e2e195b','@lib/velocity'),
 	('2e79e19','@lib/garnishjs'),
 	('2e93cf38','@app/web/assets/cp/dist'),
+	('2f9756e3','@lib/element-resize-detector'),
 	('315a899f','@lib/d3'),
+	('3209b6b3','@lib/jquery.payment'),
+	('3222c58f','@app/web/assets/routes/dist'),
 	('3475d3e2','@app/web/assets/editentry/dist'),
+	('380271e5','@lib/timepicker'),
+	('382d3cee','@lib'),
 	('384e8b1b','@app/web/assets/login/dist'),
 	('385b950c','@lib/jquery-touch-events'),
+	('39516650','@app/web/assets/utilities/dist'),
 	('3add9f85','@lib/prismjs'),
 	('3c709e65','@app/web/assets/cp/dist'),
+	('3fa1ee26','@bower/jquery/dist'),
 	('3fffa9ce','@lib/picturefill'),
+	('401269ea','@app/web/assets/pluginstore/dist'),
+	('41074160','@lib/fileupload'),
+	('440e913c','@app/web/assets/sites/dist'),
 	('456bd5db','@app/web/assets/feed/dist'),
+	('4667034c','@app/web/assets/recententries/dist'),
+	('477b5212','@app/web/assets/updateswidget/dist'),
 	('47b05d4a','@lib/jquery.payment'),
 	('4974a3ff','@lib/velocity'),
+	('49e9fed3','@app/web/assets/craftsupport/dist'),
+	('49fc5a59','@app/web/assets/assetindexes/dist'),
 	('4a1805df','@bower/jquery/dist'),
 	('4ce88da9','@app/web/assets/utilities/dist'),
+	('52653ab2','@app/web/assets/editentry/dist'),
+	('53df3e03','@app/web/assets/generalsettings/dist'),
 	('55530c17','@lib/jquery.payment'),
 	('5721b2ab','@app/web/assets/tablesettings/dist'),
+	('572e002d','@app/web/assets/updater/dist'),
+	('574a60cf','@lib/d3'),
 	('58fb5482','@bower/jquery/dist'),
+	('59ef409e','@lib/picturefill'),
+	('5b2a24c1','@app/web/assets/cp/dist'),
 	('5b97f2a2','@lib/velocity'),
+	('5ccd76d5','@lib/prismjs'),
 	('5e0bdcf4','@app/web/assets/utilities/dist'),
 	('5e1298b5','@lib/timepicker'),
+	('5e4b7c5c','@lib/jquery-touch-events'),
+	('5f1431bf','@app/web/assets/login/dist'),
+	('5f2191ce','@lib/jquery-ui'),
+	('608782fe','@lib/jquery-ui'),
+	('60b2228f','@app/web/assets/login/dist'),
 	('60d1957a','@lib'),
+	('60ef3d40','@app/web/assets/findreplace/dist'),
 	('61edc0c0','@lib/xregexp'),
+	('648c37f1','@app/web/assets/cp/dist'),
+	('64f77749','@lib/garnishjs'),
 	('6588ae2a','@lib/element-resize-detector'),
+	('6888131d','@app/web/assets/updater/dist'),
 	('6ade6c1b','@app/web/assets/routes/dist'),
 	('6b81844a','@lib/selectize'),
+	('6c792d33','@app/web/assets/generalsettings/dist'),
+	('6d3e37c3','@app/web/assets/updates/dist'),
+	('6f77560','@app/web/assets/utilities/dist'),
+	('71b1a377','@lib/fabric'),
+	('72c3f8b2','@app/web/assets/dashboard/dist'),
+	('72efed82','@app/web/assets/systemmessages/dist'),
 	('74a181b4','@app/web/assets/matrixsettings/dist'),
+	('75a4d6fc','@app/web/assets/fields/dist'),
+	('764fede3','@app/web/assets/craftsupport/dist'),
 	('776bff77','@lib/element-resize-detector'),
+	('78b2fde','@lib'),
+	('78dd4122','@app/web/assets/updateswidget/dist'),
+	('79c1107c','@app/web/assets/recententries/dist'),
+	('7c5da131','@app/web/assets/edituser/dist'),
 	('7dd385a','@lib/jquery-ui'),
+	('7fb47ada','@app/web/assets/pluginstore/dist'),
+	('7fd16','@bower/jquery/dist'),
+	('7fd2990','@lib/xregexp'),
 	('802f4581','@lib/selectize'),
+	('8170add0','@app/web/assets/routes/dist'),
+	('8208e1c0','@lib/d3'),
+	('8727bbbd','@app/web/assets/editentry/dist'),
 	('8731d370','@app/web/assets/edittransform/dist'),
+	('87daa5fc','@app/web/assets/updates/dist'),
+	('898ff7da','@lib/prismjs'),
 	('8a43010b','@lib/xregexp'),
+	('8a6310c1','@lib/jquery-ui'),
+	('8b09fd53','@lib/jquery-touch-events'),
 	('8b7f54b1','@lib'),
+	('8cadc191','@lib/picturefill'),
+	('8e13e576','@lib/garnishjs'),
 	('90113be8','@app/web/assets/editcategory/dist'),
+	('914c1033','@app/web/assets/sites/dist'),
+	('9239d31d','@app/web/assets/updateswidget/dist'),
 	('92cc14dc','@lib/selectize'),
+	('9445c06f','@lib/fileupload'),
+	('98276a8d','@app/web/assets/dashboard/dist'),
 	('985bfe8','@app/web/assets/installer/dist'),
 	('98a05056','@lib/xregexp'),
+	('99bb7888','@app/web/assets/deprecationerrors/dist'),
+	('9b553148','@lib/fabric'),
+	('9cab7fdc','@app/web/assets/craftsupport/dist'),
 	('9cc53ebc','@lib/element-resize-detector'),
 	('9f0f407f','@app/web/assets/matrixsettings/dist'),
+	('9f4044c3','@app/web/assets/fields/dist'),
+	('a0e657f3','@app/web/assets/fields/dist'),
 	('a2da6234','@lib/velocity'),
+	('a4f32278','@lib/fabric'),
+	('a61d6bb8','@app/web/assets/deprecationerrors/dist'),
+	('a6cbb972','@yii/debug/assets'),
+	('a76fe5ae','@app/web/assets/dbbackup/dist'),
+	('a78179bd','@app/web/assets/dashboard/dist'),
+	('aaf6fbd5','@app/web/assets/pluginstore/dist'),
+	('abe3d35f','@lib/fileupload'),
+	('ac839173','@app/web/assets/recententries/dist'),
 	('aced3197','@app/web/assets/clearcaches/dist'),
 	('aec51410','@app/web/assets/feed/dist'),
+	('aeea0303','@app/web/assets/sites/dist'),
+	('b1b5f646','@lib/garnishjs'),
+	('b1ceb6fe','@app/web/assets/cp/dist'),
 	('b2ede93','@app/web/assets/updates/dist'),
+	('b30bd2a1','@lib/picturefill'),
 	('b3559549','@bower/jquery/dist'),
+	('b4afee63','@lib/jquery-touch-events'),
 	('b5a51d3f','@app/web/assets/utilities/dist'),
 	('b5bc597e','@lib/timepicker'),
+	('b5f0a380','@app/web/assets/login/dist'),
+	('b629e4ea','@lib/prismjs'),
+	('b87cb6cc','@app/web/assets/updates/dist'),
 	('bc8f7360','@app/web/assets/tablesettings/dist'),
+	('bdaef2f0','@lib/d3'),
 	('befdcddc','@lib/jquery.payment'),
 	('c116059a','@lib/jquery-touch-events'),
+	('c4ca8b64','@lib/velocity'),
 	('c6b23958','@lib/picturefill'),
 	('c8171909','@lib/d3'),
+	('c8d5fd40','@app/web/assets/feed/dist'),
 	('ca937823','@app/web/assets/recententries/dist'),
+	('cbb78b33','@app/web/assets/clearcaches/dist'),
 	('ccb969fb','@lib/fileupload'),
+	('cce61285','@app/web/assets/pluginstore/dist'),
+	('cf0fc96e','@app/web/assets/edituser/dist'),
 	('d1735e4e','@lib/prismjs'),
+	('d2bfa89f','@lib/xregexp'),
+	('d32f0677','@vendor/yiisoft/yii2/assets'),
+	('d3b5f46f','@app/web/assets/utilities/dist'),
+	('d3e04ad0','@app/web/assets/login/dist'),
 	('d3f554c7','@lib/jquery-touch-events'),
 	('d4516805','@lib/picturefill'),
+	('d5457c19','@bower/jquery/dist'),
 	('d7de5fae','@app/web/assets/cp/dist'),
+	('d84d6bf','@app/web/assets/routes/dist'),
+	('d8d3ec15','@lib/selectize'),
+	('d8ed248c','@lib/jquery.payment'),
+	('d916d1a','@lib/selectize'),
+	('da9f9a30','@app/web/assets/tablesettings/dist'),
 	('daf44854','@lib/d3'),
+	('dafa583','@lib/jquery.payment'),
 	('de5a38a6','@lib/fileupload'),
 	('dfdb1229','@app/web/assets/editentry/dist'),
 	('e0801f58','@app/web/assets/updates/dist'),
 	('e08d565c','@app/web/assets/generalsettings/dist'),
+	('e47c6872','@app/web/assets/updater/dist'),
+	('e775ff25','@lib/selectize'),
 	('e9495fd2','@lib/garnishjs'),
 	('ec73f991','@lib/jquery-ui'),
+	('ed19bbaf','@lib/xregexp'),
+	('ed40f0ea','@lib/timepicker'),
+	('ed6fbde1','@lib'),
 	('eeecdab1','@lib/fabric'),
 	('f2634e05','@app/web/assets/updates/dist'),
+	('f4119803','@app/web/assets/clearcaches/dist'),
 	('f4293a4d','@app/web/assets/updateswidget/dist'),
 	('f81afe67','@app/web/assets/fields/dist'),
+	('f91fa92f','@app/web/assets/matrixsettings/dist'),
 	('fabb968c','@app/web/assets/craftsupport/dist'),
+	('fad5d7ec','@lib/element-resize-detector'),
 	('fbaa0e8f','@lib/garnishjs'),
 	('fc0f8bec','@lib/fabric'),
 	('fd2a9b9','@app/web/assets/updater/dist'),
+	('fdd1b3f','@app/web/assets/tablesettings/dist'),
 	('fee1c22c','@app/web/assets/deprecationerrors/dist'),
 	('ff7dd029','@app/web/assets/dashboard/dist');
 
@@ -1799,7 +1999,18 @@ VALUES
 	(43,80,1,1,'Revision from Jul 12, 2019, 8:45:56 AM'),
 	(44,82,1,1,'Revision from Jul 12, 2019, 8:46:50 AM'),
 	(45,82,1,2,'Applied “Draft 1”'),
-	(46,80,1,2,'Applied “Draft 1”');
+	(46,80,1,2,'Applied “Draft 1”'),
+	(48,91,1,1,'Revision from Jul 15, 2019, 4:28:28 PM'),
+	(49,91,1,2,NULL),
+	(50,96,1,1,NULL),
+	(51,96,1,2,NULL),
+	(52,99,1,1,NULL),
+	(53,99,1,2,NULL),
+	(54,99,1,3,NULL),
+	(55,10,1,4,NULL),
+	(56,10,1,5,NULL),
+	(57,99,1,4,NULL),
+	(58,9,1,4,NULL);
 
 /*!40000 ALTER TABLE `revisions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1837,7 +2048,7 @@ VALUES
 	(3,'extension',0,1,' jpg '),
 	(3,'kind',0,1,' image '),
 	(3,'slug',0,1,''),
-	(3,'title',0,1,' hero delivery '),
+	(3,'title',0,1,' man deliverying boxes '),
 	(4,'field',1,1,' hero delivery '),
 	(4,'slug',0,1,' test hero slide '),
 	(4,'title',0,1,''),
@@ -1858,7 +2069,6 @@ VALUES
 	(8,'field',2,1,' brandred '),
 	(8,'slug',0,1,' philanthropy social enterprise '),
 	(8,'title',0,1,' philanthropy social enterprise '),
-	(9,'field',6,1,' make the most of your tactile learning style do you want to go to outer space us too '),
 	(9,'slug',0,1,' first herousel '),
 	(9,'title',0,1,' first herousel '),
 	(4,'field',9,1,''),
@@ -1868,13 +2078,10 @@ VALUES
 	(4,'field',13,1,''),
 	(4,'field',8,1,''),
 	(10,'field',9,1,' make the most of your tactile learning style '),
-	(10,'field',10,1,' according to some educational theorists there are as many as nine different types of intelligence and multiple styles of learning '),
 	(10,'field',11,1,' learning '),
 	(10,'field',12,1,' learn more '),
-	(10,'field',13,1,''),
-	(10,'field',8,1,' hero delivery '),
+	(10,'field',13,1,' home page '),
 	(10,'slug',0,1,' first hero slide '),
-	(10,'title',0,1,' make the most of your tactile learning style '),
 	(11,'slug',0,1,' programs '),
 	(11,'title',0,1,' programs '),
 	(12,'slug',0,1,' idhs global leadership network '),
@@ -1928,13 +2135,16 @@ VALUES
 	(59,'slug',0,1,''),
 	(59,'title',0,1,' computer focal '),
 	(58,'slug',0,1,' space slide '),
-	(58,'title',0,1,' do you want to go to outer space us too '),
 	(58,'field',9,1,' do you want to go to outer space us too '),
-	(58,'field',10,1,' we have a deep desire to head up the great unknown and discover what else is out there '),
 	(58,'field',11,1,' space '),
 	(58,'field',12,1,' learn more '),
 	(58,'field',13,1,' history '),
 	(58,'field',8,1,' computer focal '),
+	(10,'title',0,1,' make the most of your tactile learning style '),
+	(10,'field',10,1,' according to some educational theorists there are as many as nine different types of intelligence and multiple styles of learning '),
+	(58,'title',0,1,' do you want to go to outer space us too '),
+	(58,'field',10,1,' we have a deep desire to head up the great unknown and discover what else is out there '),
+	(9,'field',6,1,' do you want to go to outer space us too make the most of your tactile learning style '),
 	(70,'slug',0,1,' header provision '),
 	(70,'title',0,1,' header provision '),
 	(70,'field',10,1,' i have hinted that i would often jerk poor queequeg from between the whale '),
@@ -1972,7 +2182,21 @@ VALUES
 	(82,'field',14,1,' design '),
 	(80,'field',14,1,' development '),
 	(90,'slug',0,1,''),
-	(90,'field',10,1,'');
+	(90,'field',10,1,''),
+	(91,'slug',0,1,' pages '),
+	(91,'title',0,1,' pages '),
+	(95,'slug',0,1,' home page '),
+	(95,'title',0,1,' home page '),
+	(96,'slug',0,1,' home page '),
+	(96,'title',0,1,' home page '),
+	(99,'slug',0,1,' home page '),
+	(99,'title',0,1,' home page '),
+	(103,'filename',0,1,' people walking on painted streets jpg '),
+	(103,'extension',0,1,' jpg '),
+	(103,'kind',0,1,' image '),
+	(103,'slug',0,1,''),
+	(103,'title',0,1,' people walking on painted streets '),
+	(10,'field',8,1,' people walking on painted streets ');
 
 /*!40000 ALTER TABLE `searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2009,13 +2233,17 @@ LOCK TABLES `sections` WRITE;
 
 INSERT INTO `sections` (`id`, `structureId`, `name`, `handle`, `type`, `enableVersioning`, `propagationMethod`, `previewTargets`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,NULL,'Herousel Slides','herouselSlides','channel',1,'all',NULL,'2019-06-29 17:57:44','2019-06-29 23:21:53',NULL,'f4806157-8213-4481-a5ca-4697ca313dfe'),
+	(1,NULL,'Herousel Slides','herouselSlides','channel',1,'all',NULL,'2019-06-29 17:57:44','2019-07-25 02:39:34',NULL,'f4806157-8213-4481-a5ca-4697ca313dfe'),
 	(2,NULL,'Basic Pages','basicPages','single',1,'all',NULL,'2019-06-29 22:13:15','2019-06-29 22:15:53','2019-06-29 22:15:53','1e1ea071-5025-48d7-af03-57353bb69c52'),
 	(3,1,'Navigation Blocks','navigationBlocks','structure',1,'all',NULL,'2019-06-29 22:41:05','2019-07-08 23:29:52',NULL,'acc864f2-7951-4b85-8639-f771df381a56'),
 	(4,NULL,'Herousels','herousels','channel',1,'all',NULL,'2019-06-29 23:03:21','2019-06-29 23:05:24',NULL,'06021517-c456-4337-a55c-342f170b509e'),
 	(5,2,'Navigation Links','navigationLinks','structure',1,'all',NULL,'2019-06-30 01:46:32','2019-06-30 01:46:32',NULL,'3d68d8a0-b786-405c-8b3c-d3ed8c4b93f8'),
 	(6,5,'Image Cards','imageCards','structure',1,'all',NULL,'2019-07-12 15:04:17','2019-07-12 16:14:58',NULL,'85f5118f-dd13-45cc-a0f4-e49d61bab613'),
-	(7,4,'Insight Blocks','insightBlocks','structure',1,'all',NULL,'2019-07-12 15:37:08','2019-07-12 16:15:03',NULL,'66a3cf92-176e-4832-aa38-7dae6e1c0893');
+	(7,4,'Insight Blocks','insightBlocks','structure',1,'all',NULL,'2019-07-12 15:37:08','2019-07-12 16:15:03',NULL,'66a3cf92-176e-4832-aa38-7dae6e1c0893'),
+	(8,NULL,'Pages','pages','single',1,'all',NULL,'2019-07-15 20:28:28','2019-07-15 20:29:03','2019-07-15 20:29:03','6d2e2c07-768e-4d68-97bc-3f2d9ac555cc'),
+	(9,NULL,'Home Page','homePage','single',0,'all',NULL,'2019-07-21 18:35:52','2019-07-25 00:41:57','2019-07-25 00:41:57','219562fb-ca02-4959-86be-5ca769fc0861'),
+	(10,NULL,'Home Page','homePage','single',1,'all',NULL,'2019-07-25 00:42:15','2019-07-25 00:42:44','2019-07-25 00:42:44','d4c5bd63-60b7-4b2f-b5ba-4606d6a95f02'),
+	(11,NULL,'Home Page','homePage','single',1,'all',NULL,'2019-07-25 00:44:16','2019-07-25 14:15:52',NULL,'e7de7111-7a23-4566-8072-2617f5279d89');
 
 /*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2049,13 +2277,17 @@ LOCK TABLES `sections_sites` WRITE;
 
 INSERT INTO `sections_sites` (`id`, `sectionId`, `siteId`, `hasUrls`, `uriFormat`, `template`, `enabledByDefault`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,1,0,NULL,NULL,1,'2019-06-29 17:57:44','2019-06-29 23:21:53','f6a393f1-749c-4ce7-b716-a89a26f8f882'),
+	(1,1,1,0,NULL,NULL,1,'2019-06-29 17:57:44','2019-07-25 02:39:34','f6a393f1-749c-4ce7-b716-a89a26f8f882'),
 	(2,2,1,1,'__home__','',1,'2019-06-29 22:13:15','2019-06-29 22:15:53','7be94367-d231-491e-a3cd-07e5639f55c8'),
 	(3,3,1,0,NULL,NULL,1,'2019-06-29 22:41:05','2019-07-08 23:29:52','ba7fcd3e-da7b-4a89-914d-e4a2819f1284'),
 	(4,4,1,0,NULL,NULL,1,'2019-06-29 23:03:21','2019-06-29 23:05:24','c2d28c24-02b2-4cf9-8232-5c7976aadb0a'),
 	(5,5,1,0,NULL,NULL,1,'2019-06-30 01:46:32','2019-06-30 01:46:32','68b7102d-db07-4091-994a-c4b5109bd753'),
 	(6,6,1,0,NULL,NULL,1,'2019-07-12 15:04:17','2019-07-12 16:14:58','9775b3e1-542f-453e-8560-d1621730fc53'),
-	(7,7,1,0,NULL,NULL,1,'2019-07-12 15:37:08','2019-07-12 16:15:03','cfac9c75-06ee-4927-9efc-108151604a7b');
+	(7,7,1,0,NULL,NULL,1,'2019-07-12 15:37:08','2019-07-12 16:15:03','cfac9c75-06ee-4927-9efc-108151604a7b'),
+	(8,8,1,1,'__home__','',1,'2019-07-15 20:28:28','2019-07-15 20:29:03','aeb872a0-e850-49ed-8999-3c700d02ab95'),
+	(9,9,1,1,'/','index',1,'2019-07-21 18:35:52','2019-07-25 00:41:57','9036f823-6890-466d-91d4-65bdc387622d'),
+	(10,10,1,1,'home-page','',1,'2019-07-25 00:42:15','2019-07-25 00:42:44','3dd05e29-f168-4d13-bdb8-877f1f50fe07'),
+	(11,11,1,1,'/','index',1,'2019-07-25 00:44:16','2019-07-25 14:15:52','c11524aa-bf0f-4367-99e7-7ca6bed6275f');
 
 /*!40000 ALTER TABLE `sections_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2109,7 +2341,23 @@ VALUES
 	(8,1,'PB4KIvoiFFPti_M0PMO7prVYh8ae41HxOt_btTEb-9FLeWxDVFfR4cYjRWqB0BZ4kUOIx4rZObx-bQTAJwPeKGE0K7wIN8GPOe4M','2019-07-08 22:52:50','2019-07-09 11:59:12','65e19073-098a-4c90-ab37-e9f8be68794e'),
 	(9,1,'Guq8aS-xl65VSDA2SbdwS3-WgQbMOplKKEWztJ4U-qMsUgRP1yjY8V98614BTJ32PpKvamjeZ2E2--U3r7BNi8mcyGI4HmqadWMH','2019-07-09 20:46:01','2019-07-10 12:10:11','fd1fac67-d7b0-4fc6-a093-067ddb59ee90'),
 	(10,1,'u52ySPgOWuxZc-AoY-HylsntV8fvQloGzybPQnijCVprfucPmtRn7x_z924HjVoC39MCfI4GjsXZE9UwtFKVbJ7IVvSnkEt4wKp2','2019-07-12 12:18:48','2019-07-12 12:24:25','e19739c7-26e5-49e6-a788-f28682fadf94'),
-	(11,1,'qfvXoveAd_26pcvTMfdac6EW3t7X8XJq3uKjN-DxIk6xmRgvIZnByrbkMvvaw8A0xCZz9BAtHylQC4ebzUC7dNhisCD93c-tKR7h','2019-07-12 13:13:43','2019-07-12 16:54:22','03cab00d-bc85-4a60-95cf-ad357240e0f7');
+	(11,1,'qfvXoveAd_26pcvTMfdac6EW3t7X8XJq3uKjN-DxIk6xmRgvIZnByrbkMvvaw8A0xCZz9BAtHylQC4ebzUC7dNhisCD93c-tKR7h','2019-07-12 13:13:43','2019-07-13 17:40:16','03cab00d-bc85-4a60-95cf-ad357240e0f7'),
+	(12,1,'BVtUHWJCBtKxS1NbRItXkKGvZzjiEaq12eZPw3E7Tk1Cev5wn5aic-yWjsDYXrt8mEl1EPwCOo0vRiNpELCZF1cUYcz-EvFA3bHM','2019-07-15 12:26:17','2019-07-15 13:29:29','d98e2b0b-b506-46c9-81cf-8f6f0e0e0340'),
+	(13,1,'VaB3f7xRyc5W2h0CVNMppDlXSfnbizMZG2Rp5pewXv3cNx7DOzXLHEGKRzWoXQFNCfruCQCUHhxmfjc60ixAUGcqF-GGkn6SOB5F','2019-07-15 20:26:26','2019-07-16 14:19:03','dcb0d09d-0508-4f43-a8f6-b83f0b7a4a23'),
+	(14,1,'usawHeMCbeFEq0iZ-jCMNYWht_H71R20FgVXSlbMtjzRtQe2j4Mm1C6Bf8Vvctz1BAdFVHTWRpUlvN9BbV1wt9RPTNcjq4aFO5Bh','2019-07-17 22:44:01','2019-07-17 22:53:12','6515954d-cdef-4154-ba62-be24b0a6b1e7'),
+	(15,1,'M_tPWNfWMB7TyWcNcR5YaACUjWTp_FXoValKUD6P1i_oPPMwJXckYBQBcGWgyNv-rGSw7XMCkGeH5FvOxC69YQnnCjZkCGOI6Ebx','2019-07-18 00:10:14','2019-07-18 00:10:14','d6cae0ed-08d7-4af6-a66f-4d6570e43366'),
+	(16,1,'LWnTwzfZLu7971siURvmtUdmmCQsStSAd4LrRM0eat4rF2wkutfZnLkERkvKvakMPQV3QuYC1tGJjHCKSYuPfzL86_oTzhiY62nb','2019-07-18 01:27:52','2019-07-18 01:27:52','75d5b80a-24f8-4434-9fae-d8a152f456aa'),
+	(17,1,'gKk9THNEFrmM-dpC12Yo4etWgndZkm3gpywI99x6Q3Fpgbnb6NlBhW80-YlgTR5VMA1V1bx_pMqvVurcIsVdd2Co2l4HgYhpccEB','2019-07-18 16:41:03','2019-07-18 17:02:44','760a84cc-9344-4fac-92a0-f278a6f3203b'),
+	(18,1,'ZduBv2K7arrew_FcG_qRXNftZSa7b3tc1AdkaK6KDcm7QCI0LADBfRm1_8768_Q-u6eurjxPPi_39xmHjp1rh0iuPVO1VBtldjyw','2019-07-18 17:02:54','2019-07-21 18:02:42','bc3b0703-69d2-4541-b3f1-8f3544c0f287'),
+	(19,1,'-j8WNye-F_5Q7nWtZdpdvRby362pMzJ-0HDIOUST6LlJAqpIwUepxq-5XiQFxm6Q6DFt0nQwEXTbV2qs9LnvLKpnzMP7oQnh0Rga','2019-07-21 18:05:03','2019-07-22 12:14:07','d97a41d9-2fd1-486b-b2cb-f4e1333e3620'),
+	(20,1,'4VuN59-M6u7VX5TJ1TF1saHixoxQkGEMGCPDVZ_G0TKY4bY86PDsOC541knz1BVxqxPMqWmPcBx0PcvbXaqH2_YCH91AXpVxXyM1','2019-07-22 12:42:07','2019-07-22 13:55:11','909c9f7f-4f0a-4036-94e2-f2315eda0607'),
+	(21,1,'S4t5BwqOuRomKYIXY8DpxTkQ7xHq4D86S88Bxwv1VXS4R0BJufYQN8uNOGqOyjplKUbaLGgpzInkXK5s_Ci8gOhzR4NAZBPQp4kB','2019-07-22 17:03:12','2019-07-22 17:06:55','44357645-bee9-4cbf-8786-8d2e722fa796'),
+	(22,1,'Xu24j6dMEg-ICnrFx2aNnj26F-cyYhVK0fGk-rLucDGSCd7gRokfZD0ZxXLM8zzxnO42FBNlUi3buPAXKVIWb3SFVDsNO9KNT2_t','2019-07-23 15:28:03','2019-07-23 15:29:09','18058cd2-c0d2-485e-a935-2c8b848d5cf5'),
+	(23,1,'3m6npkOWJQDlIBsK00RuTiydvhGucQV1kPkpOouYRM1HwKLOXwZIS8CDzGJ29Y9vHDvDHxRzb2OE7pvCUwufSaVIfumiZekd5wxu','2019-07-23 23:06:03','2019-07-24 12:33:05','69bbed49-664f-4b9e-a6be-c643ce0a6470'),
+	(24,1,'wbEH5Auy5vjHHlWXrlVoP34ZncIvoF5IUGdyCEZGkJCBjOmj5NBGVBXtCvd50ft3seqslp4zO2rvh3HiiDYuE59fL2Iala6pBWRn','2019-07-24 22:30:16','2019-07-25 02:40:09','eb225e30-a808-43f0-9f0f-6e0569feb200'),
+	(25,1,'5lJ079BQweIXRBguMyGA7eB4x2sHn5VRV0SgcWl1O9tAzXWVo_Lpq4oQuUajsHbGNb3Dt4FHKiQOtU6tao8ABeZzT6eWUwYCKipw','2019-07-25 14:08:36','2019-07-25 17:01:42','d9f4a9b0-7871-403e-becf-698ae054f999'),
+	(26,1,'fqXqWkKSSTr6GFgJJrivtM7e0F3ArQbLjpZMz8BaPxSPgKBVfgOdbci_XFjGiDmA4K2P6QbB0S6XGpnpdkcnzuHK6dN0rZXOWhrY','2019-07-26 22:06:27','2019-07-26 22:09:07','816ea2ec-c2ce-447b-81d8-e6ca35557704'),
+	(27,1,'el46g_c4pis70N5fepbrUTB16oRXT0SFW62patBFRw1dxlFMY7zDMEU08uUuRDQ9-aiBVrYL1sMvzNjGJoTe0IbCCUb-0LapAhI_','2019-07-26 23:09:13','2019-07-27 02:06:48','e72d00f6-a0aa-4991-b4f0-0caa08202679');
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2194,7 +2442,7 @@ LOCK TABLES `sites` WRITE;
 
 INSERT INTO `sites` (`id`, `groupId`, `primary`, `name`, `handle`, `language`, `hasUrls`, `baseUrl`, `sortOrder`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,1,1,'IK Craft Demo','default','en-US',1,'$DEFAULT_SITE_URL',1,'2019-06-29 17:33:17','2019-06-29 17:33:17',NULL,'f2559c18-7489-4189-aecc-54995f3bff7a');
+	(1,1,1,'IK Craft Demo','default','en-US',1,'$DEFAULT_SITE_URL',1,'2019-06-29 17:33:17','2019-07-24 23:51:17',NULL,'f2559c18-7489-4189-aecc-54995f3bff7a');
 
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2591,7 +2839,7 @@ LOCK TABLES `userpreferences` WRITE;
 
 INSERT INTO `userpreferences` (`userId`, `preferences`)
 VALUES
-	(1,'{\"language\":\"en-US\"}');
+	(1,'{\"language\":\"en-US\",\"weekStartDay\":\"1\",\"enableDebugToolbarForSite\":true,\"enableDebugToolbarForCp\":true}');
 
 /*!40000 ALTER TABLE `userpreferences` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2644,7 +2892,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `username`, `photoId`, `firstName`, `lastName`, `email`, `password`, `admin`, `locked`, `suspended`, `pending`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'admin',NULL,NULL,NULL,'adam@interactiveknowledge.com','$2y$13$x47uvOgiocaDUiTwGp5Hf.Zqz2nu1AVX.V1YWerabcMD15pyUeduG',1,0,0,0,'2019-07-12 13:13:43',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2019-06-29 17:33:17','2019-06-29 17:33:17','2019-07-12 13:13:43','86ec60f7-6339-49b3-b904-bdb6e677eb40');
+	(1,'admin',NULL,'','','adam@interactiveknowledge.com','$2y$13$x47uvOgiocaDUiTwGp5Hf.Zqz2nu1AVX.V1YWerabcMD15pyUeduG',1,0,0,0,'2019-07-26 23:09:13',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2019-06-29 17:33:17','2019-06-29 17:33:17','2019-07-26 23:09:13','86ec60f7-6339-49b3-b904-bdb6e677eb40');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2677,7 +2925,7 @@ LOCK TABLES `volumefolders` WRITE;
 
 INSERT INTO `volumefolders` (`id`, `parentId`, `volumeId`, `name`, `path`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,NULL,1,'Uploads','','2019-06-29 22:23:20','2019-06-29 22:23:20','94d6abc8-c88f-4cf6-969a-23c0cb08cc17'),
+	(1,NULL,1,'Uploads','','2019-06-29 22:23:20','2019-07-22 12:43:51','94d6abc8-c88f-4cf6-969a-23c0cb08cc17'),
 	(2,NULL,NULL,'Temporary source',NULL,'2019-06-29 22:23:44','2019-06-29 22:23:44','181c4959-1b19-49c0-a8fa-32ee90c5aa45'),
 	(3,2,NULL,'user_1','user_1/','2019-06-29 22:23:44','2019-06-29 22:23:44','b8b382b7-76b9-4988-985c-d0659cdc0cf2'),
 	(4,1,1,'images','images/','2019-06-29 22:24:09','2019-06-29 22:24:09','3ef8dae8-d51f-48a2-b7c7-005d829df445'),
@@ -2720,7 +2968,7 @@ LOCK TABLES `volumes` WRITE;
 
 INSERT INTO `volumes` (`id`, `fieldLayoutId`, `name`, `handle`, `type`, `hasUrls`, `url`, `settings`, `sortOrder`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,NULL,'Uploads','uploads','craft\\volumes\\Local',0,NULL,'{\"path\":\"@webroot/uploads/\"}',1,'2019-06-29 22:23:20','2019-06-29 22:23:20',NULL,'50afdfd7-6c44-4e96-973a-b03967ec3cac');
+	(1,NULL,'Uploads','uploads','craft\\volumes\\Local',1,'@web/uploads','{\"path\":\"@webroot/uploads/\"}',1,'2019-06-29 22:23:20','2019-07-22 12:43:51',NULL,'50afdfd7-6c44-4e96-973a-b03967ec3cac');
 
 /*!40000 ALTER TABLE `volumes` ENABLE KEYS */;
 UNLOCK TABLES;

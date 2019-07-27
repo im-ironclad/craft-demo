@@ -11,6 +11,7 @@ $herouselControlSizeLg: 80px;
   }
   
   &__cont {
+    position: relative;
     @include container;
   }
 
@@ -22,31 +23,53 @@ $herouselControlSizeLg: 80px;
     width: $herouselControlSize * 2;
 
     &__btn {
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
       width: 50%;
       height: $herouselControlSize;
       background-color: $color-blue;
       font-size: 24px;
       font-weight: bold;
       color: $color-white;
-      background-image: linear-gradient(to top, darken($color-blue, 10%) 10%, $color-blue 25%);
+      transition: all ease 0.5s;
 
       &:last-of-type {
         border-left: 1px solid $color-white;
       }
 
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to top, darken($color-blue, 10%) 10%, $color-blue 25%);
+        transition: transform cubic-bezier(0.86, 0, 0.07, 1) 0.5s;
+      }
+
       &:focus {
-        outline-offset: -5px;
-        outline: 1px solid $color-white;
+        outline: 0;
+      }
+
+      &:focus:after {
+        transform: translateY(50%);
       }
     }
   }
 
   &__slide {
-    position: relative;
+    position: absolute;
+    top: $herouselControlSize;
+    left: 0;
     z-index: 1;
 
     &:not(.active) {
-      display: none;
+      // display: none;
+      opacity: 0;
     }
 
     &__featured-image {
@@ -70,7 +93,7 @@ $herouselControlSizeLg: 80px;
 
       @media only screen and (min-width: $screen-md-min) {
         position: absolute;
-        top: 0;
+        top: -$herouselControlSize;
         left: 0;
         width: 460px;
         height: auto;
