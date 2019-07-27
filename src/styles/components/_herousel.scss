@@ -62,14 +62,18 @@ $herouselControlSizeLg: 80px;
   }
 
   &__slide {
+    pointer-events: all;
     position: absolute;
     top: $herouselControlSize;
     left: 0;
     z-index: 1;
+    width: 100%;
+    height: auto;
 
     &:not(.active) {
-      // display: none;
+      pointer-events: none;
       opacity: 0;
+      z-index: -1;
     }
 
     &__featured-image {
@@ -79,6 +83,8 @@ $herouselControlSizeLg: 80px;
       min-height: 170px;
       max-height: 500px;
       object-fit: cover;
+      transform: translateX(-$herouselControlSize);
+      transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
 
       @media only screen and (min-width: $screen-md-min) {
         float: right;
@@ -90,6 +96,7 @@ $herouselControlSizeLg: 80px;
     &__content {
       padding: $spacing-sm;
       background-color: $color-white;
+      transition: all cubic-bezier(0.23, 1, 0.320, 1) 1s;
 
       @media only screen and (min-width: $screen-md-min) {
         position: absolute;
@@ -98,13 +105,9 @@ $herouselControlSizeLg: 80px;
         width: 460px;
         height: auto;
         padding: $spacing-rg $spacing-sm;
-        box-shadow: 0 10px 35px rgba(0,0,0,0.2);
-        transition: all ease 0.3s; // deleteme?
-
-        &.active {
-          transform: translateY(5px);
-          box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        transform: translateY(10px);
+        transition-delay: 0.5s;
       }
 
       &__category {
@@ -144,3 +147,22 @@ $herouselControlSizeLg: 80px;
     }
   }
 }
+
+/**
+ * Active styles for our slides
+ */
+.herousel__slide.active {
+   .herousel__slide {
+
+      &__content {
+        @media only screen and (min-width: $screen-md-min) {
+          transform: translateY(0);
+          box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+        }
+      }
+
+      &__featured-image {
+        transform: translateX(0px);
+      }
+   }
+ }
