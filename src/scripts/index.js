@@ -1,7 +1,7 @@
 import './polyfills';
 
 // Import components
-import components from './utilities/components';
+import components from './components';
 
 ((function domReady() {
   // Loop through each component

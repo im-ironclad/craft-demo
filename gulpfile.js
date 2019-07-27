@@ -3,7 +3,7 @@
  * 
  * TODO: make sure everything from package is used
  */
-var gulp = require('gulp'),
+var { src, dest, series, watch } = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   babelify = require('babelify'),
   browserify = require('browserify'),
@@ -36,7 +36,7 @@ var dirConfig = {
   },
   styles: {
     entries: './src/styles/**/*.scss', // for watching
-    src: './src/styles/styles.scss',
+    src: './src/styles/index.scss',
     dist: './web/styles/',
   }
 };
@@ -44,81 +44,43 @@ var dirConfig = {
 /**
  * Tasks:
  * 
- * - Images
- * - Images:SVGSprite
+ * - Images (TODO)
+ * - Images:SVGSprite (TODO)
  * - Styles
  * - Styles:Watch
- * - Scripts:Lint
- * - Scripts
- * - Scripts:Watchify
- * - Watch
- * - Build
- * - Default
+ * - Scripts:Lint (TODO)
+ * - Scripts (TODO) ***
+ * - Scripts:Watchify (TODO)
+ * - Watch (TODO)
+ * - Build (TODO)
+ * - Default (TODO)
  */
-
-/**
- * IMAGES
- *
- * Set optimizationLevel to 0 to save CPU usage
- */
-gulp.task('images', function() {
-  return gulp.src([
-      dirConfig.images.src + '**/*.jpg',
-      dirConfig.images.src + '**/*.png',
-      // dirConfig.images.src + '**/*.gif' uncomment if needed
-    ])
-    .pipe(imagemin({
-      optimizationLevel: 0,
-      progressive: true,
-      interlaced: true,
-    }))
-    .pipe(gulp.dest(dirConfig.images.dist));
-});
-
-/**
- * IMAGES:SVGSPRITE
- *
- * Combine all svgs in target directory into a single svg spritemap.
- */
-gulp.task('images:svgsprite', function() {
-  return gulp.src([
-      dirConfig.images.src + 'sprites/*.svg'
-    ])
-    .pipe(svgstore({ inlineSvg: true }))
-    .pipe(cheerio({
-      run: function($) {
-        $('svg').attr('style', 'display:none'); // make sure the spritemap doesn't show by default
-      },
-    }))
-    .on('error', function(err) { displayError(err); })
-    .pipe(gulp.dest(dirConfig.images.dist + 'sprites/'));
-});
 
 /**
  * STYLES
  *
  * Compile and compress SASS
- * Autoprefixer's 'browser' option is supplied by .browserslistrc
+ * Autoprefixer's 'browser' option is supplied by "browserslist" in package.json
  */
-gulp.task('styles', function() {
-  gulp.src([
-      dirConfig.styles.entries
-    ])
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest(dirConfig.styles.dist))
-    .pipe(livereload(server));
-});
+function styles() {
+  return src([
+    dirConfig.styles.entries
+  ])
+  .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+  .pipe(autoprefixer())
+  .pipe(dest(dirConfig.styles.dist))
+  .pipe(livereload(server));
+}
+exports.styles = series(styles);
 
 /**
  * STYLES:WATCH
  *
  * Watch SASS for changes
- * 
  */
-gulp.task('styles:watch', function() {
-  return gulp.watch(dirConfig.styles.entries, ['styles']);
-});
+exports.stylesWatch = function() {
+  watch(dirConfig.styles.entries, styles);
+}
 
 /**
  * SCRIPTS:LINT
@@ -127,21 +89,20 @@ gulp.task('styles:watch', function() {
  * Create as function so you can call it in other script tasks
  */
 function lintJs() {
-  return gulp.src([
-      dirConfig.scripts.src,
-      dirConfig.scripts.test
+  return src([
+      dirConfig.scripts.src
     ])
     .pipe(eslint())
     .pipe(eslint.format());
 }
-gulp.task('scripts:lint', lintJs);
+exports.lintJS = series(lintJs);
 
 /**
  * SCRIPTS
  *
  * Transpile and bundle JS
  */
-gulp.task('scripts', function() {
+function scripts() {
   var bundler = browserify(dirConfig.scripts.src).transform(babelify);
 
   return bundler.bundle()
@@ -152,15 +113,16 @@ gulp.task('scripts', function() {
     .pipe(source('index.js'))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest(dirConfig.scripts.dist));
-});
+    .pipe(dest(dirConfig.scripts.dist));
+}
+exports.scripts = series(scripts);
 
 /**
  * SCRIPTS:WATCH
  *
  * Watch JS for changes
  */
-gulp.task('scripts:watchify', function() {
+function scriptsWatch() {
   watchify.args.debug = true;
   var bundler = watchify(browserify(dirConfig.scripts.src, watchify.args).transform(babelify));
 
@@ -178,34 +140,18 @@ gulp.task('scripts:watchify', function() {
       .pipe(source('index.js'))
       .pipe(buffer())
       .pipe(uglify())
-      .pipe(gulp.dest(dirConfig.scripts.dist))
+      .pipe(dest(dirConfig.scripts.dist))
       .pipe(livereload(server));
   }
 
   return rebundle();
-});
+}
+exports.scriptsWatch = function() {
+  watch(dirConfig.scripts.entries, scriptsWatch);
+};
 
-/**
- * WATCH
- *
- * Watch for changes in both styles and scripts
- */
-gulp.task('watch', ['styles:watch', 'scripts:watchify'], function() {
-  livereload.listen(server);
-});
 
-/**
- * BUILD
- *
- * Wrapper for bundled build task
- */
-gulp.task('build', ['images', 'scripts', 'styles']);
 
-/**
- * DEFAULT
- *
- * No default task, simply let the users know a command to see all available tasks
- */
-gulp.task('default', function() {
-  console.log('\nThis gulpfile doesn\'t do anything by default. You can use the following command to see a list of available tasks:\n\n$ gulp --tasks-simple\n');
-});
+
+
+
