@@ -39,6 +39,11 @@ $herouselControlSizeLg: 80px;
         border-left: 1px solid $color-white;
       }
 
+      & .icon {
+        width: 20px;
+        height: 20px;
+      }
+
       &:after {
         content: '';
         position: absolute;
@@ -84,13 +89,13 @@ $herouselControlSizeLg: 80px;
       min-height: 170px;
       max-height: 500px;
       object-fit: cover;
-      transform: translateX(-$herouselControlSize);
-      transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
 
       @media only screen and (min-width: $screen-md-min) {
         float: right;
         width: 90%;
         height: 40vw;
+        transform: translateX(-$herouselControlSize);
+        transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
       }
     }
 
