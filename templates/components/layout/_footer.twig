@@ -1,0 +1,44 @@
+{# Params #}
+
+{# Variables #}
+
+{# Markup #}
+<footer class='footer'>
+  <div class='footer__cont'>
+    <nav class='footer__nav' aria-label='Secondary Navigation'>
+      <a href='' class='footer__nav__link'>
+        Privacy Notice
+      </a>
+
+      <a href='' class='footer__nav__link'>
+        Contact
+      </a>
+
+      <a href='' class='footer__nav__link'>
+        Feedback
+      </a>
+
+      <a href='' class='footer__nav__link'>
+        Web Accessibility Assistance
+      </a>
+
+      <a href='' class='footer__nav__link'>
+        Site Information
+      </a>
+
+      <section class='footer__nav__social-links'>
+        <a href='' class='footer__nav__social-links__link'>
+          {% include 'components/_svg-icon' with {
+            iconName: 'facebook'
+          } %}
+        </a>
+      </section>
+    </nav>
+
+    <a href="" class='footer__logo-link'>
+      {% include 'components/_svg-icon' with {
+        iconName: 'idhs-logo--text'
+      } %}
+    </a>
+  </div>
+</footer>

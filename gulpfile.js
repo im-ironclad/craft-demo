@@ -9,7 +9,6 @@ var { src, dest, series, watch } = require('gulp'),
   babelify = require('babelify'),
   browserify = require('browserify'),
   buffer = require('vinyl-buffer'),
-  cheerio = require('gulp-cheerio'),
   eslint = require('gulp-eslint'),
   imagemin = require('gulp-imagemin'),
   sass = require('gulp-sass'),
@@ -67,11 +66,6 @@ function svgSprite() {
       dirConfig.images.src + 'svg/*.svg'
     ])
     .pipe(svgstore({ inlineSvg: true }))
-    .pipe(cheerio({
-      run: function($) {
-        $('svg').attr('style', 'display:none'); // make sure the spritemap doesn't show by default
-      },
-    }))
     .pipe(rename('sprite.svg'))
     .on('error', function(err) { displayError(err); })
     .pipe(dest(dirConfig.images.dist + 'svg/'));

@@ -19,8 +19,10 @@
 @import "generic/utilities";
 
 // Components, Order alphabetically
-@import "components/header";
 @import "components/herousel";
+@import "components/icons";
+@import "components/layout/header";
+@import "components/layout/footer";
 @import "components/links";
 @import "components/navigation-block";
 

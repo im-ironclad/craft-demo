@@ -1,0 +1,50 @@
+.footer {
+  height: auto;
+  padding-bottom: 75px;
+  background-color: $color-grey-dark;
+  color: $color-white;
+
+  &__cont {
+    @include container;
+  }
+
+  &__nav {
+    background-color: $color-grey;
+
+    &__link {
+      display: block;
+      padding: $spacing-sm;
+      border-bottom: 1px solid $color-grey-dark;
+    }
+
+    &__social-links {
+
+      &__link {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  &__logo-link {
+    position: relative;
+    display: block;
+    width: 240px;
+    height: auto;
+    margin-top: $spacing-rg;
+    margin-right: auto;
+    margin-left: auto;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 100px;
+      height: 1px;
+      background-color: $color-grey;
+      transform: translateX(-50%);
+    }
+  }
+}
