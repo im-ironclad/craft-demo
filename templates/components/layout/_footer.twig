@@ -1,6 +1,9 @@
 {# Params #}
 
 {# Variables #}
+{% set contactStreet = contactInfo.contactStreetAddress %}
+{% set contactState = contactInfo.contactState %}
+{% set contactPhone = contactInfo.contactPhone %}
 
 {# Markup #}
 <footer class='footer'>
@@ -27,9 +30,27 @@
       </a>
 
       <section class='footer__nav__social-links'>
-        <a href='' class='footer__nav__social-links__link'>
+        <a href='https://facebook.com' target='_blank' rel='noopener noreferrer' class='footer__nav__social-links__link'>
           {% include 'components/_svg-icon' with {
             iconName: 'facebook'
+          } %}
+        </a>
+
+        <a href='https://twitter.com' target='_blank' rel='noopener noreferrer' class='footer__nav__social-links__link'>
+          {% include 'components/_svg-icon' with {
+            iconName: 'twitter'
+          } %}
+        </a>
+
+        <a href='https://instagram.com' target='_blank' rel='noopener noreferrer' class='footer__nav__social-links__link'>
+          {% include 'components/_svg-icon' with {
+            iconName: 'instagram'
+          } %}
+        </a>
+
+        <a href='https://linkedin.com' target='_blank' rel='noopener noreferrer' class='footer__nav__social-links__link'>
+          {% include 'components/_svg-icon' with {
+            iconName: 'linkedin'
           } %}
         </a>
       </section>
@@ -40,5 +61,25 @@
         iconName: 'idhs-logo--text'
       } %}
     </a>
+
+    <section class='footer__contact-info'>
+      <address class='footer__contact-info__street'>
+        {{ contactStreet }}
+      </address>
+      <span>|</span>
+      <address class='footer__contact-info__state'>
+        {{ contactState }}
+      </address>
+      <span>|</span>
+      <p class='footer__contact-info__phone'>
+        <a href='tel:{{ contactPhone }}'>
+          {{ contactPhone }}
+        </a>
+      </p>
+    </section>
+
+    <p class='footer__copyright'>
+      Copyright 2019. Institute of Digital Human Studies. <span class='nowrap'>All rights reserved.</span>
+    </p>
   </div>
 </footer>
