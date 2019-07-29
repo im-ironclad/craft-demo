@@ -11,22 +11,37 @@
     <nav class='footer__nav' aria-label='Secondary Navigation'>
       <a href='' class='footer__nav__link'>
         Privacy Notice
+        {% include '/components/_svg-icon' with {
+          iconName: 'chevron-right'
+        } %}
       </a>
 
       <a href='' class='footer__nav__link'>
         Contact
+        {% include '/components/_svg-icon' with {
+          iconName: 'chevron-right'
+        } %}
       </a>
 
       <a href='' class='footer__nav__link'>
         Feedback
+        {% include '/components/_svg-icon' with {
+          iconName: 'chevron-right'
+        } %}
       </a>
 
       <a href='' class='footer__nav__link'>
         Web Accessibility Assistance
+        {% include '/components/_svg-icon' with {
+          iconName: 'chevron-right'
+        } %}
       </a>
 
       <a href='' class='footer__nav__link'>
         Site Information
+        {% include '/components/_svg-icon' with {
+          iconName: 'chevron-right'
+        } %}
       </a>
 
       <section class='footer__nav__social-links'>
@@ -56,33 +71,32 @@
       </section>
     </nav>
 
-    {# TODO: Consider wrapping logo-link and contact-info in container for ezpz flex #}
-    <a href="" class='footer__logo-link'>
-      {% include 'components/_svg-icon' with {
-        iconName: 'idhs-logo--text'
-      } %}
-    </a>
+    <div class='footer__content'>
+      <a href="" class='footer__content__logo-link'>
+        {% include 'components/_svg-icon' with {
+          iconName: 'idhs-logo--text'
+        } %}
+      </a>
+  
+      <section class='footer__content__contact-info'>
+        <address class='footer__content__contact-info__street'>
+          {{ contactStreet }}
+        </address>
+        <span>|</span>
+        <address class='footer__content__contact-info__state'>
+          {{ contactState }}
+        </address>
+        <span>|</span>
+        <p class='footer__content__contact-info__phone'>
+          <a href='tel:{{ contactPhone }}'>
+            {{ contactPhone }}
+          </a>
+        </p>
+      </section>
 
-    <section class='footer__contact-info'>
-      <address class='footer__contact-info__street'>
-        {{ contactStreet }}
-      </address>
-      <span>|</span>
-      <address class='footer__contact-info__state'>
-        {{ contactState }}
-      </address>
-      <span>|</span>
-      <p class='footer__contact-info__phone'>
-        <a href='tel:{{ contactPhone }}'>
-          {{ contactPhone }}
-        </a>
+      <p class='footer__content__copyright'>
+        Copyright 2019. Institute of Digital Human Studies. <span class='nowrap'>All rights reserved.</span>
       </p>
-    </section>
-
-    <div class="clearfix"></div>
-
-    <p class='footer__copyright'>
-      Copyright 2019. Institute of Digital Human Studies. <span class='nowrap'>All rights reserved.</span>
-    </p>
+    </div>
   </div>
 </footer>

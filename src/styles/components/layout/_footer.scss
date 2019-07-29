@@ -1,3 +1,5 @@
+$footerNavBpMd: 1230px;
+
 .footer {
   height: auto;
   padding-bottom: 75px;
@@ -5,27 +7,53 @@
   color: $color-white;
 
   &__cont {
-    @include container;
+    @include container("lg");
   }
 
   &__nav {
     background-color: $color-grey;
 
-    &__link {
-      display: block;
-      padding: $spacing-sm;
-      border-bottom: 1px solid $color-grey-dark;
+    &__link,
+    &__social-links {
+      padding: 30px;
 
       @media only screen and (min-width: $screen-md-min) {
+        padding: 30px $spacing-sm;
+      }
+    }
+
+    &__link {
+      position: relative;
+      display: block;
+      border-bottom: 1px solid $color-grey-dark;
+
+      @media only screen and (min-width: $screen-sm-min) {
         float: left;
-        border-bottom: none;
+        width: 50%;
         border-right: 1px solid $color-grey-dark;
+      }
+
+      @media only screen and (min-width: $footerNavBpMd) {
+        width: auto;
+        border-bottom: none;
+      }
+      
+      & .icon {
+        position: absolute;
+        top: 50%;
+        right: $spacing-sm; // same as container padding
+        width: 10px;
+        height: 10px;
+        transform: translateY(-50%);
+
+        @media only screen and (min-width: $footerNavBpMd) {
+          display: none;
+        }
       }
     }
 
     &__social-links {
       display: flex;
-      padding: $spacing-sm;
 
       @media only screen and (min-width: $screen-md-min) {
         justify-content: center;
@@ -38,7 +66,7 @@
         height: 20px;
 
         &:not(:first-of-type) {
-          margin-left: $spacing-sm * 1.5;
+          margin-left: $spacing-sm * 2;
         }
 
         & svg {
@@ -48,76 +76,103 @@
     }
   }
 
-  &__logo-link {
-    position: relative;
-    display: block;
-    width: 240px;
-    height: auto;
-    margin-top: $spacing-rg;
-    margin-right: auto;
-    margin-left: auto;
-
-    @media only screen and (min-width: $screen-md-min) {
-      clear: both;
-      float: left;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      width: 100px;
-      height: 1px;
-      background-color: $color-grey;
-      transform: translateX(-50%);
-
-      @media only screen and (min-width: $screen-md-min) {
-        display: none;
-      }
-    }
-  }
-
-  &__contact-info {
+  &__content {
+    @include innerContainer();
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    margin-top: $spacing-sm;
+    justify-content: space-between;
+    margin-top: $spacing-rg;
 
     @media only screen and (min-width: $screen-md-min) {
-      margin-top: $spacing-rg;
       flex-direction: row;
+      justify-content: space-between;
     }
-    
-    & > span {
-      display: none;
-      color: $color-blue;
+
+    &__logo-link {
+      box-sizing: content-box;
+      position: relative;
+      display: block;
+      width: 240px;
+      height: 103px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-bottom: $spacing-sm;
+
       @media only screen and (min-width: $screen-md-min) {
-        display: inline-block;
-        padding-right: $spacing-sm;
-        padding-left: $spacing-sm;
+        margin-right: 0;
+        margin-left: 0;
+        padding-bottom: 0;
+      }
+
+      @media only screen and (min-width: $screen-xl-min) {
+        flex-basis: 50%;
+
+        & .icon {
+          width: 240px;
+        }
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 100px;
+        height: 1px;
+        background-color: $color-grey;
+        transform: translateX(-50%);
+
+        @media only screen and (min-width: $screen-md-min) {
+          display: none;
+        }
       }
     }
 
-    &__state,
-    &__phone {
-      margin-top: $spacing-xs;
+    &__contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: $spacing-sm;
+
       @media only screen and (min-width: $screen-md-min) {
+        flex-direction: row;
         margin-top: 0;
       }
+
+      @media only screen and (min-width: $screen-xl-min) {
+        flex-basis: 50%;
+      }
+
+      & > span {
+        display: none;
+        color: $color-blue;
+        @media only screen and (min-width: $screen-md-min) {
+          display: inline-block;
+          padding-right: $spacing-sm;
+          padding-left: $spacing-sm;
+        }
+      }
+
+      &__state,
+      &__phone {
+        margin-top: $spacing-xs;
+        @media only screen and (min-width: $screen-md-min) {
+          margin-top: 0;
+        }
+      }
     }
-  }
 
-  &__copyright {
-    @include font("small");
-    margin-top: $spacing-rg;
-    text-align: center;
-  }
+    &__copyright {
+      @include font("small");
+      flex-basis: 100%;
+      margin-top: $spacing-rg;
+      text-align: center;
 
-  & .clearfix {
-    display: none;
-    @media only screen and (min-width: $screen-md-min) {
-      display: inline;
+      @media only screen and (min-width: $screen-md-min) {
+        text-align: left;
+      }
     }
   }
 }
