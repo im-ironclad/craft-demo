@@ -15,16 +15,27 @@
       display: block;
       padding: $spacing-sm;
       border-bottom: 1px solid $color-grey-dark;
+
+      @media only screen and (min-width: $screen-md-min) {
+        float: left;
+        border-bottom: none;
+        border-right: 1px solid $color-grey-dark;
+      }
     }
 
     &__social-links {
       display: flex;
       padding: $spacing-sm;
 
+      @media only screen and (min-width: $screen-md-min) {
+        justify-content: center;
+      }
+
       &__link {
+        flex-shrink: 0;
         display: inline-block;
-        width: 26px;
-        height: 26px;
+        width: 20px;
+        height: 20px;
 
         &:not(:first-of-type) {
           margin-left: $spacing-sm * 1.5;
@@ -46,6 +57,11 @@
     margin-right: auto;
     margin-left: auto;
 
+    @media only screen and (min-width: $screen-md-min) {
+      clear: both;
+      float: left;
+    }
+
     &:after {
       content: '';
       position: absolute;
@@ -55,6 +71,10 @@
       height: 1px;
       background-color: $color-grey;
       transform: translateX(-50%);
+
+      @media only screen and (min-width: $screen-md-min) {
+        display: none;
+      }
     }
   }
 
@@ -63,11 +83,19 @@
     flex-direction: column;
     align-items: center;
     margin-top: $spacing-sm;
+
+    @media only screen and (min-width: $screen-md-min) {
+      margin-top: $spacing-rg;
+      flex-direction: row;
+    }
     
     & > span {
       display: none;
+      color: $color-blue;
       @media only screen and (min-width: $screen-md-min) {
         display: inline-block;
+        padding-right: $spacing-sm;
+        padding-left: $spacing-sm;
       }
     }
 
@@ -84,5 +112,12 @@
     @include font("small");
     margin-top: $spacing-rg;
     text-align: center;
+  }
+
+  & .clearfix {
+    display: none;
+    @media only screen and (min-width: $screen-md-min) {
+      display: inline;
+    }
   }
 }
