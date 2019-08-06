@@ -1,0 +1,32 @@
+.image-card {
+  color: $color-black;
+  background-color: $color-white;
+
+  &__image {
+    width: 100%;
+    height: 190px;
+
+    @supports(object-fit: cover) {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    padding: $spacing-sm $spacing-sm * 2;
+
+    &__title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    &__copy,
+    &__link {
+      margin-top: $spacing-sm;
+    }
+
+    &__link {
+      display: inline-block;
+    }
+  }
+}

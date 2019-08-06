@@ -1,33 +1,40 @@
 /**
- * Herousel Component
+ * EmergingPerspectives Component
  *
  * If you need to import anything, do so here
  */
 import debounce from '../utilities/debounce';
+import breakpoints from '../utilities/breakpoints'
 
 /**
  * Create selector variables
- * (e.g. const btnPrevSelector = '.herousel__controls .btn-prev')
  */
-const btnPrevSelector = '.btn-prev';
-const btnNextSelector = '.btn-next';
-const slidesSelector = '.herousel__slide';
+const btnPrevSelector = '.js-prev';
+const btnNextSelector = '.js-next';
+const slidesContSelector = '.emerging-perspectives__image-cards';
+const slidesSelector = '.image-card';
 
 /**
- * Herousel Class
+ * EmergingPerspectives Class
  */
-export default class Herousel {
+export default class EmergingPerspectives {
   constructor({ parent }) {
     this.parent = parent;
     this.btnPrev = parent.querySelector(btnPrevSelector);
     this.btnNext = parent.querySelector(btnNextSelector);
-    this.slides = parent.querySelectorAll(slidesSelector);
+    this.slidesContainer = parent.querySelector(slidesContSelector);
+    this.slides = this.slidesContainer.querySelectorAll(slidesSelector);
     this.currentIndex = 0;
   }
 
-  setParentHeight() {
-    const totalHeight = this.btnPrev.clientHeight + this.slides[this.currentIndex].clientHeight;
-    this.parent.style.height = `${totalHeight}px`;
+  setSlideContainerHeight() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth < breakpoints.sm.min) {
+      const totalHeight = this.slides[this.currentIndex].clientHeight;
+      this.slidesContainer.style.height = `${totalHeight}px`;
+    } else {
+      this.slidesContainer.style.height = 'auto';
+    }
   }
 
   slideNext() {
@@ -40,7 +47,8 @@ export default class Herousel {
     Array.from(this.slides).forEach((slide, i) => {
       slide.classList.toggle('active', i === this.currentIndex);
     });
-    this.setParentHeight();
+
+    setTimeout(() => { this.setSlideContainerHeight(); }, 300);
   }
 
   slidePrev() {
@@ -53,12 +61,13 @@ export default class Herousel {
     Array.from(this.slides).forEach((slide, i) => {
       slide.classList.toggle('active', i === this.currentIndex);
     });
-    this.setParentHeight();
+
+    setTimeout(() => { this.setSlideContainerHeight(); }, 300);
   }
 
   attachListeners() {
     window.addEventListener('resize', debounce(() => {
-      this.setParentHeight();
+      this.setSlideContainerHeight();
     }, 50));
 
     this.btnNext.addEventListener('click', () => {
@@ -71,6 +80,6 @@ export default class Herousel {
 
   init() {
     this.attachListeners();
-    this.setParentHeight();
+    this.setSlideContainerHeight();
   }
 }

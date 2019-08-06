@@ -1,0 +1,30 @@
+{# Params #}
+{% set cardData = cardData|default(null) %}
+{% set classNames = classNames|default('') %}
+
+{# Variables #}
+
+{# Markup #}
+{% if cardData is not null %}
+  <article class='image-card {{ classNames }}'>
+    <img
+      src='{{ cardData.entryImage.one().url }}'
+      alt='{{ cardData.entryImage.one().title }}'
+      class='image-card__image'
+    />
+
+    <section class='image-card__content'>
+      <p class='image-card__content__title'>
+        {{ cardData.title }}
+      </p>
+
+      <p class='image-card__content__copy'>
+        {{ cardData.copy }}
+      </p>
+
+      <a href='' class='image-card__content__link'>
+        See details
+      </a>
+    </section>
+  </article>
+{% endif %}

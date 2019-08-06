@@ -5,6 +5,7 @@ $herouselControlSizeLg: 80px;
   box-sizing: content-box;
   padding-top: $spacing-rg;
   padding-bottom: $spacing-rg;
+  transition: height ease 0.3s;
 
   @media only screen and (min-width: $screen-md-min) {
     padding-top: $spacing-lg;

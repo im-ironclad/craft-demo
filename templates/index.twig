@@ -3,6 +3,7 @@
 {# Variables #}
 {% set thisPage = craft.entries.section('homePage').one()|default(null) %}
 {% set pageHerousel = thisPage.herousel.one()|default(null) %}
+{% set imageCards = craft.entries.section('imageCards').all() %}
 
 {% extends '_layout' %}
 
@@ -11,4 +12,46 @@
   {% include 'components/_herousel' with {
     herousel: pageHerousel
   } %}
+
+  {# TODO: Abstract to its own component #}
+  <article class='emerging-perspectives'>
+    <div class='emerging-perspectives__container'>
+      <header class='emerging-perspectives__header'>
+        <p class='emerging-perspectives__header__title'>
+          Emerging<br />Perspectives
+        </p>
+    
+        <p class='emerging-perspectives__header__copy'>
+          I have hinted that I would often jerk poor Queequeg from between the whale.
+        </p>
+    
+        <section class="emerging-perspectives__header__controls">
+          {% include 'components/_shift-button' with {
+            shiftDirection: 'prev',
+            color: 'green'
+          } %}
+
+          {% include 'components/_shift-button' with {
+            shiftDirection: 'next',
+            color: 'green'
+          } %}
+        </section>
+      </header>
+  
+      <section class='emerging-perspectives__image-cards'>
+        {% for card in imageCards %}
+          {% set classNames = 'emerging-perspectives__image-cards__card' %}
+          {% if loop.index == 1 %}
+            {% set classNames = classNames ~ ' active' %}
+          {% endif %}
+
+
+          {% include 'components/_image-card' with {
+            cardData: card,
+            classNames: classNames
+          } %}
+        {% endfor %}
+      </section>
+    </div>
+  </article>
 {% endblock %}

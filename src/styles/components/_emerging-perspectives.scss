@@ -1,0 +1,110 @@
+.emerging-perspectives {
+  width: 100%;
+  height: auto;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
+  color: $color-white;
+  background-color: $color-blue;
+
+  &__container {
+    @include container("lg");
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (min-width: $screen-md-min) {
+      flex-direction: row;
+      align-items: unset;
+    }
+  }
+
+  &__header {
+    flex-shrink: 0;
+    width: 320px;
+    height: auto;
+    margin-right: $spacing-sm;
+    text-align: center;
+    
+    @media only screen and (min-width: $screen-md-min) {
+      text-align: unset;
+    }
+
+    &__title {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.2em;
+      margin-bottom: $spacing-xs;
+    }
+
+    &__copy {
+      margin-bottom: $spacing-sm;
+    }
+
+    &__controls {
+
+      & .shift-button {
+
+        &:first-of-type {
+          margin-right: $spacing-sm;
+        }
+      }
+    }
+  }
+
+  &__image-cards {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: $spacing-rg;
+    transition: height ease 0.3s;
+
+    @media only screen and (min-width: $screen-sm-min) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media only screen and (min-width: $screen-md-min) {
+      margin-top: unset;
+    }
+
+    & .image-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.5s;
+
+      @media only screen and (min-width: $screen-sm-min) {
+        position: relative; 
+        width: 30%;
+      }
+
+      &:not(.active) {
+        opacity: 0;
+        z-index: 1;
+        transform: translateX(-150%);
+
+        @media only screen and (min-width: $screen-sm-min) {
+          opacity: unset;
+          z-index: unset;
+          transform: unset;
+        }
+      }
+
+      &.active {
+        z-index: 2;
+
+        & + .image-card {
+          // opacity: 0;
+          transform: translateX(150%);
+
+          @media only screen and (min-width: $screen-sm-min) {
+            transform: unset;
+          }
+        }
+      }
+    }
+  }
+}
