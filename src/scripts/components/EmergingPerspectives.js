@@ -4,7 +4,7 @@
  * If you need to import anything, do so here
  */
 import debounce from '../utilities/debounce';
-import breakpoints from '../utilities/breakpoints'
+import breakpoints from '../utilities/breakpoints';
 
 /**
  * Create selector variables
@@ -25,8 +25,29 @@ export default class EmergingPerspectives {
     this.slidesContainer = parent.querySelector(slidesContSelector);
     this.slides = this.slidesContainer.querySelectorAll(slidesSelector);
     this.currentIndex = 0;
+    this.numberOfActiveSlides = 1;
   }
 
+  /**
+   * Method for setting the number of active slides
+   * 1 for mobile
+   * 2 for tablet
+   * 3 for desktop
+   */
+  setNumberOfActiveSlides() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth < breakpoints.xs.max) {
+      this.numberOfActiveSlides = 1;
+    } else if (windowWidth > breakpoints.sm.min && windowWidth < breakpoints.md.min) {
+      this.numberOfActiveSlides = 2;
+    } else {
+      this.numberOfActiveSlides = 3;
+    }
+  }
+
+  /**
+   * Method for setting the slide containers height so there's no extra spacing
+   */
   setSlideContainerHeight() {
     const windowWidth = window.innerWidth;
     if (windowWidth < breakpoints.sm.min) {
@@ -37,6 +58,9 @@ export default class EmergingPerspectives {
     }
   }
 
+  /**
+   * Method for sliding to the next slide(s)
+   */
   slideNext() {
     this.currentIndex++;
 
@@ -51,6 +75,9 @@ export default class EmergingPerspectives {
     setTimeout(() => { this.setSlideContainerHeight(); }, 300);
   }
 
+  /**
+   * Method for sliding to the previous slide(s)
+   */
   slidePrev() {
     this.currentIndex--;
 
@@ -65,14 +92,26 @@ export default class EmergingPerspectives {
     setTimeout(() => { this.setSlideContainerHeight(); }, 300);
   }
 
+  /**
+   * Method for attaching our event listeners
+   */
   attachListeners() {
+    // Watch the resize for setting our container height
     window.addEventListener('resize', debounce(() => {
       this.setSlideContainerHeight();
-    }, 50));
+    }, 100));
 
+    // Watch the resize for setting our numberOfActiveSlides
+    window.addEventListener('resize', debounce(() => {
+      this.setNumberOfActiveSlides();
+    }, 250));
+
+    // Hook up our next button
     this.btnNext.addEventListener('click', () => {
       this.slideNext();
     });
+
+    // Hook up our previous button
     this.btnPrev.addEventListener('click', () => {
       this.slidePrev();
     });

@@ -13,7 +13,11 @@
   }
 
   &__content {
-    padding: $spacing-sm $spacing-sm * 2;
+    padding: $spacing-sm;
+
+    @media only screen and (min-width: $screen-xl-min) {
+      padding: $spacing-sm $spacing-sm * 2;
+    }
 
     &__title {
       font-size: 22px;
