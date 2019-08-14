@@ -120,5 +120,6 @@ export default class EmergingPerspectives {
   init() {
     this.attachListeners();
     this.setSlideContainerHeight();
+    this.setNumberOfActiveSlides();
   }
 }
