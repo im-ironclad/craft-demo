@@ -8,12 +8,13 @@
   <div class='herousel__cont'>
     {% if herousel is not null %}
       <section class='herousel__controls'>
+        {# TODO: Replace with _shift-button #}
         <button class='herousel__controls__btn btn-prev'>
           {% include 'components/_svg-icon' with {
             iconName: 'chevron-left'
           } %}
         </button>
-
+        {# TODO: Replace with _shift-button #}
         <button class='herousel__controls__btn btn-next'>          
           {% include 'components/_svg-icon' with {
             iconName: 'chevron-right'

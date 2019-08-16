@@ -43,6 +43,10 @@ $herouselControlSizeLg: 80px;
       & .icon {
         width: 20px;
         height: 20px;
+
+        & svg {
+          fill: $color-white;
+        }
       }
 
       &:after {
@@ -100,10 +104,17 @@ $herouselControlSizeLg: 80px;
       }
     }
 
+    &.out {
+      .herousel__slide__content {
+        transform: translateY(10px) !important;
+        transition-delay: unset;
+      }
+    }
+
     &__content {
       padding: $spacing-sm;
       background-color: $color-white;
-      transition: all cubic-bezier(0.23, 1, 0.320, 1) 1s;
+      transition: all cubic-bezier(0.23, 1, 0.320, 1) 0.5s;
 
       @media only screen and (min-width: $screen-md-min) {
         position: absolute;

@@ -37,9 +37,14 @@ export default class Herousel {
       this.currentIndex = 0;
     }
 
-    Array.from(this.slides).forEach((slide, i) => {
-      slide.classList.toggle('active', i === this.currentIndex);
-    });
+    // TODO: Fix bug on last slide.
+    this.slides[this.currentIndex - 1].classList.add('out');
+    setTimeout(() => {
+      Array.from(this.slides).forEach((slide, i) => {
+        slide.classList.toggle('active', i === this.currentIndex);
+      });
+      this.slides[this.currentIndex - 1].classList.remove('out');
+    }, 500);
     this.setParentHeight();
   }
 

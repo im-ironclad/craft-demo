@@ -82,6 +82,7 @@ export default class EmergingPerspectives {
       this.currentIndex = 0;
     }
 
+    // TODO: Abstract to function
     const slideWidth = this.slides[this.currentIndex].clientWidth;
     const marginOffset = getComputedStyle(this.slides[this.currentIndex]).marginLeft;
     this.slidesFrame.style.transform = `translateX(calc((-${slideWidth}px - ${marginOffset}) * ${this.currentIndex}))`;
@@ -99,6 +100,7 @@ export default class EmergingPerspectives {
       this.currentIndex = this.slides.length - this.numberOfActiveSlides;
     }
 
+    // TODO: Abstract to function
     const slideWidth = this.slides[this.currentIndex].clientWidth;
     const marginOffset = getComputedStyle(this.slides[this.currentIndex]).marginLeft;
     this.slidesFrame.style.transform = `translateX(calc((-${slideWidth}px - ${marginOffset}) * ${this.currentIndex}))`;
