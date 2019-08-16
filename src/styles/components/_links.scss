@@ -1,5 +1,4 @@
-// .link {}
-
+// Button links
 .link__btn {
   display: inline-block;
   padding: $spacing-sm 30px;
@@ -13,5 +12,27 @@
     @extend .link__btn;
     color: $color-white;
     background-color: $color-blue;
+  }
+}
+
+// Chevon Links
+.link__chevron {
+
+  &:hover {
+    text-decoration: underline;
+    
+    & .icon {
+      transform: translateX(5px);
+    }
+  }
+
+  & .icon {
+    width: 15px;
+    height: 10px;
+    transition: transform cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.2s;
+
+    & svg {
+      fill: $color-blue;
+    }
   }
 }

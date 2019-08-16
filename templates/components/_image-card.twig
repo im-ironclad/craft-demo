@@ -22,9 +22,10 @@
         {{ cardData.copy }}
       </p>
 
-      <a href='' class='image-card__content__link'>
-        See details
-      </a>
+      {% include "components/_link-chevron" with {
+        linkCopy: 'See Details',
+        classNames: 'image-card__content__link'
+      } %}
     </section>
   </article>
 {% endif %}

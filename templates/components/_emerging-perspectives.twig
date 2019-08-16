@@ -29,17 +29,19 @@
     </header>
 
     <section class='emerging-perspectives__image-cards'>
-      {% for card in cardData %}
-        {% set classNames = 'emerging-perspectives__image-cards__card' %}
-        {% if loop.index == 1 %}
-          {% set classNames = classNames ~ ' active' %}
-        {% endif %}
-
-        {% include 'components/_image-card' with {
-          cardData: card,
-          classNames: classNames
-        } %}
-      {% endfor %}
+      <div class='emerging-perspectives__image-cards__frame'>
+        {% for card in cardData %}
+          {% set classNames = 'emerging-perspectives__image-cards__frame__card' %}
+          {% if loop.index == 1 %}
+            {% set classNames = classNames ~ ' active' %}
+          {% endif %}
+  
+          {% include 'components/_image-card' with {
+            cardData: card,
+            classNames: classNames
+          } %}
+        {% endfor %}
+      </div>
     </section>
   </div>
 </article>

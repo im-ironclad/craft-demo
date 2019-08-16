@@ -1,0 +1,12 @@
+{# Params #}
+{% set linkCopy = linkCopy|default('Chevron Link') %}
+{% set linkUrl = linkUrl|default('#') %}
+{% set classNames = classNames|default('') %}
+
+{# Markup #}
+<a href='{{ linkUrl }}' class='{{ classNames ~ ' link__chevron' }}'>
+  {{ linkCopy }}
+  {% include "components/_svg-icon" with {
+    iconName: 'chevron-right'
+  } %}
+</a>

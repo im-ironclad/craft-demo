@@ -3,7 +3,7 @@
  * 
  * TODO: make sure everything from package is used
  */
-var { src, dest, series, watch } = require('gulp'),
+var { src, dest, series, parallel, watch } = require('gulp'),
   rename = require('gulp-rename'),
   autoprefixer = require('gulp-autoprefixer'),
   babelify = require('babelify'),
@@ -165,3 +165,8 @@ function scriptsWatch() {
 exports.scriptsWatch = function() {
   watch(dirConfig.scripts.entries, scriptsWatch);
 };
+
+/**
+ * Watch both styles and scripts for changes
+ */
+exports.watch = parallel(this.stylesWatch, this.scriptsWatch);

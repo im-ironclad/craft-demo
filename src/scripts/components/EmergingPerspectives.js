@@ -12,6 +12,7 @@ import breakpoints from '../utilities/breakpoints';
 const btnPrevSelector = '.js-prev';
 const btnNextSelector = '.js-next';
 const slidesContSelector = '.emerging-perspectives__image-cards';
+const slidesFrameSelector = '.emerging-perspectives__image-cards__frame';
 const slidesSelector = '.image-card';
 
 /**
@@ -24,6 +25,7 @@ export default class EmergingPerspectives {
     this.btnNext = parent.querySelector(btnNextSelector);
     this.slidesContainer = parent.querySelector(slidesContSelector);
     this.slides = this.slidesContainer.querySelectorAll(slidesSelector);
+    this.slidesFrame = this.slidesContainer.querySelector(slidesFrameSelector);
     this.currentIndex = 0;
     this.numberOfActiveSlides = 1;
   }
@@ -36,9 +38,10 @@ export default class EmergingPerspectives {
    */
   setNumberOfActiveSlides() {
     const windowWidth = window.innerWidth;
+
     if (windowWidth < breakpoints.xs.max) {
       this.numberOfActiveSlides = 1;
-    } else if (windowWidth > breakpoints.sm.min && windowWidth < breakpoints.md.min) {
+    } else if (windowWidth >= breakpoints.sm.min && windowWidth <= breakpoints.lg.min) {
       this.numberOfActiveSlides = 2;
     } else {
       this.numberOfActiveSlides = 3;
@@ -59,18 +62,29 @@ export default class EmergingPerspectives {
   }
 
   /**
+   * Reset currentIndex and frame transform upon resizing
+   */
+  resetSlider() {
+    this.currentIndex = 0;
+    this.slidesFrame.style.transform = 'translateX(0)';
+  }
+
+  /**
    * Method for sliding to the next slide(s)
    */
   slideNext() {
     this.currentIndex++;
 
-    if (this.currentIndex > this.slides.length - 1) {
+    if (
+      this.currentIndex > this.slides.length - 1
+      || this.currentIndex > this.slides.length - this.numberOfActiveSlides
+    ) {
       this.currentIndex = 0;
     }
 
-    Array.from(this.slides).forEach((slide, i) => {
-      slide.classList.toggle('active', i === this.currentIndex);
-    });
+    const slideWidth = this.slides[this.currentIndex].clientWidth;
+    const marginOffset = getComputedStyle(this.slides[this.currentIndex]).marginLeft;
+    this.slidesFrame.style.transform = `translateX(calc((-${slideWidth}px - ${marginOffset}) * ${this.currentIndex}))`;
 
     setTimeout(() => { this.setSlideContainerHeight(); }, 300);
   }
@@ -82,12 +96,12 @@ export default class EmergingPerspectives {
     this.currentIndex--;
 
     if (this.currentIndex < 0) {
-      this.currentIndex = this.slides.length - 1;
+      this.currentIndex = this.slides.length - this.numberOfActiveSlides;
     }
 
-    Array.from(this.slides).forEach((slide, i) => {
-      slide.classList.toggle('active', i === this.currentIndex);
-    });
+    const slideWidth = this.slides[this.currentIndex].clientWidth;
+    const marginOffset = getComputedStyle(this.slides[this.currentIndex]).marginLeft;
+    this.slidesFrame.style.transform = `translateX(calc((-${slideWidth}px - ${marginOffset}) * ${this.currentIndex}))`;
 
     setTimeout(() => { this.setSlideContainerHeight(); }, 300);
   }
@@ -99,6 +113,7 @@ export default class EmergingPerspectives {
     // Watch the resize for setting our container height
     window.addEventListener('resize', debounce(() => {
       this.setSlideContainerHeight();
+      this.resetSlider();
     }, 100));
 
     // Watch the resize for setting our numberOfActiveSlides

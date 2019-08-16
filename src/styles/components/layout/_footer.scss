@@ -49,6 +49,10 @@ $footerNavBpMd: 1230px;
         @media only screen and (min-width: $footerNavBpMd) {
           display: none;
         }
+
+        & svg {
+          fill: $color-white;
+        }
       }
     }
 
