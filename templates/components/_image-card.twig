@@ -19,11 +19,12 @@
       </p>
 
       <p class='image-card__content__copy'>
-        {{ cardData.copy }}
+        {{ cardData.teaserCopy }}
       </p>
 
       {% include "components/_link-chevron" with {
         linkCopy: 'See Details',
+        linkUrl: cardData.url,
         classNames: 'image-card__content__link'
       } %}
     </section>

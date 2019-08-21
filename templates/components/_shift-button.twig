@@ -1,4 +1,5 @@
 {# Params #}
+{% set classNames = classNames|default('') %}
 {% set shiftDirection = shiftDirection|default('next') %}
 {% set desiredColor = color|default('blue') %}
 
@@ -6,7 +7,7 @@
 {% set desiredIcon = shiftDirection == 'next' ? 'right' : 'left' %}
 
 {# Markup #}
-<button class='shift-button--{{ desiredColor }} js-{{ shiftDirection }}'>
+<button class='{{ classNames }} shift-button--{{ desiredColor }} js-{{ shiftDirection }}'>
   {% include 'components/_svg-icon' with {
     iconName: 'chevron-' ~ desiredIcon
   } %}

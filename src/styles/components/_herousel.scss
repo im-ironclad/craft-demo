@@ -24,6 +24,10 @@ $herouselControlSizeLg: 80px;
     display: flex;
     width: $herouselControlSize * 2;
 
+    @media only screen and (min-width: $screen-md-min) {
+      width: $herouselControlSizeLg * 2;
+    }
+
     &__btn {
       overflow: hidden;
       position: relative;
@@ -34,7 +38,6 @@ $herouselControlSizeLg: 80px;
       font-size: 24px;
       font-weight: bold;
       color: $color-white;
-      transition: all ease 0.5s;
 
       &:last-of-type {
         border-left: 1px solid $color-white;
@@ -81,10 +84,24 @@ $herouselControlSizeLg: 80px;
     width: 100%;
     height: auto;
 
+    @media only screen and (min-width: $screen-md-min) {
+      top: $herouselControlSizeLg;
+    }
+
     &:not(.active) {
       pointer-events: none;
       opacity: 0;
       z-index: -1;
+    }
+
+    &.out {
+      @media only screen and (min-width: $screen-md-min) {
+        .herousel__slide__content {
+          box-shadow: 0 3px 10px rgba(0,0,0,0.2) !important; // TODO, think about adjusting heirarchy to get rid of flag
+          transform: translateY(10px) !important;
+          transition-delay: unset;
+        }
+      }
     }
 
     &__featured-image {
@@ -101,13 +118,6 @@ $herouselControlSizeLg: 80px;
         height: 40vw;
         transform: translateX(-$herouselControlSize);
         transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
-      }
-    }
-
-    &.out {
-      .herousel__slide__content {
-        transform: translateY(10px) !important;
-        transition-delay: unset;
       }
     }
 
