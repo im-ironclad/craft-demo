@@ -128,7 +128,7 @@ $herouselControlSizeLg: 80px;
 
       @media only screen and (min-width: $screen-md-min) {
         position: absolute;
-        top: -$herouselControlSize;
+        top: -$herouselControlSizeLg;
         left: 0;
         width: 460px;
         height: auto;

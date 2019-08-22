@@ -2,7 +2,11 @@
   position: relative;
   z-index: 999;
   width: 100%;
-  height: 231px;
+  height: auto;
+
+  @media only screen and (min-width: $screen-md-min) {
+    height: 231px;
+  }
 
   &__masthead {
     position: relative;
@@ -15,17 +19,41 @@
     &__cont {
       @include container("lg");
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: space-between;
+      padding-top: $spacing-rg;
+      padding-bottom: $spacing-rg;
+
+      @media only screen and (min-width: $screen-md-min) {
+        flex-direction: row;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
     }
 
     &__logo {
+      flex-shrink: 0;
       width: 300px;
       height: auto;
+      margin-bottom: $spacing-rg;
+
+      @media only screen and (min-width: $screen-md-min) {
+        margin-bottom: 0;
+      }
     }
 
     &__controls {
       display: flex;
+
+      &__vertical-break {
+        width: 1px;
+        height: 80px;
+        background-color: #d8d8d8; // TODO: make variable
+        margin-right: $spacing-sm;
+        margin-left: $spacing-sm;
+        transition: transform ease 0.3s;
+      }
 
       &__btn {
         position: relative;
@@ -69,11 +97,6 @@
 
         &.btn-menu:focus {
           outline: 0;
-
-          // & .header__masthead__controls__btn__icon {
-          //   transform: translateY(-3px);
-          //   box-shadow: 0 3px 20px rgba(0,0,0,0.5);
-          // }
         }
 
         &__icon {
@@ -156,8 +179,6 @@
       & .navigation-block {
         flex-grow: 1;
         flex-basis: 25%;
-        width: auto;
-        height: auto;
 
         &:not(:first-of-type) {
           margin-top: $spacing-xs;
@@ -217,6 +238,10 @@
   &.nav-active {
 
     & .header__masthead {
+
+      &__controls__vertical-break {
+        transform: translateX(-100px);
+      }
 
       &__controls__btn {
 

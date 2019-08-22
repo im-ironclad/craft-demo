@@ -3,11 +3,9 @@
 
 {# Markup #}
 <a href='' class='navigation-block color-{{ block.accentColor.value }}'>
-  <img
-    src='/assets/icons/{{ block.blockIcon.one().fileName }}'
-    alt='Icon image.'
-    class='navigation-block__icon'
-  />
+  {% include "components/_svg-icon" with {
+    iconName: block.blockIcon.value
+  } %}
 
   <p class='navigation-block__title'>
     {{ block.blockTitle }}

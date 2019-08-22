@@ -20,7 +20,7 @@
       transform: translateY(0);
     }
 
-    & svg {
+    & .icon svg {
       fill: $color-white;
     }
   }
@@ -32,30 +32,51 @@
   display: flex;
   align-items: center;
   width: auto;
-  height: 100px;
+  height: auto;
   padding: 25px $spacing-sm;
   background-color: #F0F0F0;
   outline: 0;
 
-  &__icon,
-  &__title {
-    position: relative;
-    z-index: 2;
+  @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  &__icon {
-    flex-basis: 20%;
+  &__title,
+  & .icon {
+    position: relative;
+    z-index: 2;
+    float: left;
+
+    @media only screen and (min-width: $screen-sm-min) {
+      float: none;
+    }
+  }
+
+  & .icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+
+    & svg {
+      fill: #aaa; // TODO: Make/get variable
+    }
   }
 
   &__title {
     @include font-size-rem(2.0, 2.5);
+    flex-shrink: 0;
     flex-basis: 75%;
     margin-left: 5%;
+    
+    @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      margin-top: $spacing-sm;
+      margin-left: 0;
+    }
   }
 
   /**
    * Various accent colors
-   * @TODO make these color variables
    */
   &.color-brandBlue {
     @include navBlockAccent($color-blue);
