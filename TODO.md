@@ -3,4 +3,5 @@
 * Create container.scss file for [class$="__container"] styles
 * Add additional (full) fields for News entries to use on _entry page
 * Add searchbar and functionality to header
+* Add fonts for Circular STD font family
 * Finish navigation links responsiveness

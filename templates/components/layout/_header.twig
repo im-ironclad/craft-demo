@@ -58,15 +58,18 @@
         {% for parentLink in parentLinks %} 
           <ul class='header__nav__links__list'>
             <li class='header__nav__links__list__item--parent'>
-              <a href=''>
+              <p>
                 {{ parentLink.title }}
-              </a>
+              </p>
+
+              <ul>
+                {% for link in childLinks if link.isChildOf(parentLink) %}
+                    <li class='header__nav__links__list__item--child'>
+                      <a href=''>{{ link.title }}</a>
+                    </li>
+                {% endfor %}
+              </ul>
             </li>
-            {% for link in childLinks if link.isChildOf(parentLink) %}
-                <li class='header__nav__links__list__item--child'>
-                  <a href=''>{{ link.title }}</a>
-                </li>
-            {% endfor %}
           </ul>
         {% endfor %}
       </section>
