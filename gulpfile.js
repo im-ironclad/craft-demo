@@ -27,17 +27,17 @@ var livereload = require('gulp-livereload'),
 var dirConfig = {
   images: {
     src: './src/images/',
-    dist: './web/assets/images/',
+    dist: './public_html/assets/images/',
   },
   scripts: {
     entries: './src/scripts/**/*.js', // for watching
     src: './src/scripts/index.js',
-    dist: './web/scripts/'
+    dist: './public_html/scripts/'
   },
   styles: {
     entries: './src/styles/**/*.scss', // for watching
     src: './src/styles/index.scss',
-    dist: './web/styles/',
+    dist: './public_html/styles/',
   }
 };
 

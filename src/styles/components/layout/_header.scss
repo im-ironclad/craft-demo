@@ -217,13 +217,11 @@
           }
         }
 
-        &__item {
+        &__parent {
+          font-size: 26px;
 
-          &--parent {
-            font-size: 26px;
-          }
-
-          &--child {
+          &__child-list {
+            font-size: 16px;
             margin-top: $spacing-sm;
           }
         }

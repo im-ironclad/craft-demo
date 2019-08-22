@@ -57,14 +57,14 @@
       <section class='header__nav__links'>
         {% for parentLink in parentLinks %} 
           <ul class='header__nav__links__list'>
-            <li class='header__nav__links__list__item--parent'>
+            <li class='header__nav__links__list__parent'>
               <p>
                 {{ parentLink.title }}
               </p>
 
               <ul>
                 {% for link in childLinks if link.isChildOf(parentLink) %}
-                    <li class='header__nav__links__list__item--child'>
+                    <li class='header__nav__links__list__parent__child-list'>
                       <a href=''>{{ link.title }}</a>
                     </li>
                 {% endfor %}
