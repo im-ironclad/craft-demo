@@ -169,7 +169,7 @@ $footerNavBpMd: 1230px;
     }
 
     &__copyright {
-      @include font("small");
+      @include fontSize("small");
       flex-basis: 100%;
       margin-top: $spacing-rg;
       text-align: center;

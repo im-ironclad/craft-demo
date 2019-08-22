@@ -6,13 +6,7 @@
   line-height: $lineHeight + rem;
 }
 
-@mixin font($size, $bold: false) {
-  font-weight: $font-regular;
-
-  @if ($bold==true) {
-    font-weight: $font-bold;
-  }
-
+@mixin fontSize($size) {
   @if ($size=="heading-lg") {
     @include font-size-rem(3.6, 4.4);
   }

@@ -49,7 +49,7 @@
       &__vertical-break {
         width: 1px;
         height: 80px;
-        background-color: #d8d8d8; // TODO: make variable
+        background-color: $color-grey-border;
         margin-right: $spacing-sm;
         margin-left: $spacing-sm;
         transition: transform ease 0.3s;
@@ -199,10 +199,10 @@
       justify-content: space-between;
       width: 100%;
       height: auto;
-      margin-top: $spacing-rg;
 
       @media only screen and (min-width: $screen-md-min) {
         flex-direction: row;
+        margin-top: $spacing-rg;
       }
 
       &__list {
@@ -210,6 +210,7 @@
         flex-basis: 25%;
         width: auto;
         height: auto;
+        padding: $spacing-sm;
 
         &:not(:first-of-type) {
           @media only screen and (min-width: $screen-md-min) {
@@ -217,12 +218,82 @@
           }
         }
 
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $color-grey-border;
+          @media only screen and (min-width: $screen-md-min) {
+            border-bottom: unset;
+          }
+        }
+
+        @media only screen and (min-width: $screen-md-min) {
+          padding-top: $spacing-sm;
+          padding-right: unset;
+          padding-bottom: $spacing-sm;
+          padding-left: unset;
+        }
+
         &__parent {
-          font-size: 26px;
+
+          &.active {
+            .header__nav__links__list__parent__child-list {
+              height: auto;
+            }
+
+            .header__nav__links__list__parent__toggle .icon {
+              transform: translateY(-50%) rotate(-90deg);
+            }
+          }
+          
+          &__toggle {
+            position: relative;
+            width: 100%;
+            text-align: left;
+            font-size: 26px;
+            font-weight: $font-medium;
+          }
+
+          & .icon {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            width: 17.5px;
+            height: 10px;
+            transform: translateY(-50%) rotate(90deg);
+            transition: transform cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+
+            @media only screen and (min-width: $screen-md-min) {
+              display: none;
+            }
+
+            & svg {
+              fill: $color-blue;
+            }
+          }
 
           &__child-list {
+            overflow: hidden;
+            height: 0;
             font-size: 16px;
-            margin-top: $spacing-sm;
+            padding-left: $spacing-sm;
+
+            @media only screen and (min-width: $screen-md-min) {
+              overflow: visible;
+              height: auto;
+              padding-left: 0;
+            }
+
+            &__item {
+              margin-top: $spacing-sm;
+              color: $color-grey;
+
+              & a {
+                &:hover,
+                &:focus {
+                  color: $color-black;
+                  outline: 0;
+                }
+              }
+            }
           }
         }
       }

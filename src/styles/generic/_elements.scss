@@ -3,14 +3,14 @@ html {
 }
 
 body {
-  @include font("body");
+  @include fontSize("body");
   position: relative;
   // overflow: hidden;
   min-width: $min-page-width;
   margin: 0 auto;
   color: $color-grey-dark;
   background-color: #f2f2f2;
-  font-family: $font-family-primary;
+  font-family: $font-family-circular;
   -webkit-font-smoothing: antialiased;
   &.is-locked {
     overflow: hidden;

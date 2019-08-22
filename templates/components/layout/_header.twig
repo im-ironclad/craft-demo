@@ -29,7 +29,7 @@
 
         <div class="header__masthead__controls__vertical-break"></div>
         
-        <button class='header__masthead__controls__btn btn-menu' onclick='toggleActiveClass()'>
+        <button class='header__masthead__controls__btn btn-menu'>
           <i class='header__masthead__controls__btn__icon'>
             <span></span>
             <span></span>
@@ -58,15 +58,19 @@
         {% for parentLink in parentLinks %} 
           <ul class='header__nav__links__list'>
             <li class='header__nav__links__list__parent'>
-              <p>
+              <button class='header__nav__links__list__parent__toggle'>
                 {{ parentLink.title }}
-              </p>
 
-              <ul>
+                {% include "components/_svg-icon" with {
+                  iconName: 'chevron-right'
+                } %}
+              </button>
+
+              <ul class='header__nav__links__list__parent__child-list'>
                 {% for link in childLinks if link.isChildOf(parentLink) %}
-                    <li class='header__nav__links__list__parent__child-list'>
-                      <a href=''>{{ link.title }}</a>
-                    </li>
+                  <li class='header__nav__links__list__parent__child-list__item'>
+                    <a href='#'>{{ link.title }}</a>
+                  </li>
                 {% endfor %}
               </ul>
             </li>
@@ -76,17 +80,3 @@
     </div>
   </nav>
 </header>
-
-{# Scripts #}
-<script type='text/javascript'>
-  const header = document.getElementById('header')
-  const menuButtonCopy = document.querySelector('.btn-menu [class$="btn__copy"]');
-
-  function toggleActiveClass() {
-    header.classList.toggle('nav-active');
-    menuButtonCopy.textContent =
-      header.classList.contains('nav-active')
-        ? 'close'
-        : 'menu';
-  }
-</script>

@@ -47,6 +47,7 @@
     position: relative;
     z-index: 2;
     float: left;
+    font-weight: $font-medium;
 
     @media only screen and (min-width: $screen-sm-min) {
       float: none;
