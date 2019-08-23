@@ -49,7 +49,8 @@
       <section class='header__nav__blocks'>
         {% for block in menuBlocks %}
           {% include 'components/_navigation-block' with {
-            'block': block
+            'block': block,
+            'tabIndex': '-1'
           } %}
         {% endfor %}
       </section>
@@ -58,7 +59,7 @@
         {% for parentLink in parentLinks %} 
           <ul class='header__nav__links__list'>
             <li class='header__nav__links__list__parent'>
-              <button class='header__nav__links__list__parent__toggle'>
+              <button class='header__nav__links__list__parent__toggle' tabindex='-1'>
                 {{ parentLink.title }}
 
                 {% include "components/_svg-icon" with {
@@ -69,7 +70,7 @@
               <ul class='header__nav__links__list__parent__child-list'>
                 {% for link in childLinks if link.isChildOf(parentLink) %}
                   <li class='header__nav__links__list__parent__child-list__item'>
-                    <a href='#'>{{ link.title }}</a>
+                    <a href='#' tabindex='-1'>{{ link.title }}</a>
                   </li>
                 {% endfor %}
               </ul>

@@ -1,8 +1,13 @@
 {# Params #}
 {% set block = block|default({}) %}
+{% set tabIndex = tabIndex|default(0) %}
 
 {# Markup #}
-<a href='' class='navigation-block color-{{ block.accentColor.value }}'>
+<a
+  href=''
+  class='navigation-block color-{{ block.accentColor.value }}'
+  tabindex='{{ tabIndex }}'
+>
   {% include "components/_svg-icon" with {
     iconName: block.blockIcon.value
   } %}

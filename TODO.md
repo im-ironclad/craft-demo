@@ -4,4 +4,4 @@
 * Add additional (full) fields for News entries to use on _entry page
 * Add searchbar and functionality to header
 * Add fonts for Circular STD font family
-* Finish navigation links responsiveness
+* Fix tabindexing with ["herousel", "emerging-perspectives"] when inactive
