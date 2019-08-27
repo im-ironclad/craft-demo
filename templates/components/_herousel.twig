@@ -21,7 +21,7 @@
       </section>
 
       {% for slide in herousel.herouselSlides.all() %}
-        {% set slideImage = slide.entryImage.one() %}
+        {% set slideImage = slide.image.one() %}
         {% set activeClass = loop.index == 1 ? ' active' : '' %}
 
         <article class="herousel__slide{{ activeClass }}">

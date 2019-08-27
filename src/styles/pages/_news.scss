@@ -1,0 +1,22 @@
+.news-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: $spacing-lg;
+
+  &__hero {
+    width: 100vw;
+    height: 300px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-sm;
+  }
+}

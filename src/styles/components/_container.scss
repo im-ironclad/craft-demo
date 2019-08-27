@@ -1,0 +1,11 @@
+[class$="__container"] {
+  @include container();
+}
+
+[class$="__container--large"] {
+  @include container("lg");
+}
+
+[class$="__container--inner"] {
+  @include innerContainer();
+}

@@ -18,7 +18,8 @@
 @import "generic/elements";
 @import "generic/utilities";
 
-// Components, Order alphabetically
+// Components, order alphabetically
+@import "components/container";
 @import "components/emerging-perspectives";
 @import "components/herousel";
 @import "components/icons";
@@ -28,5 +29,8 @@
 @import "components/links";
 @import "components/navigation-block";
 @import "components/shift-button";
+
+// Pages, order alphabetically
+@import "pages/news";
 
 // Include any vendor file(s)

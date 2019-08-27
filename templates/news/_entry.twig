@@ -6,13 +6,17 @@
 
 {# Markup #}
 {% block content %}
-<article style='height: 75vh; width: 1200px; max-width: 90%; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;'>
-  <p>
-    Entry Title: {{ entry.title }}
-  </p>
+<article class="news-page">
+  <div class="news-page__container">
+    <img src="{{ entry.image.one().url }}" alt="{{ entry.image.one().title }}" class="news-page__hero" />
   
-  <p>
-    {{ entry.copy }}
-  </p>
+    <h1 class='news-page__title'>
+      {{ entry.title }}
+    </h1>
+    
+    <p class="news-page__copy">
+      {{ entry.copy }}
+    </p>
+  </div>
 </article>
 {% endblock %}
