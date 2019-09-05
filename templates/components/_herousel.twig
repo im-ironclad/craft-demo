@@ -21,31 +21,40 @@
       </section>
 
       {% for slide in herousel.herouselSlides.all %}
-        {% if slide.image is not empty %}
+        {% if slide.type == 'internal' %}
+          {% set entryLink = slide.entryLink.one %}
+          {% set slideImage = entryLink.image.one %}
+          {% set slideCategory = entryLink.newsCategory.one %}
+          {% set slideTitle = entryLink.title %}
+          {% set slideTeaserCopy = entryLink.teaserCopy %}
+        {% else %}
           {% set slideImage = slide.image.one %}
-        {% elseif slide.entryLink is not empty %}
-          {% set slideImage = slide.entryLink.one.image.one %}
+          {% set slideCategory = slide.slideCategory %}
+          {% set slideTitle = slide.title %}
+          {% set slideTeaserCopy = slide.teaserCopy %}
         {% endif %}
         {% set activeClass = loop.index == 1 ? ' active' : '' %}
 
         <article class="herousel__slide{{ activeClass }}">
-          <img
-            class='herousel__slide__featured-image'
-            src='{{ slideImage.url }}'
-            alt='{{ slideImage.title }}'
-          />
+          {% if slideImage is not null %}
+            <img
+              class='herousel__slide__featured-image'
+              src='{{ slideImage.url }}'
+              alt='{{ slideImage.title }}'
+            />
+          {% endif %}
 
           <section class='herousel__slide__content'>
             <h2 class='herousel__slide__content__category'>
-              {{ slide.slideCategory ?? slide.entryLink.one.newsCategory.one() }}
+              {{ slideCategory }}
             </h2>
   
             <h3 class='herousel__slide__content__title'>
-              {{ slide.entryLink.one.title ?? slide.title }}
+              {{ slideTitle }}
             </h3>
   
             <p class='herousel__slide__content__copy'>
-              {{ slide.teaserCopy ?? slide.entryLink.one.teaserCopy }}
+              {{ slideTeaserCopy }}
             </p>
 
             {% if slide.ctaLink is not empty %}
