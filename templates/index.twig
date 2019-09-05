@@ -1,8 +1,8 @@
 {# Params #}
 
 {# Variables #}
-{% set pageHerousel = entry.herousel.one()|default(null) %}
-{% set newsCards = craft.entries.section('news').orderBy('postDate asc').all() %}
+{% set pageHerousel = entry.herousel.one|default(null) %}
+{% set newsCards = craft.entries.section('news').orderBy('postDate asc').all %}
 
 {% extends '_layout' %}
 

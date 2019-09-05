@@ -1,6 +1,6 @@
 {# TODO: Ask: Is there a more concise way to query this category? #}
-{% set desiredCategory = craft.categories.group('digitalInsights').title('development').one() %}
-{% set designSlides = craft.entries.section('herouselSlides').relatedTo(desiredCategory).all() %}
+{% set desiredCategory = craft.categories.group('digitalInsights').title('development').one %}
+{% set designSlides = craft.entries.section('herouselSlides').relatedTo(desiredCategory).all %}
 
 {% extends '_layout' %}
 
@@ -17,7 +17,7 @@
         </h2>
 
         <p>
-          {{ slide.slideCategory.one() }}
+          {{ slide.slideCategory.one }}
         </p>
       </article>
     {% endfor %}

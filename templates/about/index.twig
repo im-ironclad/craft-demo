@@ -2,7 +2,7 @@
 
 {# Variables #}
 {% set thisPage = entry|default(null) %}
-{% set pageHerousel = thisPage.herousel.one()|default(null) %}
+{% set pageHerousel = thisPage.herousel.one|default(null) %}
 
 {% extends '_layout' %}
 

@@ -1,6 +1,7 @@
 {# Params #}
 
 {# Variables #}
+{% set entryImage = entry.image.one %}
 
 {% extends '_layout' %}
 
@@ -8,10 +9,16 @@
 {% block content %}
 <article class="news-page">
   <div class="news-page__container">
-    <img src="{{ entry.image.one().url }}" alt="{{ entry.image.one().title }}" class="news-page__hero" />
+    <img src="{{ entryImage.url }}" alt="{{ entryImage.title }}" class="news-page__hero" />
   
     <h1 class='news-page__title'>
       {{ entry.title }}
+      {% if entry.newsCategory is not empty %}
+        <br />
+        <span>
+          Category: {{ entry.newsCategory.one }}
+        </span>
+      {% endif %}
     </h1>
     
     <p class="news-page__copy">

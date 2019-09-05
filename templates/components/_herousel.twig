@@ -20,8 +20,12 @@
         } %}
       </section>
 
-      {% for slide in herousel.herouselSlides.all() %}
-        {% set slideImage = slide.image.one() %}
+      {% for slide in herousel.herouselSlides.all %}
+        {% if slide.image is not empty %}
+          {% set slideImage = slide.image.one %}
+        {% elseif slide.entryLink is not empty %}
+          {% set slideImage = slide.entryLink.one.image.one %}
+        {% endif %}
         {% set activeClass = loop.index == 1 ? ' active' : '' %}
 
         <article class="herousel__slide{{ activeClass }}">
@@ -33,20 +37,26 @@
 
           <section class='herousel__slide__content'>
             <h2 class='herousel__slide__content__category'>
-              {{ slide.slideCategory.one() }}
+              {{ slide.slideCategory ?? slide.entryLink.one.newsCategory.one() }}
             </h2>
   
             <h3 class='herousel__slide__content__title'>
-              {{ slide.title }}
+              {{ slide.entryLink.one.title ?? slide.title }}
             </h3>
   
             <p class='herousel__slide__content__copy'>
-              {{ slide.copy }}
+              {{ slide.teaserCopy ?? slide.entryLink.one.teaserCopy }}
             </p>
 
-            <a href='{{ slide.ctaLink.one.url }}' class='herousel-slide__content__link link__btn--blue'>
-              {{ slide.ctaCopy }}
-            </a>
+            {% if slide.ctaLink is not empty %}
+              <a href='{{ slide.ctaLink }}' class='herousel-slide__content__link link__btn--blue' target="_blank">
+                {{ slide.ctaCopy }}
+              </a>
+            {% else %}
+              <a href='{{ slide.entryLink.one.url }}' class='herousel-slide__content__link link__btn--blue'>
+                Learn More
+              </a>
+            {% endif %}
           </section>
 
           <div class='clearfix'></div>

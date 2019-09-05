@@ -1,9 +1,9 @@
 {# Params #}
 
 {# Variables #}
-{% set menuBlocks = craft.entries.section('navigationBlocks').all() %}
-{% set parentLinks = craft.entries.section('navigationLinks').level(1).all() %}
-{% set childLinks = craft.entries.section('navigationLinks').level(2).all() %}
+{% set menuBlocks = craft.entries.section('navigationBlocks').all %}
+{% set parentLinks = craft.entries.section('navigationLinks').level(1).all %}
+{% set childLinks = craft.entries.section('navigationLinks').level(2).all %}
 
 {# Markup #}
 <header class='header' id='header'>
