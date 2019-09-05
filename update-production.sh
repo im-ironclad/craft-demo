@@ -18,6 +18,7 @@ REMOTE_HOME_PATH="$PRODUCTION_HOME_PATH"
 # 3) Import DB
 # 4) Sync assets
 # 5) Remove DB backup Locally and on Remote server
+# 6) Fetch and Pull the latest from the Repo
 mysqldump -u"$LOCAL_DB_USER" -p"$LOCAL_DB_PASS" "$LOCAL_DB_NAME" > "$LOCAL_HOME_PATH/$BACKUP"
 rsync -azP --no-o --no-g --no-p "$LOCAL_HOME_PATH/$BACKUP" "$SSH_HOST:$REMOTE_HOME_PATH"
 ssh "$SSH_HOST" "mysql -h shareddb-q.hosting.stackcp.net -u'$REMOTE_DB_USER' -p'$REMOTE_DB_PASS' $REMOTE_DB_NAME < $REMOTE_HOME_PATH/$BACKUP"
