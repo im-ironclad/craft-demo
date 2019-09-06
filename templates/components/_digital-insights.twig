@@ -1,0 +1,57 @@
+{# Params #}
+{# Get latest 5 items from all channel content (just news so far) #}
+{# TODO: change back to desc orderBy #}
+{% set latestInsights = craft.entries.section(['news']).orderBy('dateCreated asc').limit(5) %}
+
+{# Variables #}
+{% set className = "digital-insights" %}
+
+{# Markup #}
+<article class="{{ className }}">
+  <div class="{{ className }}__container">
+    <header class="{{ className }}__header">
+      <h2 class="{{ className }}__header__title">
+        Digital Insights
+      </h2>
+  
+      {# TODO: Make molecule from this #}
+      <button class="{{ className }}__header__btn-filter">
+        Filter by
+        {% include "components/_svg-icon" with {
+          iconName: 'chevron-right'
+        } %}
+      </button>
+    </header>
+
+    {# TODO: Abstract to component/organism that can be used anywhere???? #}
+    {% if latestInsights is not empty %}
+      <section class="{{ className }}__block-grid">
+        {% for insight in latestInsights %}
+          <article class="{{ className }}__block-grid__block">
+            <img
+              src="{{ insight.image.one.url }}"
+              alt="{{ insight.image.one.title }}"
+              class="{{ className }}__block-grid__block__img"
+            />
+
+            <p class="{{ className }}__block-grid__block__title">
+              {{ insight.title }}
+            </p>
+
+            <section class="{{ className }}__block-grid__block__content">
+              <p class="{{ className }}__block-grid__block__content__teaser-copy">
+                {{ insight.teaserCopy }}
+              </p>
+
+              {% include "components/_link-chevron" with {
+                linkCopy: "Read More",
+                linkUrl: insight.url,
+                classNames: className ~ "__block-grid__block__content__link"
+              } %}
+            </section>
+          </article>
+        {% endfor %}
+      </section>
+    {% endif %}
+  </div>
+</article>

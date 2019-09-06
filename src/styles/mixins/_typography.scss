@@ -7,6 +7,9 @@
 }
 
 @mixin fontSize($size) {
+  @if ($size=="heading-xl") {
+    @include font-size-rem(6.0, 6.4);
+  }
   @if ($size=="heading-lg") {
     @include font-size-rem(3.6, 4.4);
   }

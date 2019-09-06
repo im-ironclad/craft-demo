@@ -8,10 +8,15 @@
 
 {# Markup #}
 {% block content %}
+  {# Herousel Component #}
   {% include 'components/_herousel' with {
     herousel: pageHerousel
   } %}
 
+  {# Digital Insights Component #}
+  {% include "components/_digital-insights" %}
+
+  {# Emerging Perspectives Component #}
   {% include "components/_emerging-perspectives" with {
     cardData: newsCards
   } %}
