@@ -1,7 +1,7 @@
 {# Params #}
 {# Get latest 5 items from all channel content (just news so far) #}
 {# TODO: change back to desc orderBy #}
-{% set latestInsights = craft.entries.section(['news']).orderBy('dateCreated asc').limit(5) %}
+{% set latestInsights = craft.entries.section(['news']).orderBy('dateCreated asc').limit(5).all %}
 
 {# Variables #}
 {% set className = "digital-insights" %}
