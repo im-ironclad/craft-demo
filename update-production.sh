@@ -22,8 +22,8 @@ REMOTE_HOME_PATH="$PRODUCTION_HOME_PATH"
 mysqldump -u"$LOCAL_DB_USER" -p"$LOCAL_DB_PASS" "$LOCAL_DB_NAME" > "$LOCAL_HOME_PATH/$BACKUP"
 rsync -azP --no-o --no-g --no-p "$LOCAL_HOME_PATH/$BACKUP" "$SSH_HOST:$REMOTE_HOME_PATH"
 ssh "$SSH_HOST" "mysql -h shareddb-q.hosting.stackcp.net -u'$REMOTE_DB_USER' -p'$REMOTE_DB_PASS' $REMOTE_DB_NAME < $REMOTE_HOME_PATH/$BACKUP"
-# SYNC ASSETS HERE
-rsync -azh --no-o --no-g --no-p "$LOCAL_HOME_PATH/$ASSET_PATH/" "$SSH_HOST:$REMOTE_HOME_PATH/$ASSET_PATH"
 rm "$LOCAL_HOME_PATH/$BACKUP"
 ssh "$SSH_HOST" "rm $REMOTE_HOME_PATH/$BACKUP"
 ssh "$SSH_HOST" "git fetch && git pull origin master"
+# Finally, Sync assets to production
+rsync -azh --no-o --no-g --no-p "$LOCAL_HOME_PATH/$ASSET_PATH/" "$SSH_HOST:$REMOTE_HOME_PATH/$ASSET_PATH"
