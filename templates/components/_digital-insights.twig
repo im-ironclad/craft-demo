@@ -1,52 +1,77 @@
 {# Params #}
+{# Query param for filtering insights #}
+{% set queryParam = craft.app.request.getQueryParam('t') %}
+{# Get our general filters for the filter list #}
+{% set generalFiltersQuery = craft.tags().group('general').orderBy('dateCreated asc') %}
+{% set generalFilters = generalFiltersQuery.all %}
+{# Get our filterTag for relatedTo #}
+{% set filterTag = queryParam ? generalFiltersQuery.slug(queryParam).one : '' %}
 {# Get latest 5 items from all channel content (just news so far) #}
-{# TODO: change back to desc orderBy #}
-{% set latestInsights = craft.entries.section(['news']).orderBy('dateCreated asc').limit(5).all %}
+{% set latestInsights = craft.entries.section(['news']).relatedTo(filterTag).orderBy('dateCreated desc').limit(5).all %}
 
 {# Variables #}
-{% set className = "digital-insights" %}
+{% set componentName = "digital-insights" %}
 
 {# Markup #}
-<article class="{{ className }}">
-  <div class="{{ className }}__container">
-    <header class="{{ className }}__header">
-      <h2 class="{{ className }}__header__title">
+<article id="{{ componentName }}" class="{{ componentName }}">
+  <div class="{{ componentName }}__container">
+    <header class="{{ componentName }}__header">
+      <h2 class="{{ componentName }}__header__title">
         Digital Insights
       </h2>
   
-      {# TODO: Make molecule from this #}
-      <button class="{{ className }}__header__btn-filter">
+      {# TODO: Make molecule from this (filter molecule with button and list of filters) #}
+      {# Markup & Style basics in the molecule component file(s) #}
+      {# Style specifics in the component stylesheet(s) (i.e. digital-insights) #}
+      <button class="{{ componentName }}__header__btn-filter">
         Filter by
         {% include "components/_svg-icon" with {
           iconName: 'chevron-right'
         } %}
       </button>
+
+      <ul class="{{ componentName }}__header__filter-list">
+        {# todo: style clear li differently #}
+        <li class="{{ componentName }}__header__filter-list__item">
+          <a href="/#digital-insights">
+            Clear Filters X
+          </a>
+        </li>
+        {% for xFilter in generalFilters %}
+          <li class="{{ componentName }}__header__filter-list__item">
+            <a href="/?t={{ xFilter.slug }}#digital-insights">
+              {{ xFilter.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      {# End of Molecule TODO #}
     </header>
 
     {# TODO: Abstract to component/organism that can be used anywhere???? #}
     {% if latestInsights is not empty %}
-      <section class="{{ className }}__block-grid">
+      <section class="{{ componentName }}__block-grid">
         {% for insight in latestInsights %}
-          <article class="{{ className }}__block-grid__block">
+          <article class="{{ componentName }}__block-grid__block" tabindex="0">
             <img
               src="{{ insight.image.one.url }}"
               alt="{{ insight.image.one.title }}"
-              class="{{ className }}__block-grid__block__img"
+              class="{{ componentName }}__block-grid__block__img"
             />
 
-            <p class="{{ className }}__block-grid__block__title">
+            <p class="{{ componentName }}__block-grid__block__title">
               {{ insight.title }}
             </p>
 
-            <section class="{{ className }}__block-grid__block__content">
-              <p class="{{ className }}__block-grid__block__content__teaser-copy">
+            <section class="{{ componentName }}__block-grid__block__content">
+              <p class="{{ componentName }}__block-grid__block__content__teaser-copy">
                 {{ insight.teaserCopy }}
               </p>
 
               {% include "components/_link-chevron" with {
                 linkCopy: "Read More",
                 linkUrl: insight.url,
-                classNames: className ~ "__block-grid__block__content__link"
+                classNames: componentName ~ "__block-grid__block__content__link"
               } %}
             </section>
           </article>

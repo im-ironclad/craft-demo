@@ -37,21 +37,62 @@ $className: 'digital-insights';
         }
       }
     }
+
+    &__filter-list {
+      position: absolute;
+      top: 55px;
+      right: 0;
+      z-index: 1;
+      width: 350px;
+      height: auto;
+      padding: $spacing-sm;
+      background-color: $color-white;
+      transform-origin: 100% 0;
+      transform: scale(0);
+      transition: transform cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+
+      &.active {
+        transform: scale(1);
+      }
+
+      &__item {
+        
+        &:not(:first-of-type) {
+          margin-top: $spacing-xs;
+        }
+      }
+    }
   }
 
   // TODO: Consider abstracting to individual organism
   &__block-grid {
     display: grid;
     grid-template-areas:
-      "block1 block2 block3"
-      "block4 block2 block5";
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 2fr 1fr;
+      "block1"
+      "block2"
+      "block3"
+      "block4"
+      "block5";
+    grid-template-columns: repeat(auto, 1fr);
+    grid-template-columns: repeat(auto, 1fr);
     width: 100%;
     height: auto;
 
+    @media only screen and (min-width: $screen-sm-min) {
+      grid-template-areas:
+        "block1 block2"
+        "block3 block3"
+        "block4 block5";
+    }
+
+    @media only screen and (min-width: $screen-md-min) {
+      grid-template-areas:
+      "block1 block2 block3"
+      "block4 block2 block5";
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+
     &__block {
-      // cursor: pointer;
       overflow: hidden;
       position: relative;
       min-height: 300px;
@@ -84,8 +125,10 @@ $className: 'digital-insights';
         background-image: linear-gradient(to top, $color-offblack, rgba(0,0,0,0));
       }
 
-      // Hover styles
-      &:hover {
+      // Hover & Focus styles
+      &:hover,
+      &:focus,
+      &:focus-within {
         .#{$className}__block-grid__block__title {
           opacity: 0;
         }
@@ -101,6 +144,7 @@ $className: 'digital-insights';
         position: absolute;
         bottom: $spacing-xs * 1.5;
         left: $spacing-xs;
+        width: 90%;
         font-weight: bold;
         transition: opacity ease 0.3s;
       }
