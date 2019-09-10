@@ -39,7 +39,6 @@ export default class Example {
   }
 
   init() {
-    console.log(this.filterList);
     this.attachListeners();
   }
 }
