@@ -1,11 +1,12 @@
 {# Params #}
 {% set herousel = herousel|default(null) %}
+{% set containerType = containerType|default("") %}
 
 {# Variables #}
 
 {# Markup #}
 <article class='herousel' id='herousel'>
-  <div class='herousel__cont'>
+  <div class='herousel__container{{ containerType }}'>
     {% if herousel is not null %}
       <section class='herousel__controls'>
         {# TODO: Consider removing unneeded classes (shift-button has js-hook) #}

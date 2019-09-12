@@ -2,10 +2,7 @@
 #TODO
 
 ### 🚨 High Priority 🚨
-* Create final component, Digital Insights. Can select any Channel content.
-    * Content can be any channel form on content [news, blog, portfolio]
 * Add fonts for Circular STD font family
-* Make sure assets/uploads/volumes are all in order
 * Create style-guide and accompanying scss variables for design from sketch file
     * Fonts
     * Colors

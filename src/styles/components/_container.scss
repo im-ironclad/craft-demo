@@ -9,3 +9,9 @@
 [class$="__container--inner"] {
   @include innerContainer();
 }
+
+[class$="__container"],
+[class$="__container--inner"],
+[class$="__container--large"] {
+  position: relative;
+}

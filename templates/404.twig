@@ -1,9 +1,23 @@
+{# Variables #}
+{% set thisPagesHerousel = craft.entries.section('herousels').id(297).one %}
+
 {% extends "_layout" %}
 
 {% block content %}
   <article class="page-404">
-    <h1>
-      This is the 404 page!
-    </h1>
+    <div class="page-404__container">
+      <h1 class="page-404__heading">
+        Whoops, that page is missing or has been relocated.
+      </h1>
+
+      <h2 class="page-404__subheading">
+        Please make a selection from the main navigation or the slides below.
+      </h2>
+  
+      {% include "components/_herousel" with {
+        herousel: thisPagesHerousel,
+        containerType: "--inner"
+      } %}
+    </div>
   </article>
 {% endblock %}

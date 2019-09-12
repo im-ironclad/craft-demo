@@ -11,11 +11,6 @@ $herouselControlSizeLg: 80px;
     padding-top: $spacing-lg;
     padding-bottom: $spacing-lg;
   }
-  
-  &__cont {
-    position: relative;
-    @include container;
-  }
 
   &__controls {
     position: relative;
