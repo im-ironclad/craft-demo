@@ -3,6 +3,7 @@
 {% set containerType = containerType|default("") %}
 
 {# Variables #}
+{% set herouselSlides = herousel.herouselSlides.with(['image', 'entryLink.image']).all %}
 
 {# Markup #}
 <article class='herousel' id='herousel'>
@@ -21,15 +22,15 @@
         } %}
       </section>
 
-      {% for slide in herousel.herouselSlides.all %}
+      {% for slide in herouselSlides %}
         {% if slide.type == 'internal' %}
-          {% set entryLink = slide.entryLink.one %}
-          {% set slideImage = entryLink.image.one %}
+          {% set entryLink = slide.entryLink[0] %}
+          {% set slideImage = entryLink.image[0] %}
           {% set slideCategory = entryLink.newsCategory.one %}
           {% set slideTitle = entryLink.title %}
           {% set slideTeaserCopy = entryLink.teaserCopy %}
         {% else %}
-          {% set slideImage = slide.image.one %}
+          {% set slideImage = slide.image[0] %}
           {% set slideCategory = slide.slideCategory %}
           {% set slideTitle = slide.title %}
           {% set slideTeaserCopy = slide.teaserCopy %}
@@ -41,6 +42,7 @@
             <img
               class='herousel__slide__featured-image'
               src='{{ slideImage.url }}'
+              {# src='{{ slideImage.getUrl('herouselImage') }}' TODO: Demonstrate transforms #}
               alt='{{ slideImage.title }}'
             />
           {% endif %}
@@ -63,7 +65,7 @@
                 {{ slide.ctaCopy }}
               </a>
             {% else %}
-              <a href='{{ slide.entryLink.one.url }}' class='herousel-slide__content__link link__btn--blue'>
+              <a href='{{ entryLink.url }}' class='herousel-slide__content__link link__btn--blue'>
                 Learn More
               </a>
             {% endif %}

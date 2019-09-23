@@ -7,7 +7,7 @@
 {# Get our filterTag for relatedTo #}
 {% set filterTag = queryParam ? generalFiltersQuery.slug(queryParam).one : '' %}
 {# Get latest 5 items from all channel content (just news so far) #}
-{% set latestInsights = craft.entries.section(['news']).relatedTo(filterTag).orderBy('dateCreated desc').limit(5).all %}
+{% set latestInsights = craft.entries.section(['news']).relatedTo(filterTag).with(['image']).orderBy('dateCreated desc').limit(5).all %}
 
 {# Variables #}
 {% set componentName = "digital-insights" %}
@@ -52,10 +52,12 @@
     {% if latestInsights is not empty %}
       <section class="{{ componentName }}__block-grid">
         {% for insight in latestInsights %}
+          {% set insightImage = insight.image[0] ?? null %}
+
           <article class="{{ componentName }}__block-grid__block" tabindex="0">
             <img
-              src="{{ insight.image.one.url }}"
-              alt="{{ insight.image.one.title }}"
+              src="{{ insightImage.url }}"
+              alt="{{ insightImage.title }}"
               class="{{ componentName }}__block-grid__block__img"
             />
 

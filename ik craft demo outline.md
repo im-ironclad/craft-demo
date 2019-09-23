@@ -7,8 +7,6 @@
   * Field Creation
   * Entry Editing
   * Templating
-* Find resources to share that will accomodate the demo
-* Last but not least, finalize frontend
 
 # Outline
 
@@ -16,25 +14,30 @@
 
 ## Introduction to Craft
 - Fields (Create Entries)
+  - [Field Types](https://docs.craftcms.com/v3/fields.html#field-types)
+    - Matrix Example: Blog Body
   - Field Groups
-  - Field Types
 - Entries (Content Types)
-- Sections (Store Related Entries)
+- [Sections (Store Related Entries)](https://craftcms.com/features/all#section-types)
   - Singles (One-off Pages)
   - Channels (Repeated Content)
   - Structures (Repeated Content w/ Specific Structure)
-- Tags (Folksonomies)
-- Categories (Structured Tags)
+- [Tags (Folksonomies)](https://craftcms.com/features/all#categories-and-tags)
+- [Categories (Structured Tags)](https://craftcms.com/features/all#categories-and-tags)
 - Globals
 - Assets
   - Volumes
-  - Transforms (dabble)
+  - Transforms
+  - Editing via Dashboard
+  - Fields (captions/credit/transcript)
 
 ### Content Managers Rejoice
-- Dashboard Widgets
+- Dashboard Widgets (Extendable via Plugins)
+- Entry Search
 - Entry Sorting
 - Entry Preview
-- Entry Revisions
+- Entry Revisions/Drafts
+- Entry Inline Creation (Entry within Entry)
 - Entry Inline Editing (Entry within Entry)
 - Display desired info on entries view info bar
 - Disabling an entry removes it from the website without breaking anything
@@ -49,5 +52,5 @@
 
 ### Everyone Rejoice
 - Headless Content Preview
-- Multi Site support (LEAF Example)
+- [Multi Site support (LEAF Example)](https://craftcms.com/features/all#multi-site)
 - Plugins (buy and sell)
