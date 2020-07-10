@@ -10,7 +10,7 @@ body {
   margin: 0 auto;
   color: $color-grey-dark;
   background-color: #f2f2f2;
-  font-family: $font-family-circular;
+  font-family: $font-family-default;
   -webkit-font-smoothing: antialiased;
   &.is-locked {
     overflow: hidden;
