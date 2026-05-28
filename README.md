@@ -1,3 +1,4 @@
 # IK Craft Demo
 
-More to come.
+**_.gif demonstration_**
+![Craft_demo](/craft-demo.gif)
